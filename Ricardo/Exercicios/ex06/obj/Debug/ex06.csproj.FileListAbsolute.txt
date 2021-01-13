@@ -1,0 +1,7 @@
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\bin\Debug\ex06.exe.config
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\bin\Debug\ex06.exe
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\bin\Debug\ex06.pdb
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\obj\Debug\ex06.csprojAssemblyReference.cache
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\obj\Debug\ex06.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\obj\Debug\ex06.exe
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex06\obj\Debug\ex06.pdb

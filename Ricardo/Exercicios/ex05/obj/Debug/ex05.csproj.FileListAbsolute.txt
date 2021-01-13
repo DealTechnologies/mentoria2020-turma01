@@ -1,0 +1,6 @@
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex05\bin\Debug\ex05.exe.config
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex05\bin\Debug\ex05.exe
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex05\bin\Debug\ex05.pdb
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex05\obj\Debug\ex05.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex05\obj\Debug\ex05.exe
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex05\obj\Debug\ex05.pdb
