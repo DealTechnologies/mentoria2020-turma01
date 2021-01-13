@@ -1,0 +1,5 @@
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula09\Aula09_E06\bin\Debug\Aula09_E06A.exe.config
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula09\Aula09_E06\bin\Debug\Aula09_E06A.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula09\Aula09_E06\bin\Debug\Aula09_E06A.pdb
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula09\Aula09_E06\obj\Debug\Aula09_E06A.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula09\Aula09_E06\obj\Debug\Aula09_E06A.pdb

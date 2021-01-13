@@ -1,0 +1,6 @@
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula07\Aula07_E02\bin\Debug\Aula07_E02.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula07\Aula07_E02\bin\Debug\Aula07_E02.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula07\Aula07_E02\bin\Debug\Aula07_E02.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula07\Aula07_E02\obj\Debug\Aula07_E02.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula07\Aula07_E02\obj\Debug\Aula07_E02.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula07\Aula07_E02\obj\Debug\Aula07_E02.pdb

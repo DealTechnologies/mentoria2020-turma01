@@ -1,0 +1,13 @@
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\bin\Debug\Aula01.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\bin\Debug\Aula01.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\bin\Debug\Aula01.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.pdb
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\bin\Debug\Aula01.exe.config
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\bin\Debug\Aula01.exe
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\bin\Debug\Aula01.pdb
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.csprojAssemblyReference.cache
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.csproj.CoreCompileInputs.cache
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.exe
+E:\2.T.I\2.Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula01\Aula01\obj\Debug\Aula01.pdb

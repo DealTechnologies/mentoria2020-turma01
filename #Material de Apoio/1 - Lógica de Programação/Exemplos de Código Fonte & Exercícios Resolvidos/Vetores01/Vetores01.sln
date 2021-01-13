@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vetores01_E03", "Vetores01_E03\Vetores01_E03.csproj", "{5E63D2D9-B30B-4606-8392-B905D66C1E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vetores01_E04", "Vetores01_E04\Vetores01_E04.csproj", "{4DE7142C-636D-4873-B21C-DA1AB3156A22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vetores01_E05", "Vetores01_E05\Vetores01_E05.csproj", "{E3E3A11C-47CB-4DF4-9D30-95C19C1F97AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vetores01_E06", "Vetores01_E06\Vetores01_E06.csproj", "{C8E0ABD0-4B57-4AA7-8395-7CC3CFCC4681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vetores01_E07", "Vetores01_E07\Vetores01_E07.csproj", "{305743AF-D4C9-4A81-A0CC-6EC41398E07A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vetores01_E08", "Vetores01_E08\Vetores01_E08.csproj", "{951902F3-0FE2-4866-BAB7-F02B2D191FCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E63D2D9-B30B-4606-8392-B905D66C1E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E63D2D9-B30B-4606-8392-B905D66C1E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E63D2D9-B30B-4606-8392-B905D66C1E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E63D2D9-B30B-4606-8392-B905D66C1E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DE7142C-636D-4873-B21C-DA1AB3156A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE7142C-636D-4873-B21C-DA1AB3156A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE7142C-636D-4873-B21C-DA1AB3156A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE7142C-636D-4873-B21C-DA1AB3156A22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3E3A11C-47CB-4DF4-9D30-95C19C1F97AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3E3A11C-47CB-4DF4-9D30-95C19C1F97AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3E3A11C-47CB-4DF4-9D30-95C19C1F97AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3E3A11C-47CB-4DF4-9D30-95C19C1F97AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E0ABD0-4B57-4AA7-8395-7CC3CFCC4681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E0ABD0-4B57-4AA7-8395-7CC3CFCC4681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E0ABD0-4B57-4AA7-8395-7CC3CFCC4681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E0ABD0-4B57-4AA7-8395-7CC3CFCC4681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{305743AF-D4C9-4A81-A0CC-6EC41398E07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305743AF-D4C9-4A81-A0CC-6EC41398E07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305743AF-D4C9-4A81-A0CC-6EC41398E07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305743AF-D4C9-4A81-A0CC-6EC41398E07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951902F3-0FE2-4866-BAB7-F02B2D191FCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951902F3-0FE2-4866-BAB7-F02B2D191FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951902F3-0FE2-4866-BAB7-F02B2D191FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951902F3-0FE2-4866-BAB7-F02B2D191FCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo\obj\Debug\Classes_Exemplo.csprojResolveAssemblyReference.cache
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo\bin\Debug\Classes_Exemplo.exe.config
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo\bin\Debug\Classes_Exemplo.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo\bin\Debug\Classes_Exemplo.pdb
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo\obj\Debug\Classes_Exemplo.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo\obj\Debug\Classes_Exemplo.pdb

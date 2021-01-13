@@ -1,0 +1,12 @@
+E:\Dados\Tiangulo_Pascal\Tiangulo_Pascal\obj\Debug\Tiangulo_Pascal.csprojResolveAssemblyReference.cache
+E:\Dados\Tiangulo_Pascal\Tiangulo_Pascal\bin\Debug\Tiangulo_Pascal.exe.config
+E:\Dados\Tiangulo_Pascal\Tiangulo_Pascal\bin\Debug\Tiangulo_Pascal.exe
+E:\Dados\Tiangulo_Pascal\Tiangulo_Pascal\bin\Debug\Tiangulo_Pascal.pdb
+E:\Dados\Tiangulo_Pascal\Tiangulo_Pascal\obj\Debug\Tiangulo_Pascal.exe
+E:\Dados\Tiangulo_Pascal\Tiangulo_Pascal\obj\Debug\Tiangulo_Pascal.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Tiangulo_Pascal\Tiangulo_Pascal\bin\Debug\Tiangulo_Pascal.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Tiangulo_Pascal\Tiangulo_Pascal\bin\Debug\Tiangulo_Pascal.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Tiangulo_Pascal\Tiangulo_Pascal\bin\Debug\Tiangulo_Pascal.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Tiangulo_Pascal\Tiangulo_Pascal\obj\Debug\Tiangulo_Pascal.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Tiangulo_Pascal\Tiangulo_Pascal\obj\Debug\Tiangulo_Pascal.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Tiangulo_Pascal\Tiangulo_Pascal\obj\Debug\Tiangulo_Pascal.pdb

@@ -1,0 +1,6 @@
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\LISTA5A_E06\obj\Debug\LISTA5A_E06.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\LISTA5A_E06\bin\Debug\LISTA5A_E06.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\LISTA5A_E06\bin\Debug\LISTA5A_E06.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\LISTA5A_E06\bin\Debug\LISTA5A_E06.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\LISTA5A_E06\obj\Debug\LISTA5A_E06.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\LISTA5A_E06\obj\Debug\LISTA5A_E06.pdb

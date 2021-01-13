@@ -1,0 +1,12 @@
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\obj\Debug\Lista2BIM_Ex01.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\bin\Debug\Lista2BIM_Ex01.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\bin\Debug\Lista2BIM_Ex01.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\bin\Debug\Lista2BIM_Ex01.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\obj\Debug\Lista2BIM_Ex01.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\obj\Debug\Lista2BIM_Ex01.pdb
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\bin\Debug\Lista2BIM_Ex01.exe.config
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\obj\Debug\Lista2BIM_Ex01.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\obj\Debug\Lista2BIM_Ex01.pdb
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\bin\Debug\Lista2BIM_Ex01.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\bin\Debug\Lista2BIM_Ex01.pdb
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Lista2BIM\Lista2BIM_Ex01\obj\Debug\Lista2BIM_Ex01.csprojResolveAssemblyReference.cache

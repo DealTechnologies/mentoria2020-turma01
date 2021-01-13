@@ -1,0 +1,6 @@
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Strings02\Strings02_E04\bin\Debug\Strings02_E04.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Strings02\Strings02_E04\bin\Debug\Strings02_E04.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Strings02\Strings02_E04\bin\Debug\Strings02_E04.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Strings02\Strings02_E04\obj\Debug\Strings02_E04.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Strings02\Strings02_E04\obj\Debug\Strings02_E04.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Strings02\Strings02_E04\obj\Debug\Strings02_E04.pdb

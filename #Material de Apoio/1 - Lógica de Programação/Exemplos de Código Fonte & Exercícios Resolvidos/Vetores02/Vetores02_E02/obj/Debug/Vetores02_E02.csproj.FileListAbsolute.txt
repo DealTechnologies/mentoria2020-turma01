@@ -1,0 +1,12 @@
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\obj\Debug\Vetores02_E02.csprojResolveAssemblyReference.cache
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\bin\Debug\Vetores02_E02.exe.config
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\bin\Debug\Vetores02_E02.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\bin\Debug\Vetores02_E02.pdb
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\obj\Debug\Vetores02_E02.exe
+E:\Dados\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\obj\Debug\Vetores02_E02.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\bin\Debug\Vetores02_E02.exe.config
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\bin\Debug\Vetores02_E02.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\bin\Debug\Vetores02_E02.pdb
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\obj\Debug\Vetores02_E02.csprojResolveAssemblyReference.cache
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\obj\Debug\Vetores02_E02.exe
+E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E02\obj\Debug\Vetores02_E02.pdb
