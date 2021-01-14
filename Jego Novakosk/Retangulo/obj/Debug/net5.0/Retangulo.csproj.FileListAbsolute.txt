@@ -1,0 +1,16 @@
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.csprojAssemblyReference.cache
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.AssemblyInfoInputs.cache
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.AssemblyInfo.cs
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.csproj.CoreCompileInputs.cache
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\Retangulo.exe
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\Retangulo.deps.json
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\Retangulo.runtimeconfig.json
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\Retangulo.runtimeconfig.dev.json
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\Retangulo.dll
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\ref\Retangulo.dll
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\bin\Debug\net5.0\Retangulo.pdb
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.dll
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\ref\Retangulo.dll
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.pdb
+C:\Users\jego.novakosk\Documents\dotnet\Retangulo\obj\Debug\net5.0\Retangulo.genruntimeconfig.cache
