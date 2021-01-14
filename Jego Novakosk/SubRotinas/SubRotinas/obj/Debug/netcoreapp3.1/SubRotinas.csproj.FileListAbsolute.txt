@@ -1,0 +1,13 @@
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\bin\Debug\netcoreapp3.1\SubRotinas.exe
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\bin\Debug\netcoreapp3.1\SubRotinas.deps.json
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\bin\Debug\netcoreapp3.1\SubRotinas.runtimeconfig.json
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\bin\Debug\netcoreapp3.1\SubRotinas.runtimeconfig.dev.json
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\bin\Debug\netcoreapp3.1\SubRotinas.dll
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\bin\Debug\netcoreapp3.1\SubRotinas.pdb
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.csprojAssemblyReference.cache
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.AssemblyInfoInputs.cache
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.AssemblyInfo.cs
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.csproj.CoreCompileInputs.cache
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.dll
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.pdb
+C:\Users\jego.novakosk\source\repos\SubRotinas\SubRotinas\obj\Debug\netcoreapp3.1\SubRotinas.genruntimeconfig.cache

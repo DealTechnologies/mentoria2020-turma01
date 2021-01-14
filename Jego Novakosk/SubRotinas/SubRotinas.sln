@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubRotinas", "SubRotinas\SubRotinas.csproj", "{A6FAD66C-F0A2-46E9-A631-E1213BFC7B19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "distancia", "distancia\distancia.csproj", "{93679432-B2AD-4EB4-8A03-90C240A1799D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "produto", "produto\produto.csproj", "{FB8DDF92-0033-4A3A-B48E-E5F1DF0C94B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6FAD66C-F0A2-46E9-A631-E1213BFC7B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FAD66C-F0A2-46E9-A631-E1213BFC7B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FAD66C-F0A2-46E9-A631-E1213BFC7B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FAD66C-F0A2-46E9-A631-E1213BFC7B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93679432-B2AD-4EB4-8A03-90C240A1799D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93679432-B2AD-4EB4-8A03-90C240A1799D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93679432-B2AD-4EB4-8A03-90C240A1799D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93679432-B2AD-4EB4-8A03-90C240A1799D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB8DDF92-0033-4A3A-B48E-E5F1DF0C94B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8DDF92-0033-4A3A-B48E-E5F1DF0C94B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8DDF92-0033-4A3A-B48E-E5F1DF0C94B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8DDF92-0033-4A3A-B48E-E5F1DF0C94B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A29FB367-6009-41B6-B671-FA3FADDC0C18}
+	EndGlobalSection
+EndGlobal

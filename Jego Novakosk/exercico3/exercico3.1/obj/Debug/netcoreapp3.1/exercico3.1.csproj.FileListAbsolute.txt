@@ -1,0 +1,13 @@
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\bin\Debug\netcoreapp3.1\exercico3.1.exe
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\bin\Debug\netcoreapp3.1\exercico3.1.deps.json
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\bin\Debug\netcoreapp3.1\exercico3.1.runtimeconfig.json
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\bin\Debug\netcoreapp3.1\exercico3.1.runtimeconfig.dev.json
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\bin\Debug\netcoreapp3.1\exercico3.1.dll
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\bin\Debug\netcoreapp3.1\exercico3.1.pdb
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.csprojAssemblyReference.cache
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.AssemblyInfoInputs.cache
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.AssemblyInfo.cs
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.csproj.CoreCompileInputs.cache
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.dll
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.pdb
+C:\Users\jego.novakosk\source\repos\exercico3\exercico3.1\obj\Debug\netcoreapp3.1\exercico3.1.genruntimeconfig.cache
