@@ -1,5 +1,0 @@
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores01\Vetores01_E08\bin\Debug\Vetores01_E08.exe.config
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores01\Vetores01_E08\bin\Debug\Vetores01_E08.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores01\Vetores01_E08\bin\Debug\Vetores01_E08.pdb
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores01\Vetores01_E08\obj\Debug\Vetores01_E08.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores01\Vetores01_E08\obj\Debug\Vetores01_E08.pdb

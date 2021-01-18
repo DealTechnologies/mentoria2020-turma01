@@ -1,6 +1,0 @@
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula03\Aula03\bin\Debug\Aula03.exe.config
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula03\Aula03\bin\Debug\Aula03.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula03\Aula03\bin\Debug\Aula03.pdb
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula03\Aula03\obj\Debug\Aula03.csprojResolveAssemblyReference.cache
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula03\Aula03\obj\Debug\Aula03.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula03\Aula03\obj\Debug\Aula03.pdb

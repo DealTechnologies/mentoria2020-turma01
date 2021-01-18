@@ -1,6 +1,0 @@
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes02\Classes02_Ex01\bin\Debug\Classes02_Ex01.exe.config
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes02\Classes02_Ex01\bin\Debug\Classes02_Ex01.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes02\Classes02_Ex01\bin\Debug\Classes02_Ex01.pdb
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes02\Classes02_Ex01\obj\Debug\Classes02_Ex01.csprojResolveAssemblyReference.cache
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes02\Classes02_Ex01\obj\Debug\Classes02_Ex01.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes02\Classes02_Ex01\obj\Debug\Classes02_Ex01.pdb

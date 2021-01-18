@@ -1,5 +1,0 @@
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_06\bin\Debug\Aula12_E06.exe.config
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_06\bin\Debug\Aula12_E06.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_06\bin\Debug\Aula12_E06.pdb
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_06\obj\Debug\Aula12_E06.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_06\obj\Debug\Aula12_E06.pdb

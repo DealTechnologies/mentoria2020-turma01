@@ -1,6 +1,0 @@
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula04\Aula04\bin\Debug\Aula04.exe.config
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula04\Aula04\bin\Debug\Aula04.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula04\Aula04\bin\Debug\Aula04.pdb
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula04\Aula04\obj\Debug\Aula04.csprojResolveAssemblyReference.cache
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula04\Aula04\obj\Debug\Aula04.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula04\Aula04\obj\Debug\Aula04.pdb

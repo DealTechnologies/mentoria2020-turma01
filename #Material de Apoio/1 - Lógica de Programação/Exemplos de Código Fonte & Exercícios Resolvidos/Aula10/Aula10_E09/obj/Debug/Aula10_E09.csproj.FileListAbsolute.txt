@@ -1,5 +1,0 @@
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula10\Aula10_E09\bin\Debug\Aula10_E09.exe.config
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula10\Aula10_E09\bin\Debug\Aula10_E09.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula10\Aula10_E09\bin\Debug\Aula10_E09.pdb
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula10\Aula10_E09\obj\Debug\Aula10_E09.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Aula10\Aula10_E09\obj\Debug\Aula10_E09.pdb

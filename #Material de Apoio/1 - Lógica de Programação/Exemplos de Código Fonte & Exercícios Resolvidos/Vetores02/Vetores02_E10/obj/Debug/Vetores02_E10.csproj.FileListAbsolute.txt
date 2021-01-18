@@ -1,6 +1,0 @@
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E10\bin\Debug\Vetores02_E10.exe.config
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E10\bin\Debug\Vetores02_E10.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E10\bin\Debug\Vetores02_E10.pdb
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E10\obj\Debug\Vetores02_E10.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E10\obj\Debug\Vetores02_E10.pdb
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Vetores02\Vetores02_E10\obj\Debug\Vetores02_E10.csprojResolveAssemblyReference.cache
