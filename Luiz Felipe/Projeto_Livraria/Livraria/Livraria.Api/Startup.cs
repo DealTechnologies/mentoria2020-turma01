@@ -49,6 +49,11 @@ namespace Livraria.Api
 
             #endregion
 
+
+            #region AppSettings
+
+            #endregion
+
             services.AddControllers();
         }
 
