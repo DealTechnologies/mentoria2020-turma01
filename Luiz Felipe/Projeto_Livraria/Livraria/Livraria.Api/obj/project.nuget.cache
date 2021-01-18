@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "fEtSGGn6NW+/x6q6ifPEXdL2lqBjyL6qvjO6ODdILyiBAWrAYrchu/l/hJAysmtR5mafmjcqTsqI8xHPlDwh2w==",
+  "dgSpecHash": "7Z2+4uLC0U18IBFdIPZko/wdeAqSK3JtN+nzr6Cat4WO8TKs3eU7H2xTJrXDTYqIavBtNnYBg0EiXFJqBcSV0Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Api\\Livraria.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
   "logs": []
 }

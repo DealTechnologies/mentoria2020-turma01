@@ -18,3 +18,10 @@ C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.dll
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.pdb
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.genruntimeconfig.cache
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.csproj.CopyComplete
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\swagger.xml
