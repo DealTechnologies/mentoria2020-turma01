@@ -1,2 +1,0 @@
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo2\obj\Debug\Classes_Exemplo2.csprojResolveAssemblyReference.cache
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\Classes_Exemplo\Classes_Exemplo2\obj\Debug\Classes_Exemplo2.csprojResolveAssemblyReference.cache

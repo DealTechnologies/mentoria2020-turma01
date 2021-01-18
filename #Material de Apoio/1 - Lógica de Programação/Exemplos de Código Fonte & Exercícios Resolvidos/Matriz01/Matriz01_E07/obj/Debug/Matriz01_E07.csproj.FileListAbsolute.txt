@@ -1,6 +1,0 @@
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Matriz01\Matriz01_E07\obj\Debug\Matriz01_E07.csprojResolveAssemblyReference.cache
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Matriz01\Matriz01_E07\bin\Debug\Matriz01_E07.exe.config
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Matriz01\Matriz01_E07\bin\Debug\Matriz01_E07.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Matriz01\Matriz01_E07\bin\Debug\Matriz01_E07.pdb
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Matriz01\Matriz01_E07\obj\Debug\Matriz01_E07.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Matriz01\Matriz01_E07\obj\Debug\Matriz01_E07.pdb

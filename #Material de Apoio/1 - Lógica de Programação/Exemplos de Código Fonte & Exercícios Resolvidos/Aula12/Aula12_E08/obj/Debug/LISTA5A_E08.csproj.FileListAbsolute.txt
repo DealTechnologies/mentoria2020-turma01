@@ -1,6 +1,0 @@
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\Aula12_E08\bin\Debug\LISTA5A_E08.exe.config
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\Aula12_E08\bin\Debug\LISTA5A_E08.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\Aula12_E08\bin\Debug\LISTA5A_E08.pdb
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\Aula12_E08\obj\Debug\LISTA5A_E08.csprojResolveAssemblyReference.cache
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\Aula12_E08\obj\Debug\LISTA5A_E08.exe
-E:\2.T.I\Análise e Desenvolvimento de Sistemas\3 - Fundamentos de Programação\#Projetos\LISTA5A\Aula12_E08\obj\Debug\LISTA5A_E08.pdb

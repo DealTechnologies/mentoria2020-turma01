@@ -1,6 +1,0 @@
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_E02\bin\Debug\Aula12_E02.exe.config
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_E02\bin\Debug\Aula12_E02.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_E02\bin\Debug\Aula12_E02.pdb
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_E02\obj\Debug\Aula12_E02.csprojResolveAssemblyReference.cache
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_E02\obj\Debug\Aula12_E02.exe
-E:\Dados\3 - Fundamentos de Programação\#Projetos\Aula12\Aula12_E02\obj\Debug\Aula12_E02.pdb

@@ -1,0 +1,7 @@
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\bin\Debug\ex03.exe.config
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\bin\Debug\ex03.exe
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\bin\Debug\ex03.pdb
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\obj\Debug\ex04.csprojAssemblyReference.cache
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\obj\Debug\ex04.csproj.CoreCompileInputs.cache
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\obj\Debug\ex03.exe
+C:\Users\ricardo.ribeiro\Desktop\Mentoria\Exercicios\ex03\obj\Debug\ex03.pdb
