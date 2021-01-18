@@ -1,0 +1,42 @@
+USE curso
+GO
+
+CREATE TABLE FUNCIONARIOS(
+ID int identity(1,1) NOT NULL PRIMARY KEY,
+NOME VARCHAR(50) NOT NULL,
+SALARIO DECIMAL(10,2),
+SETOR VARCHAR(30)
+);
+
+SELECT * FROM FUNCIONARIOS
+
+SELECT NOME,SETOR
+FROM FUNCIONARIOS
+
+SELECT NOME,SETOR AS DEPTO
+FROM FUNCIONARIOS
+
+INSERT INTO FUNCIONARIOS VALUES ('João',1000,''), ('Jose',2000,''),('Alexandre',3000,'')
+
+--OU
+
+INSERT INTO FUNCIONARIOS (NOME,SALARIO) VALUES('Pedro',1000)
+
+update FUNCIONARIOS set SALARIO = '1500'
+where id = '1';
+
+update FUNCIONARIOS set SALARIO = SALARIO*1.5
+where id = '1';
+
+update FUNCIONARIOS set SALARIO = SALARIO*1.5, SETOR='TI'
+where id <> 1;
+
+update FUNCIONARIOS set SETOR='Financeiro'
+where id = '3';
+
+insert into FUNCIONARIOS values('Maria',2350,'comercal');
+
+insert into FUNCIONARIOS values('Valdir',1867.50,'Mecanico');
+
+delete FUNCIONARIOS
+where id ='1';
