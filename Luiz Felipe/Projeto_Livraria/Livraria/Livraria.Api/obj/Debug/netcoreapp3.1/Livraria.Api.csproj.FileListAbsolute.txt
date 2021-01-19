@@ -25,3 +25,17 @@ C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\obj\Debug\netcoreapp3.1\Livraria.Api.csproj.CopyComplete
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\swagger.xml
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Livraria.Infra.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Livraria.Infra.pdb
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Livraria.Domain.dll
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Livraria.Domain.pdb

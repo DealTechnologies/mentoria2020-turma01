@@ -4,5 +4,13 @@
         <name>Livraria.Api</name>
     </assembly>
     <members>
+        <member name="M:Livraria.Api.Controllers.HealthCheckController.HealthCheck">
+            <summary>
+            Health Check
+            </summary>
+            <remarks><h2>Afere a resposta deste contexto do servico.</h2></remarks>
+            <returns code="200"></returns>
+            <returns code="500">Internal Serer Error</returns>
+        </member>
     </members>
 </doc>

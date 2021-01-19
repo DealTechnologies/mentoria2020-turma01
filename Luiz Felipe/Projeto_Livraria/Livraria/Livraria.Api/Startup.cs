@@ -1,5 +1,7 @@
+using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
-using Livraria.Infra.DataContext;
+using Livraria.Infra.DataContexts;
+using Livraria.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +33,12 @@ namespace Livraria.Api
             #region DataContexts
 
             services.AddScoped<DataContext>();
+
+            #endregion
+
+            #region Repositories
+
+            services.AddTransient<ILivroRepository, LivroRepository>();
 
             #endregion
 

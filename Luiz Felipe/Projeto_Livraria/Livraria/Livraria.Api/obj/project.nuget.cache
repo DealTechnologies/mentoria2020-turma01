@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DPjPCaQsQuGtfTeUG3JqLNF7/fSf1uYL2R/rIk39ozKhmBZrycLKQDP3gtRQXQnoILcJzmVjumV1Dt+Z7aEqVQ==",
+  "dgSpecHash": "gv9MEWcqpXaHsUSIUH2cXrZv1liT9Ptk2xR+hEhy8p3nK1g4sGl1jPgesip/fORD2osel3JsZFGxiZlIUxoCyw==",
   "success": true,
   "projectFilePath": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Api\\Livraria.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
@@ -20,6 +21,7 @@
     "C:\\Users\\luiz.moura\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
