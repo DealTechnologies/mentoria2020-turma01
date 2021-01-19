@@ -17,5 +17,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Livraria.Infra\Livraria.Infra.csproj" />
+  </ItemGroup>
+
 
 </Project>

@@ -27,7 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Infra\\Livraria.Infra.csproj": {
+                "projectPath": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Infra\\Livraria.Infra.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -59,6 +63,70 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Infra\\Livraria.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Infra\\Livraria.Infra.csproj",
+        "projectName": "Livraria.Infra",
+        "projectPath": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Infra\\Livraria.Infra.csproj",
+        "packagesPath": "C:\\Users\\luiz.moura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luiz.moura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

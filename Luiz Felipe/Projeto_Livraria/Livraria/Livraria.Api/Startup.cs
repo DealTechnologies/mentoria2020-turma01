@@ -1,3 +1,5 @@
+using Livraria.Infra;
+using Livraria.Infra.DataContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,9 +22,20 @@ namespace Livraria.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region AppSettings
+
+            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
+
+            #endregion
+
+            #region DataContexts
+
+            services.AddScoped<DataContext>();
+
+            #endregion
 
             #region [+] Swagger
-            
+
             services.AddSwaggerGen(c => 
             {
                 //c.DescribeAllEnumsAsStrings();
@@ -46,11 +59,6 @@ namespace Livraria.Api
                     }
                 });
             });
-
-            #endregion
-
-
-            #region AppSettings
 
             #endregion
 
