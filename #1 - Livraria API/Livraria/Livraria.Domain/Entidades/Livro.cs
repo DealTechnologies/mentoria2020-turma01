@@ -18,10 +18,5 @@
             Isbn = isbn;
             Imagem = imagem;
         }
-
-        public Livro(long id)
-        {
-            Id = id;
-        }
     }
 }
