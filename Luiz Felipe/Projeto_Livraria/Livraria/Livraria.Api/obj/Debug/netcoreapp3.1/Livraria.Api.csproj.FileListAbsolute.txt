@@ -39,3 +39,4 @@ C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Dapper.dll
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Livraria.Domain.dll
 C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Livraria.Domain.pdb
+C:\Users\luiz.moura\Documents\mentoria\mentoria2020-turma01\Luiz Felipe\Projeto_Livraria\Livraria\Livraria.Api\bin\Debug\netcoreapp3.1\Flunt.dll

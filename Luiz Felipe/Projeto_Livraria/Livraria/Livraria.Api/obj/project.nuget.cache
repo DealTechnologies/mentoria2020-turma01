@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "gv9MEWcqpXaHsUSIUH2cXrZv1liT9Ptk2xR+hEhy8p3nK1g4sGl1jPgesip/fORD2osel3JsZFGxiZlIUxoCyw==",
+  "dgSpecHash": "dWArjAIk6ysO/roWYg0dBfOQLN6pjzlrW2Uk6IB78/TJk+LnqMHuLVVeWJa31FgFrmTdrLBJrcJfFxjJud6R3A==",
   "success": true,
   "projectFilePath": "C:\\Users\\luiz.moura\\Documents\\mentoria\\mentoria2020-turma01\\Luiz Felipe\\Projeto_Livraria\\Livraria\\Livraria.Api\\Livraria.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luiz.moura\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
+    "C:\\Users\\luiz.moura\\.nuget\\packages\\flunt\\1.0.5\\flunt.1.0.5.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\luiz.moura\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
