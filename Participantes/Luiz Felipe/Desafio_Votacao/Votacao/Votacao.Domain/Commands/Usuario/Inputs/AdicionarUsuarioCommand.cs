@@ -1,0 +1,44 @@
+﻿using Flunt.Notifications;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Votacao.Domain.Interfaces.Commands;
+
+namespace Votacao.Domain.Commands.Usuario.Inputs
+{
+    public class AdicionarUsuarioCommand : Notifiable, ICommandPadrao
+    {
+        public long Id { get; private set; }
+        public string Nome { get; private set; }
+        public string Login { get; private set; }
+        public string Senha { get; private set; }
+
+        public bool ValidarCommand()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Nome))
+                    AddNotification("Nome", "Nome é um campo obrigatório");
+                else if (Nome.Length > 50)
+                    AddNotification("Nome", "Nome maior que o esperado");
+
+                if (string.IsNullOrEmpty(Login))
+                    AddNotification("Login", "Login é um campo obrigatório");
+                else if (Login.Length > 50)
+                    AddNotification("Login", "Login maior que o esperado");
+
+                if (string.IsNullOrEmpty(Senha))
+                    AddNotification("Senha", "Senha é um campo obrigatório");
+                else if (Senha.Length >= 3 && Senha.Length <= 6)
+                    AddNotification("Senha", "Senha maior que o esperado");
+
+                return Valid;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+    }
+}

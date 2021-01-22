@@ -1,6 +1,8 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Interfaces.Repositories;
@@ -19,34 +21,109 @@ namespace Votacao.Infra.Repositories
             _dataContext = dataContext;
         }
 
-        public void Alterar(Usuario usuario)
+        public long Inserir(Usuario usuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _parametros.Add("Nome", usuario.Nome, DbType.String);
+                _parametros.Add("Login", usuario.Login, DbType.String);
+                _parametros.Add("Senha", usuario.Senha, DbType.String);
+
+                var sql = @"INSERT INTO Usuario (Nome, Login, Senha) VALUES (@Nome, @Login, @Senha); SELECT SCOPE_IDENTITY();";
+
+                return _dataContext.SQLConnection.ExecuteScalar<long>(sql, _parametros);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        public bool CheckId(long id)
+        public void Alterar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _parametros.Add("Id", usuario.Id, DbType.Int64);
+                _parametros.Add("Nome", usuario.Nome, DbType.String);
+                _parametros.Add("Login", usuario.Login, DbType.String);
+                _parametros.Add("Senha", usuario.Senha, DbType.String);
+
+                var sql = @"UPDATE Usuario SET Nome=@Nome, Login=@Login, Senha=@Senha WHERE Id=@Id;";
+
+                _dataContext.SQLConnection.Execute(sql, _parametros);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public void Deletar(long id)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                _parametros.Add("Id", id, DbType.Int64);
 
-        public long Inserir(Usuario usuario)
-        {
-            throw new NotImplementedException();
+                var sql = @"DELETE FROM Usuario WHERE Id=@Id;";
+
+                _dataContext.SQLConnection.Execute(sql, _parametros);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public List<UsuarioQueryResult> Listar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var sql = @"SELECT * FROM Usuario ORDER BY Nome;";
+
+                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public UsuarioQueryResult ObterPorId(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _parametros.Add("Id", id, DbType.Int64);
+
+                var sql = @"SELECT * FROM Usuario WHERE Id=@Id;";
+
+                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool CheckId(long id)
+        {
+            try
+            {
+                _parametros.Add("Id", id, DbType.Int64);
+
+                var sql = @"SELECT * FROM Usuario WHERE Id=@Id;";
+
+                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Infra;
 using Votacao.Infra.DataContexts;
@@ -32,10 +33,13 @@ namespace Votacao.Api
             services.AddScoped<DataContext>();
             #endregion
 
+            #region [+] Handlers
+            services.AddTransient<UsuarioHandler>();
+            #endregion
+
             #region [+] Repositories
             services.AddTransient<IFilmeRepository, FilmeRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-            services.AddTransient<IVotoRepository, VotoRepository>();
             #endregion
 
             #region [+] Swagger
