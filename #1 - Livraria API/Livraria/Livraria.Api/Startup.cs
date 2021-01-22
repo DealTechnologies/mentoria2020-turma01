@@ -1,3 +1,8 @@
+using Livraria.Domain.Handlers;
+using Livraria.Domain.Interfaces.Repositories;
+using Livraria.Infra;
+using Livraria.Infra.DataContexts;
+using Livraria.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,10 +25,27 @@ namespace Livraria.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region [+] AppSettings 
 
-            #region AppSettings 
+            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
 
-            //services.Configure
+            #endregion
+
+            #region [+] DataContexts 
+
+            services.AddScoped<DataContext>();
+
+            #endregion
+
+            #region [+] Repositories 
+
+            services.AddTransient<ILivroRepository, LivroRepository>();
+
+            #endregion
+
+            #region [+] Handlers 
+
+            services.AddTransient<LivroHandler, LivroHandler>();
 
             #endregion
 
