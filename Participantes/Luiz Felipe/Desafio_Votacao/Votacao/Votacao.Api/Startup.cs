@@ -1,18 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Infra;
-using Votacao.Infra.DataContext;
+using Votacao.Infra.DataContexts;
+using Votacao.Infra.Repositories;
 
 namespace Votacao.Api
 {
@@ -34,6 +30,12 @@ namespace Votacao.Api
 
             #region [+] DataContexts
             services.AddScoped<DataContext>();
+            #endregion
+
+            #region [+] Repositories
+            services.AddTransient<IFilmeRepository, FilmeRepository>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IVotoRepository, VotoRepository>();
             #endregion
 
             #region [+] Swagger
