@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Votacao.Infra;
+using Votacao.Infra.DataContext;
 
 namespace Votacao.Api
 {
@@ -26,6 +28,14 @@ namespace Votacao.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region [+] AppSettings
+            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
+            #endregion
+
+            #region [+] DataContexts
+            services.AddScoped<DataContext>();
+            #endregion
+
             #region [+] Swagger
             services.AddSwaggerGen(c =>
             {
