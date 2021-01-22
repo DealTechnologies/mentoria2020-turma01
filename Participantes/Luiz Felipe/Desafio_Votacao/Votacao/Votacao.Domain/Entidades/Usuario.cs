@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Votacao.Domain.Entidades
@@ -22,19 +23,13 @@ namespace Votacao.Domain.Entidades
 
         public void VotarFilme(long idFilme)
         {
-            if (!ValidarJaVotouFilme(idFilme))
+            if (!ValidarVotouFilme(idFilme))
                 Votos.Add(new Voto(0, Id, idFilme));
         }
 
-        public bool ValidarJaVotouFilme(long idFilme)
+        public bool ValidarVotouFilme(long idFilme)
         {
-            bool jaVotou = false;
-            foreach (var itemFilme in Votos)
-            {
-                jaVotou = itemFilme.Id == idFilme;
-            }
-
-            return jaVotou;
+            return Votos.Any(x => x.IdFilme == idFilme);
         }
     }
 }
