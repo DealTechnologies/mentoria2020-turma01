@@ -98,7 +98,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Filme WHERE Id=@Id;";
 
-                return _dataContext.SQLConnection.Query<FilmeQueryResult>(sql).FirstOrDefault();
+                return _dataContext.SQLConnection.Query<FilmeQueryResult>(sql, _parametros).FirstOrDefault();
             }
             catch (Exception ex)
             {
