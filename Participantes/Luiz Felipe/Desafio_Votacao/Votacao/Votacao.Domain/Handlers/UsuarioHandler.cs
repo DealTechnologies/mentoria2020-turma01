@@ -16,6 +16,11 @@ namespace Votacao.Domain.Handlers
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
+        public UsuarioHandler(IUsuarioRepository usuarioRepository)
+        {
+            _usuarioRepository = usuarioRepository;
+        }
+
         public ICommandResult Handler(AdicionarUsuarioCommand command)
         {
             try

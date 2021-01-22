@@ -8,10 +8,10 @@ namespace Votacao.Domain.Commands.Usuario.Inputs
 {
     public class AdicionarUsuarioCommand : Notifiable, ICommandPadrao
     {
-        public long Id { get; private set; }
-        public string Nome { get; private set; }
-        public string Login { get; private set; }
-        public string Senha { get; private set; }
+        public long Id { get; set; }
+        public string Nome { get; set; }
+        public string Login { get; set; }
+        public string Senha { get; set; }
 
         public bool ValidarCommand()
         {
@@ -29,7 +29,7 @@ namespace Votacao.Domain.Commands.Usuario.Inputs
 
                 if (string.IsNullOrEmpty(Senha))
                     AddNotification("Senha", "Senha é um campo obrigatório");
-                else if (Senha.Length >= 3 && Senha.Length <= 6)
+                else if (!(Senha.Length >= 3 && Senha.Length <= 6))
                     AddNotification("Senha", "Senha maior que o esperado");
 
                 return Valid;

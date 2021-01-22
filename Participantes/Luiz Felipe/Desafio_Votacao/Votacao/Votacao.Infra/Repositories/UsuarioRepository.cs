@@ -100,7 +100,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Usuario WHERE Id=@Id;";
 
-                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql).FirstOrDefault();
+                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql, _parametros).FirstOrDefault();
             }
             catch (Exception ex)
             {
