@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,32 @@ namespace Votacao.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region [+] Swagger
+            services.AddSwaggerGen(c =>
+            {
+                //c.DescribeAllEnumsAsStrings();
+                c.DescribeAllParametersInCamelCase();
+                c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\Swagger.xml");
+                c.SwaggerDoc("v1", new OpenApiInfo
+                { 
+                    Version = "v1",
+                    Title = "Votação API",
+                    Description = "Projeto de votação de filmes",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Luiz Felipe",
+                        Email = "luizfelipems12@gmail.com",
+                        Url = new Uri("https://github.com/")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Licença MIT",
+                        Url = new Uri("https://github.com/")
+                    }
+                });
+            });
+            #endregion
+
             services.AddControllers();
         }
 
@@ -35,6 +62,12 @@ namespace Votacao.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => 
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Votação API");
+            });
 
             app.UseHttpsRedirection();
 
