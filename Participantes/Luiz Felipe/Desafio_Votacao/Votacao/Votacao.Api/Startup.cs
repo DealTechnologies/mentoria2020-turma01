@@ -35,6 +35,7 @@ namespace Votacao.Api
 
             #region [+] Handlers
             services.AddTransient<UsuarioHandler>();
+            services.AddTransient<FilmeHandler>();
             #endregion
 
             #region [+] Repositories
