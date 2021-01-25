@@ -3,14 +3,13 @@ using Livraria.Domain.Commands.Livro.Input;
 using Livraria.Domain.Commands.Livro.Output;
 using Livraria.Domain.Entidades;
 using Livraria.Domain.Interfaces.Commands;
+using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using System;
 
 namespace Livraria.Domain.Handlers
 {
-    public class LivroHandler : Notifiable, ICommandHandler<AdicionarLivroCommand>,
-                                            ICommandHandler<AtualizarLivroCommand>,
-                                            ICommandHandler<ApagarLivroCommand>
+    public class LivroHandler : Notifiable, ILivroHandler
     {
         private readonly ILivroRepository _repository;
 
