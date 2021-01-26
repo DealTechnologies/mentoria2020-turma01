@@ -1,5 +1,6 @@
 ﻿using Flunt.Notifications;
 using System;
+using System.Linq;
 using Votacao.Domain.Commands.Usuario.Inputs;
 using Votacao.Domain.Commands.Usuario.Outputs;
 using Votacao.Domain.Entidades;
@@ -54,10 +55,10 @@ namespace Votacao.Domain.Handlers
                     return new AtualizarUsuarioCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_usuarioRepository.CheckId(command.Id))
-                {
                     AddNotification("Id", "Id inválido. Este Id não está cadastrado.");
+
+                if (Notifications.Count() > 0)
                     return new AtualizarUsuarioCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
-                }
 
                 Usuario usuario = new Usuario(command.Id, command.Nome, command.Login, command.Senha);
 
@@ -87,10 +88,10 @@ namespace Votacao.Domain.Handlers
                     return new ApagarUsuarioCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_usuarioRepository.CheckId(command.Id))
-                {
                     AddNotification("Id", "Id inválido. Este Id não está cadastrado.");
+
+                if (Notifications.Count() > 0)
                     return new ApagarUsuarioCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
-                }
 
                 _usuarioRepository.Deletar(command.Id);
 

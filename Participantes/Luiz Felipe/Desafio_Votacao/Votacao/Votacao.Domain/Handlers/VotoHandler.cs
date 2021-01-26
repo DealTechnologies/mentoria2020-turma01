@@ -26,19 +26,13 @@ namespace Votacao.Domain.Handlers
                     return new VotarCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_votoRepository.CheckIdUsuario(command.IdUsuario))
-                {
                     AddNotification("IdUsuario", "IdUsuario inválido. Este Usuario não está cadastrado.");
-                }
 
                 if (!_votoRepository.CheckIdFilme(command.IdFilme))
-                {
                     AddNotification("IdFilme", "IdFilme inválido. Este Filme não está cadastrado.");
-                }
 
                 if (_votoRepository.CheckUsuarioVotou(command.IdUsuario))
-                {
                     AddNotification("IdUsuario", "Esse usuário já votou.");
-                }
 
                 if (Notifications.Count() > 0)
                     return new VotarCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);

@@ -1,5 +1,6 @@
 ﻿using Flunt.Notifications;
 using System;
+using System.Linq;
 using Votacao.Domain.Commands.Filme.Inputs;
 using Votacao.Domain.Commands.Filme.Outputs;
 using Votacao.Domain.Entidades;
@@ -54,10 +55,10 @@ namespace Votacao.Domain.Handlers
                     return new AtualizarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_filmeRepository.CheckId(command.Id))
-                {
                     AddNotification("Id", "Id inválido. Este Id não está cadastrado.");
+
+                if (Notifications.Count() > 0)
                     return new AtualizarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
-                }
 
                 Filme filme = new Filme(command.Id, command.Titulo, command.Diretor);
 
@@ -86,10 +87,10 @@ namespace Votacao.Domain.Handlers
                     return new ApagarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_filmeRepository.CheckId(command.Id))
-                {
                     AddNotification("Id", "Id inválido. Este Id não está cadastrado.");
+
+                if (Notifications.Count() > 0)
                     return new ApagarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
-                }
 
                 _filmeRepository.Deletar(command.Id);
 
