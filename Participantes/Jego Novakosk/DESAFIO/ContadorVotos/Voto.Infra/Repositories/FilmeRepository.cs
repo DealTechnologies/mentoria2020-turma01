@@ -30,7 +30,7 @@ namespace Voto.Infra.Repositories
 
                 string sql = @"UPDATE Filme SET Titulo=@Titulo, Diretor=@Diretor WHERE Id=@Id";
 
-                 _dataContexts.SQLServerConnection.Execute(sql, _parameters);
+                _dataContexts.SQLServerConnection.Execute(sql, _parameters);
             }
             catch (Exception ex)
             {
@@ -62,7 +62,7 @@ namespace Voto.Infra.Repositories
             try
             {
                 _parameters.Add("Id", id, DbType.Int32);
-                
+
 
                 string sql = @"DELETE FROM Filme WHERE Id=@Id";
 
@@ -97,7 +97,7 @@ namespace Voto.Infra.Repositories
         {
             try
             {
-               
+
                 string sql = @"SELECT * FROM Filme ORDER BY Titulo";
 
                 return _dataContexts.SQLServerConnection.Query<FilmeQueryResult>(sql).ToList();
@@ -118,7 +118,7 @@ namespace Voto.Infra.Repositories
 
                 string sql = @"SELECT * FROM Filme WHERE Id=@Id";
 
-               return _dataContexts.SQLServerConnection.Query<FilmeQueryResult>(sql, _parameters).FirstOrDefault();
+                return _dataContexts.SQLServerConnection.Query<FilmeQueryResult>(sql, _parameters).FirstOrDefault();
             }
             catch (Exception ex)
             {

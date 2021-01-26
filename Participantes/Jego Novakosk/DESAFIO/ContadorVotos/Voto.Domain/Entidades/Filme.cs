@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Voto.Domain.Entidades
+﻿namespace Voto.Domain.Entidades
 {
-   public class Filme
+    public class Filme
     {
         public int Id { get; private set; }
         public string Titulo { get; private set; }

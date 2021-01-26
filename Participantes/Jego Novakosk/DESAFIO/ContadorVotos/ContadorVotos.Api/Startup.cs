@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using Voto.Domain.Handlers;
+using Voto.Domain.Interfaces.Handlers;
 using Voto.Domain.Interfaces.Repositories;
 using Voto.Infra;
 using Voto.Infra.DataContexts;
@@ -33,11 +35,22 @@ namespace ContadorVotos.Api
             #region [+] Repositories
 
             services.AddTransient<IFilmeRepository, FilmeRepository>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IVotoRepository, VotoRepository>();
 
             #endregion
+
             #region [+] DataContext
 
             services.AddScoped<DataContext>();
+
+            #endregion
+
+            #region [+] Handles
+
+            services.AddTransient<IFilmeHandler, FilmeHandler>();  
+            services.AddTransient<IUsuarioHandler, UsuarioHandler>();
+            services.AddTransient<IVotosHandler, VotosHandler>();
 
             #endregion
 

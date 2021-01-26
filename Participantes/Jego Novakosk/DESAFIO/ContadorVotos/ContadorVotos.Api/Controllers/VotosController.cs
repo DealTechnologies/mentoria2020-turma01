@@ -4,88 +4,86 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Voto.Domain.Commands.Filme.Input;
+using Voto.Domain.Commands.Votos.Input;
 using Voto.Domain.Handlers;
 using Voto.Domain.Interfaces.Commands;
 using Voto.Domain.Interfaces.Handlers;
 using Voto.Domain.Interfaces.Repositories;
-using Voto.Domain.Queries.Filme;
+using Voto.Domain.Queries.Votos;
 
 namespace ContadorVotos.Api.Controllers
 {
     [Consumes("application/json")]
     [Produces("application/json")]
     [ApiController]
-    public class FilmeController : ControllerBase
+    public class VotosController : ControllerBase
     {
+        private readonly IVotoRepository _repository;
 
-        private readonly IFilmeRepository _repository;
-        private readonly IFilmeHandler _handler;
-        public FilmeController(IFilmeRepository repository, IFilmeHandler handler)
+        private readonly IVotosHandler _handler;
+
+        public VotosController(IVotoRepository repository, IVotosHandler handler)
         {
             _repository = repository;
             _handler = handler;
         }
-
-
         /// <summary>
-        /// Buscar todos os Fimes 
+        /// Buscar todos Votos 
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("v1/filmes")]
-        public IEnumerable<FilmeQueryResult> Filmes()
+        [Route("v1/votos")]
+        public IEnumerable<VotosQueryResult> Votos()
         {
             return _repository.Listar();
         }
 
         /// <summary>
-        /// Buscar por ID
+        /// Buscar voto por Id
         /// </summary>
-        /// <param name="id">Informar o valor do ID</param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("v1/filmes/{id}")]
-        public FilmeQueryResult Filme(int id)
+        [Route("v1/votos/{id}")]
+        public VotosQueryResult Filme(int id)
         {
             return _repository.ObterPorId(id);
         }
 
         /// <summary>
-        /// Inserir Filme
+        /// Inseri Novo Voto
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("v1/filmes")]
-        public ICommandResult FilmeInserir([FromBody] AdicionarFilmeCommand command)
+        [Route("v1/votos")]
+        public ICommandResult VotoInserir([FromBody] AdicionarVotosCommand command)
         {
             return _handler.Handler(command);
         }
 
         /// <summary>
-        /// Atualizar Filme 
+        /// Atualizar Voto
         /// </summary>
         /// <param name="id"></param>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("v1/filmes/{id}")]
-        public ICommandResult FilmeAtualizar(int id, [FromBody] AtualizarFilmeCommand command)
+        [Route("v1/votos/{id}")]
+        public ICommandResult VotoAtualizatr(int id,[FromBody] AtualizarVotosCommand command)
         {
-            command.Id = id;
             return _handler.Handler(command);
         }
 
         /// <summary>
-        /// Deletar Filme
+        /// Deletar Voto
         /// </summary>
         /// <param name="id"></param>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("v1/filmes/{id}")]
-        public ICommandResult FilmeApagar(int id, [FromBody] ApagarFilmeCommand command)
+        [Route("v1/votos/{id}")]
+        public ICommandResult VotoDeletar(int id, [FromBody] ApagarVotosCommand command)
         {
             command.Id = id;
             return _handler.Handler(command);
