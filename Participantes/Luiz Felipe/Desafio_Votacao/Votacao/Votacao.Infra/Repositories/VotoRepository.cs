@@ -71,39 +71,5 @@ namespace Votacao.Infra.Repositories
                 throw ex;
             }
         }
-
-        public bool CheckIdFilme(long idFilme)
-        {
-            try
-            {
-                _parametros.Add("Id", idFilme, DbType.Int64);
-
-                var sql = @"SELECT * FROM Filme WHERE Id=@Id;";
-
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
-        public bool CheckIdUsuario(long idUsuario)
-        {
-            try
-            {
-                _parametros.Add("Id", idUsuario, DbType.Int64);
-
-                var sql = @"SELECT * FROM Usuario WHERE Id=@Id;";
-
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
     }
 }

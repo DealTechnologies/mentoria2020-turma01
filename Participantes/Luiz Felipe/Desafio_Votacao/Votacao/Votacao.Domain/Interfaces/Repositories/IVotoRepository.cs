@@ -9,7 +9,5 @@ namespace Votacao.Domain.Interfaces.Repositories
         long Inserir(Voto voto);
         List<VotoQueryResult> Listar();
         bool CheckUsuarioVotou(long idUsuario);
-        bool CheckIdFilme(long idFilme);
-        bool CheckIdUsuario(long idUsuario);
     }
 }
