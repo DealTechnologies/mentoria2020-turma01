@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Votacao.Infra
+﻿namespace Votacao.Infra
 {
     public class SettingsInfra
     {

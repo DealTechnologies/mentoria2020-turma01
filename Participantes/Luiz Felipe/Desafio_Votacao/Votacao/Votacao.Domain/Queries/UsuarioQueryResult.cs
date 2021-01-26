@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Votacao.Domain.Queries
+﻿namespace Votacao.Domain.Queries
 {
     public class UsuarioQueryResult
     {

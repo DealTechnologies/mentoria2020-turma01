@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Votacao.Domain.Commands.Voto.Inputs;
 using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Commands;
-using Votacao.Domain.Interfaces.Repositories;
 
 namespace Votacao.Api.Controllers
 {

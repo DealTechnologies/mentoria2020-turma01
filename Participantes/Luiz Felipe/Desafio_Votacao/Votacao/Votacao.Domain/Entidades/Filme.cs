@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Votacao.Domain.Entidades
+﻿namespace Votacao.Domain.Entidades
 {
     public class Filme
     {

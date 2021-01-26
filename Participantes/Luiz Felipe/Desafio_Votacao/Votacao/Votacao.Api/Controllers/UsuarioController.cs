@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Votacao.Domain.Commands.Usuario.Inputs;
 using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Commands;

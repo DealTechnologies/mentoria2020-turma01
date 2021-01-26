@@ -1,7 +1,5 @@
 ﻿using Flunt.Notifications;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Votacao.Domain.Commands.Usuario.Inputs;
 using Votacao.Domain.Commands.Usuario.Outputs;
 using Votacao.Domain.Entidades;
