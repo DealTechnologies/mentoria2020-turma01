@@ -12,5 +12,6 @@ namespace Votacao.Domain.Interfaces.Repositories
         List<UsuarioQueryResult> Listar();
         UsuarioQueryResult ObterPorId(long id);
         bool CheckId(long id);
+        bool CheckAutenticacao(string login, string senha);
     }
 }

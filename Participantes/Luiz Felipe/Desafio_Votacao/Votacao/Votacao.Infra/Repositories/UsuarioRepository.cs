@@ -124,5 +124,24 @@ namespace Votacao.Infra.Repositories
                 throw ex;
             }
         }
+
+        public bool CheckAutenticacao(string login, string senha)
+        {
+            try
+            {
+                _parametros.Add("Login", login, DbType.String);
+                _parametros.Add("Senha", senha, DbType.String);
+
+                var sql = @"SELECT * FROM Usuario 
+                            WHERE Login=@Login AND Senha=@Senha;";
+
+                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

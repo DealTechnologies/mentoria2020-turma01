@@ -22,6 +22,13 @@ namespace Votacao.Api.Controllers
             _handler = handler;
         }
 
+        [HttpPost]
+        [Route("v1/login")]
+        public ICommandResult Login([FromBody] AutenticarUsuarioCommand command)
+        {
+            return _handler.Handler(command);
+        }
+
         /// <summary>
         /// Usuarios
         /// </summary>                

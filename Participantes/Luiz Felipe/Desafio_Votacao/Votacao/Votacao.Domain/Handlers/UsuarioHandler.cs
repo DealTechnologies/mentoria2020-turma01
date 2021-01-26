@@ -107,5 +107,32 @@ namespace Votacao.Domain.Handlers
                 throw ex;
             }
         }
+
+        public ICommandResult Handler(AutenticarUsuarioCommand command)
+        {
+            try
+            {
+                if (!command.ValidarCommand())
+                    return new AutenticarUsuarioCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+
+                if (!_usuarioRepository.CheckAutenticacao(command.Login, command.Senha))
+                    AddNotification("Autenticação", "Login ou Senha inválidos.");
+
+                if (Notifications.Count() > 0)
+                    return new AutenticarUsuarioCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+
+                return new AutenticarUsuarioCommandResult(true, "Usuário Autenticado com sucesso!",
+                    new
+                    {
+                        Login = command.Login,
+                        Senha = "******"
+                    });
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
