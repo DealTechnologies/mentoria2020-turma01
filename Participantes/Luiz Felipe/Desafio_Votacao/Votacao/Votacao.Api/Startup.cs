@@ -36,11 +36,13 @@ namespace Votacao.Api
             #region [+] Handlers
             services.AddTransient<UsuarioHandler>();
             services.AddTransient<FilmeHandler>();
+            services.AddTransient<VotoHandler>();
             #endregion
 
             #region [+] Repositories
             services.AddTransient<IFilmeRepository, FilmeRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IVotoRepository, VotoRepository>();
             #endregion
 
             #region [+] Swagger
