@@ -14,14 +14,14 @@ namespace Votacao.Domain.Commands.Usuario.Inputs
             try
             {
                 if (string.IsNullOrEmpty(Login))
-                    AddNotification("Login", "Login é um campo obrigatório");
+                    AddNotification("Login", Avisos.Campo_obrigatorio);
                 else if (Login.Length > 50)
-                    AddNotification("Login", "Login maior que o esperado");
+                    AddNotification("Login", Avisos.Campo_maior_que_o_esperado);
 
                 if (string.IsNullOrEmpty(Senha))
-                    AddNotification("Senha", "Senha é um campo obrigatório");
+                    AddNotification("Senha", Avisos.Campo_obrigatorio);
                 else if (!(Senha.Length >= 3 && Senha.Length <= 6))
-                    AddNotification("Senha", "Senha maior que o esperado");
+                    AddNotification("Senha", Avisos.Campo_maior_que_o_esperado);
 
                 return Valid;
             }

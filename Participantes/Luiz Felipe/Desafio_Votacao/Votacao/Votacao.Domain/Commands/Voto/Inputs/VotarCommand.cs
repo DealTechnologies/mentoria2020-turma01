@@ -15,10 +15,10 @@ namespace Votacao.Domain.Commands.Voto.Inputs
             try
             {
                 if (IdUsuario <= 0)
-                    AddNotification("IdUsuario", "IdUsuario é um campo obrigatório");
+                    AddNotification("IdUsuario", Avisos.Campo_obrigatorio);
                 
                 if (IdFilme <= 0)
-                    AddNotification("IdFilme", "IdFilme é um campo obrigatório");
+                    AddNotification("IdFilme", Avisos.Campo_obrigatorio);
 
                 return Valid;
             }

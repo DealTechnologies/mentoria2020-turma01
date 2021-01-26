@@ -16,7 +16,7 @@ namespace Votacao.Domain.Commands.Usuario.Inputs
             try
             {
                 if (Id <= 0)
-                    AddNotification("Id", "Id é um campo obrigatório");
+                    AddNotification("Id", Avisos.Campo_obrigatorio);
 
                 return Valid;
             }

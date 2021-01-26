@@ -27,19 +27,19 @@ namespace Votacao.Domain.Handlers
             try
             {
                 if (!command.ValidarCommand())
-                    return new VotarCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+                    return new VotarCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
                 if (!_usuarioRepository.CheckId(command.IdUsuario))
-                    AddNotification("IdUsuario", "IdUsuario inválido. Este Usuario não está cadastrado.");
+                    AddNotification("IdUsuario", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (!_filmeRepository.CheckId(command.IdFilme))
-                    AddNotification("IdFilme", "IdFilme inválido. Este Filme não está cadastrado.");
+                    AddNotification("IdFilme", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (_votoRepository.CheckUsuarioVotou(command.IdUsuario))
-                    AddNotification("IdUsuario", "Esse usuário já votou.");
+                    AddNotification("IdUsuario", Avisos.Esse_usuario_ja_votou);
 
                 if (Notifications.Count() > 0)
-                    return new VotarCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+                    return new VotarCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, Notifications);
 
                 long id = 0;
                 Voto voto = new Voto(id, command.IdUsuario, command.IdFilme);
@@ -49,7 +49,7 @@ namespace Votacao.Domain.Handlers
                 var usuario = _usuarioRepository.ObterPorId(command.IdUsuario);
                 var filme = _filmeRepository.ObterPorId(command.IdFilme);
 
-                return new VotarCommandResult(true, "Voto realizado com sucesso!",
+                return new VotarCommandResult(true, Avisos.Voto_realizado_com_sucesso,
                     new
                     {
                         Usuario = new { 

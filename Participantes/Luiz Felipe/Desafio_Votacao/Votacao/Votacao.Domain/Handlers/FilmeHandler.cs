@@ -25,14 +25,14 @@ namespace Votacao.Domain.Handlers
             try
             {
                 if (!command.ValidarCommand())
-                    return new AdicionarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+                    return new AdicionarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
                 long id = 0;
                 Filme filme = new Filme(id, command.Titulo, command.Diretor);
 
                 id = _filmeRepository.Inserir(filme);
 
-                return new AdicionarFilmeCommandResult(true, "Filme Gravado com sucesso!",
+                return new AdicionarFilmeCommandResult(true, Avisos.Filme_Gravado_com_sucesso,
                     new
                     {
                         Id = id,
@@ -52,19 +52,19 @@ namespace Votacao.Domain.Handlers
             try
             {
                 if (!command.ValidarCommand())
-                    return new AtualizarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+                    return new AtualizarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
                 if (!_filmeRepository.CheckId(command.Id))
-                    AddNotification("Id", "Id inválido. Este Id não está cadastrado.");
+                    AddNotification("Id", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (Notifications.Count() > 0)
-                    return new AtualizarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+                    return new AtualizarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, Notifications);
 
                 Filme filme = new Filme(command.Id, command.Titulo, command.Diretor);
 
                 _filmeRepository.Alterar(filme);
 
-                return new AdicionarFilmeCommandResult(true, "Filme Atualizado com sucesso!",
+                return new AdicionarFilmeCommandResult(true, Avisos.Filme_Atualizado_com_sucesso,
                     new
                     {
                         Id = filme.Id,
@@ -84,17 +84,17 @@ namespace Votacao.Domain.Handlers
             try
             {
                 if (!command.ValidarCommand())
-                    return new ApagarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+                    return new ApagarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
                 if (!_filmeRepository.CheckId(command.Id))
-                    AddNotification("Id", "Id inválido. Este Id não está cadastrado.");
+                    AddNotification("Id", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (Notifications.Count() > 0)
-                    return new ApagarFilmeCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+                    return new ApagarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, Notifications);
 
                 _filmeRepository.Deletar(command.Id);
 
-                return new ApagarFilmeCommandResult(true, "Filme Apagado com sucesso!",
+                return new ApagarFilmeCommandResult(true, Avisos.Filme_Apagado_com_sucesso,
                     new
                     {
                         Id = command.Id

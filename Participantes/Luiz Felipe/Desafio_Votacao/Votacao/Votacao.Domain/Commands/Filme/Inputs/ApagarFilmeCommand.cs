@@ -15,7 +15,7 @@ namespace Votacao.Domain.Commands.Filme.Inputs
             try
             {
                 if (Id <= 0)
-                    AddNotification("Id", "Id é um campo obrigatório");
+                    AddNotification("Id", Avisos.Campo_obrigatorio);
 
                 return Valid;
             }

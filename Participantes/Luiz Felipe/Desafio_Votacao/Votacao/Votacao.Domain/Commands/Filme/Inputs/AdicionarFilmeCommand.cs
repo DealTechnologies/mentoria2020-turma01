@@ -15,14 +15,14 @@ namespace Votacao.Domain.Commands.Filme.Inputs
             try
             {
                 if (string.IsNullOrEmpty(Titulo))
-                    AddNotification("Titulo", "Titulo é um campo obrigatório");
+                    AddNotification("Titulo", Avisos.Campo_obrigatorio);
                 else if (Titulo.Length > 50)
-                    AddNotification("Titulo", "Titulo maior que o esperado");
+                    AddNotification("Titulo", Avisos.Campo_maior_que_o_esperado);
 
                 if (string.IsNullOrEmpty(Diretor))
-                    AddNotification("Diretor", "Diretor é um campo obrigatório");
+                    AddNotification("Diretor", Avisos.Campo_obrigatorio);
                 else if (Diretor.Length > 50)
-                    AddNotification("Diretor", "Diretor maior que o esperado");
+                    AddNotification("Diretor", Avisos.Campo_maior_que_o_esperado);
 
                 return Valid;
             }
