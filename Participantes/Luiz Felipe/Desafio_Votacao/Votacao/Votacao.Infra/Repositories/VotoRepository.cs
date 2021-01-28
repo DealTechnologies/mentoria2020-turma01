@@ -38,13 +38,34 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public List<VotoQueryResult> Listar()
+        public List<VotoQueryResult> ListarVotos()
         {
             try
             {
-                var sql = @"SELECT * FROM Voto ORDER BY Id;";
+                var sql = @"SELECT 
+	                             v.Id
+	                            ,u.Id
+	                            ,u.Nome
+	                            ,u.Login
+	                            ,u.Senha
+	                            ,f.Id
+	                            ,f.Titulo
+	                            ,f.Diretor
+                            FROM Voto v
+                            INNER JOIN Usuario u ON v.IdUsuario = u.Id
+                            INNER JOIN Filme f ON v.IdFilme = f.Id
+                            ORDER BY v.Id ASC;";
 
-                return _dataContext.SQLConnection.Query<VotoQueryResult>(sql).ToList();
+                return _dataContext.SQLConnection.Query<VotoQueryResult, UsuarioQueryResult, FilmeQueryResult, VotoQueryResult>(
+                        sql,
+                        map: (voto, usuario, filme) =>
+                        {
+                            voto.Usuario = usuario;
+                            voto.Filme = filme;
+
+                            return voto;
+                        },
+                        splitOn: "Id, Id, Id").Distinct().ToList();
             }
             catch (Exception ex)
             {
@@ -64,6 +85,43 @@ namespace Votacao.Infra.Repositories
                             WHERE v.IdUsuario=@IdUsuario;";
 
                 return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public VotoQueryResult ObterVoto(long id)
+        {
+            try
+            {
+                var sql = @"SELECT 
+	                             v.Id
+	                            ,u.Id
+	                            ,u.Nome
+	                            ,u.Login
+	                            ,u.Senha
+	                            ,f.Id
+	                            ,f.Titulo
+	                            ,f.Diretor
+                            FROM Voto v
+                            INNER JOIN Usuario u ON v.IdUsuario = u.Id
+                            INNER JOIN Filme f ON v.IdFilme = f.Id
+                            WHERE v.Id = @id;";
+
+                return _dataContext.SQLConnection.Query<VotoQueryResult, UsuarioQueryResult, FilmeQueryResult, VotoQueryResult>(
+                        sql,
+                        map: (voto, usuario, filme) =>
+                        {
+                            voto.Usuario = usuario;
+                            voto.Filme = filme;
+
+                            return voto;
+                        },
+                        new { Id = id },
+                        splitOn: "Id, Id, Id").FirstOrDefault();
             }
             catch (Exception ex)
             {

@@ -44,26 +44,10 @@ namespace Votacao.Domain.Handlers
                 long id = 0;
                 Voto voto = new Voto(id, command.IdUsuario, command.IdFilme);
 
-                _votoRepository.Inserir(voto);
+                long idVoto = _votoRepository.Inserir(voto);
+                var votoReturn = _votoRepository.ObterVoto(idVoto);
 
-                var usuario = _usuarioRepository.ObterPorId(command.IdUsuario);
-                var filme = _filmeRepository.ObterPorId(command.IdFilme);
-
-                return new VotarCommandResult(true, Avisos.Voto_realizado_com_sucesso,
-                    new
-                    {
-                        Usuario = new { 
-                            usuario.Id,
-                            usuario.Nome,
-                            usuario.Login,
-                            Senha = "******"
-                        },
-                        Filme = new { 
-                            filme.Id,
-                            filme.Titulo,
-                            filme.Diretor
-                        },
-                    });
+                return new VotarCommandResult(true, Avisos.Voto_realizado_com_sucesso, new { votoReturn });
             }
             catch (Exception ex)
             {

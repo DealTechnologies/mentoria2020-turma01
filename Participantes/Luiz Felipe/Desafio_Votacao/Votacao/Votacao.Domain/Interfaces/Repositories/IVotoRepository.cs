@@ -7,7 +7,8 @@ namespace Votacao.Domain.Interfaces.Repositories
     public interface IVotoRepository
     {
         long Inserir(Voto voto);
-        List<VotoQueryResult> Listar();
+        List<VotoQueryResult> ListarVotos();
         bool CheckUsuarioVotou(long idUsuario);
+        VotoQueryResult ObterVoto(long id);
     }
 }
