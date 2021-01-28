@@ -1,3 +1,5 @@
+using ElmahCore;
+using ElmahCore.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -71,6 +73,13 @@ namespace Votacao.Api
             });
             #endregion
 
+            #region [+] Elmah
+            services.AddElmah<XmlFileErrorLog>(options =>
+            {
+                options.LogPath = "~/log";
+            });
+            #endregion
+
             services.AddControllers();
         }
 
@@ -89,6 +98,8 @@ namespace Votacao.Api
             });
 
             app.UseHttpsRedirection();
+
+            app.UseElmah();
 
             app.UseRouting();
 
