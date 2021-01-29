@@ -1,5 +1,6 @@
 using ElmahCore;
 using ElmahCore.Mvc;
+using ElmahCore.Sql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -74,9 +75,14 @@ namespace Votacao.Api
             #endregion
 
             #region [+] Elmah
-            services.AddElmah<XmlFileErrorLog>(options =>
+            //services.AddElmah<XmlFileErrorLog>(options =>
+            //{
+            //    options.LogPath = "~/log";
+            //});
+
+            services.AddElmah<SqlErrorLog>(options =>
             {
-                options.LogPath = "~/log";
+                options.ConnectionString = Configuration.GetValue<string>("SettingsInfra:ConnectionString");
             });
             #endregion
 
