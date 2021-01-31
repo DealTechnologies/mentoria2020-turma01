@@ -48,6 +48,7 @@ namespace Votacao.Infra.Repositories
 	                            ,u.Nome
 	                            ,u.Login
 	                            ,u.Senha
+	                            ,u.Perfil
 	                            ,f.Id
 	                            ,f.Titulo
 	                            ,f.Diretor
@@ -103,6 +104,7 @@ namespace Votacao.Infra.Repositories
 	                            ,u.Nome
 	                            ,u.Login
 	                            ,u.Senha
+	                            ,u.Perfil
 	                            ,f.Id
 	                            ,f.Titulo
 	                            ,f.Diretor

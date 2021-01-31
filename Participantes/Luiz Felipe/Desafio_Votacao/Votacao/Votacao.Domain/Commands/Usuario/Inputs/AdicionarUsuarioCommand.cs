@@ -10,6 +10,7 @@ namespace Votacao.Domain.Commands.Usuario.Inputs
         public string Nome { get; set; }
         public string Login { get; set; }
         public string Senha { get; set; }
+        public string Role { get; set; }
 
         public bool ValidarCommand()
         {
@@ -29,6 +30,9 @@ namespace Votacao.Domain.Commands.Usuario.Inputs
                     AddNotification("Senha", Avisos.Campo_obrigatorio);
                 else if (!(Senha.Length >= 3 && Senha.Length <= 6))
                     AddNotification("Senha", Avisos.Campo_maior_que_o_esperado);
+
+                if (string.IsNullOrEmpty(Role))
+                    AddNotification("Role", Avisos.Campo_obrigatorio);
 
                 return Valid;
             }

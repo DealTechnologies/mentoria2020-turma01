@@ -27,8 +27,9 @@ namespace Votacao.Infra.Repositories
                 _parametros.Add("Nome", usuario.Nome, DbType.String);
                 _parametros.Add("Login", usuario.Login, DbType.String);
                 _parametros.Add("Senha", usuario.Senha, DbType.String);
+                _parametros.Add("Role", usuario.Role, DbType.String);
 
-                var sql = @"INSERT INTO Usuario (Nome, Login, Senha) VALUES (@Nome, @Login, @Senha); SELECT SCOPE_IDENTITY();";
+                var sql = @"INSERT INTO Usuario (Nome, Login, Senha, Role) VALUES (@Nome, @Login, @Senha, @Role); SELECT SCOPE_IDENTITY();";
 
                 return _dataContext.SQLConnection.ExecuteScalar<long>(sql, _parametros);
             }
@@ -47,8 +48,9 @@ namespace Votacao.Infra.Repositories
                 _parametros.Add("Nome", usuario.Nome, DbType.String);
                 _parametros.Add("Login", usuario.Login, DbType.String);
                 _parametros.Add("Senha", usuario.Senha, DbType.String);
+                _parametros.Add("Role", usuario.Role, DbType.String);
 
-                var sql = @"UPDATE Usuario SET Nome=@Nome, Login=@Login, Senha=@Senha WHERE Id=@Id;";
+                var sql = @"UPDATE Usuario SET Nome=@Nome, Login=@Login, Senha=@Senha, Role=@Role WHERE Id=@Id;";
 
                 _dataContext.SQLConnection.Execute(sql, _parametros);
             }
@@ -108,6 +110,23 @@ namespace Votacao.Infra.Repositories
             }
         }
 
+        public UsuarioQueryResult ObterPorLogin(string login)
+        {
+            try
+            {
+                _parametros.Add("Login", login, DbType.String);
+
+                var sql = @"SELECT * FROM Usuario WHERE Login=@Login;";
+
+                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql, _parametros).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool CheckId(long id)
         {
             try
@@ -134,6 +153,23 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Usuario 
                             WHERE Login=@Login AND Senha=@Senha;";
+
+                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool CheckLogin(string login)
+        {
+            try
+            {
+                _parametros.Add("Login", login, DbType.String);
+
+                var sql = @"SELECT * FROM Usuario WHERE Login=@Login;";
 
                 return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
             }

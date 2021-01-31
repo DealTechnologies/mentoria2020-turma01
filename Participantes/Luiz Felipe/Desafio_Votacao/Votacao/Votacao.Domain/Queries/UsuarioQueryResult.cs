@@ -6,5 +6,6 @@
         public string Nome { get; private set; }
         public string Login { get; private set; }
         public string Senha { get; private set; }
+        public string Role { get; private set; }
     }
 }

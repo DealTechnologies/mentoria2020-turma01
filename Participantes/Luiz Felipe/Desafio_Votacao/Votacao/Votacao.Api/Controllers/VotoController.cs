@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Votacao.Domain.Commands.Voto.Inputs;
 using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Commands;
@@ -27,6 +28,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/votar")]
+        [Authorize(Roles = "Visitante")]
         public ICommandResult Votar([FromBody] VotarCommand command)
         {
             return _handler.Handler(command);

@@ -138,6 +138,9 @@
   <data name="Id_invalido_Este_Id_nao_esta_cadastrado" xml:space="preserve">
     <value>Id inválido. Este Id não está cadastrado.</value>
   </data>
+  <data name="Login_ja_existente_Por_favor_tente_um_login_diferente" xml:space="preserve">
+    <value>Login já existente. Por favor, tente um login diferente.</value>
+  </data>
   <data name="Login_ou_Senha_invalidos" xml:space="preserve">
     <value>Login ou Senha inválidos.</value>
   </data>

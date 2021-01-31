@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Votacao.Domain.Commands.Filme.Inputs;
+using Votacao.Domain.Entidades;
 using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Commands;
 using Votacao.Domain.Interfaces.Repositories;
@@ -30,6 +32,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/filmes")]
+        [AllowAnonymous]
         public IEnumerable<FilmeQueryResult> Filmes()
         {
             return _filmeRepository.Listar();
@@ -44,6 +47,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/filmes/{id}")]
+        [AllowAnonymous]
         public FilmeQueryResult Filme(long id)
         {
             return _filmeRepository.ObterPorId(id);
@@ -59,6 +63,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/filmes")]
+        [Authorize(Roles = "Visitante,Administrador")]
         public ICommandResult FilmeInserir([FromBody] AdicionarFilmeCommand command)
         {
             return _handler.Handler(command);
@@ -76,6 +81,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPut]
         [Route("v1/filmes/{id}")]
+        [Authorize(Roles = "Visitante,Administrador")]
         public ICommandResult FilmeAlterar(long id, [FromBody] AtualizarFilmeCommand command)
         {
             command.Id = id;
@@ -93,6 +99,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Route("v1/filmes/{id}")]
+        [Authorize(Roles = "Visitante,Administrador")]
         public ICommandResult FilmeApagar(long id)
         {
             ApagarFilmeCommand command = new ApagarFilmeCommand() { Id = id };

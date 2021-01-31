@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Votacao.Domain.Commands.Usuario.Inputs;
 using Votacao.Domain.Handlers;
@@ -24,6 +25,7 @@ namespace Votacao.Api.Controllers
 
         [HttpPost]
         [Route("v1/login")]
+        [AllowAnonymous]
         public ICommandResult Login([FromBody] AutenticarUsuarioCommand command)
         {
             return _handler.Handler(command);
@@ -37,6 +39,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/usuarios")]
+        [Authorize(Roles = "Visitante,Administrador")]
         public IEnumerable<UsuarioQueryResult> Usuarios()
         {
             return _usuarioRepository.Listar();
@@ -51,6 +54,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/usuarios/{id}")]
+        [Authorize(Roles = "Visitante,Administrador")]
         public UsuarioQueryResult Usuario(long id)
         {
             return _usuarioRepository.ObterPorId(id);
@@ -66,6 +70,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/usuarios")]
+        [AllowAnonymous]
         public ICommandResult UsuarioInserir([FromBody] AdicionarUsuarioCommand command)
         {
             return _handler.Handler(command);
@@ -83,6 +88,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPut]
         [Route("v1/usuarios/{id}")]
+        [Authorize(Roles = "Visitante,Administrador")]
         public ICommandResult UsuarioAlterar(long id, [FromBody] AtualizarUsuarioCommand command)
         {
             command.Id = id;
@@ -100,6 +106,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Route("v1/usuarios/{id}")]
+        [Authorize(Roles = "Administrador")]
         public ICommandResult UsuarioApagar(long id)
         {
             ApagarUsuarioCommand command = new ApagarUsuarioCommand() { Id = id };

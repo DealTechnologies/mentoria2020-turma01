@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace Votacao.Api.Controllers
@@ -16,6 +17,7 @@ namespace Votacao.Api.Controllers
         /// <returns code="500">Internal Server Error</returns>
         [HttpGet]
         [Route("v1/healthCheck")]
+        [AllowAnonymous]
         public ActionResult<string> HealthCheck()
         {
             try

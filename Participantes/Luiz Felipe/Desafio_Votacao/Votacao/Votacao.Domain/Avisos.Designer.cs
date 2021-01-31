@@ -124,6 +124,15 @@ namespace Votacao.Domain {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Login já existente. Por favor, tente um login diferente..
+        /// </summary>
+        internal static string Login_ja_existente_Por_favor_tente_um_login_diferente {
+            get {
+                return ResourceManager.GetString("Login_ja_existente_Por_favor_tente_um_login_diferente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Login ou Senha inválidos..
         /// </summary>
         internal static string Login_ou_Senha_invalidos {

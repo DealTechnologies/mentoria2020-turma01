@@ -11,7 +11,9 @@ namespace Votacao.Domain.Interfaces.Repositories
         void Deletar(long id);
         List<UsuarioQueryResult> Listar();
         UsuarioQueryResult ObterPorId(long id);
+        UsuarioQueryResult ObterPorLogin(string login);
         bool CheckId(long id);
         bool CheckAutenticacao(string login, string senha);
+        bool CheckLogin(string login);
     }
 }
