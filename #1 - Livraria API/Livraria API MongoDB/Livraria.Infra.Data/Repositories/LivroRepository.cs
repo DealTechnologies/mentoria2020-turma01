@@ -75,8 +75,6 @@ namespace Livraria.Infra.Data.Repositories
                 IMongoCollection<LivroQueryResult> delete = _dataContext.MongoDBConexao.GetCollection<LivroQueryResult>("Livro");
                 Expression<Func<LivroQueryResult, bool>> filtro = x => x.Id.Equals(id);
                 DeleteResult result = delete.DeleteOne(filtro);
-
-                //if (result.DeletedCount == 0) return result.ToString();
             }
             catch (Exception ex)
             {
