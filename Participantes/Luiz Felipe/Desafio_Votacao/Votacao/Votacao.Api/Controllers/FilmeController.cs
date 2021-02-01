@@ -35,7 +35,7 @@ namespace Votacao.Api.Controllers
         [AllowAnonymous]
         public IEnumerable<FilmeQueryResult> Filmes()
         {
-            return _filmeRepository.Listar();
+            return _filmeRepository.ListarAsync().Result;
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Votacao.Api.Controllers
         [AllowAnonymous]
         public FilmeQueryResult Filme(long id)
         {
-            return _filmeRepository.ObterPorId(id);
+            return _filmeRepository.ObterPorIdAsync(id).Result;
         }
 
         /// <summary>

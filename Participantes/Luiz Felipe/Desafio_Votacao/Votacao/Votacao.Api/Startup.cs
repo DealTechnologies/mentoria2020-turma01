@@ -1,3 +1,4 @@
+using AutoMapper;
 using ElmahCore;
 using ElmahCore.Mvc;
 using ElmahCore.Sql;
@@ -109,6 +110,11 @@ namespace Votacao.Api
                     ValidateAudience = false
                 };
             });
+            #endregion
+
+            #region [+] AutoMapper
+            IMapper mapper = AutoMapperConfig.RegisterMappings();
+            services.AddSingleton(mapper);
             #endregion
 
             services.AddControllers();

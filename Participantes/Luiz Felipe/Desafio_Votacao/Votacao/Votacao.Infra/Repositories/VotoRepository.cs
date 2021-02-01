@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Queries;
@@ -20,7 +21,7 @@ namespace Votacao.Infra.Repositories
             _dataContext = dataContext;
         }
 
-        public long Inserir(Voto voto)
+        public async Task<long> InserirAsync(Voto voto)
         {
             try
             {
@@ -29,7 +30,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"INSERT INTO Voto (IdUsuario, IdFilme) VALUES (@IdUsuario, @IdFilme); SELECT SCOPE_IDENTITY();";
 
-                return _dataContext.SQLConnection.ExecuteScalar<long>(sql, _parametros);
+                return await _dataContext.SQLConnection.ExecuteScalarAsync<long>(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -38,7 +39,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public List<VotoQueryResult> ListarVotos()
+        public async Task<List<VotoQueryResult>> ListarVotosAsync()
         {
             try
             {
@@ -57,7 +58,7 @@ namespace Votacao.Infra.Repositories
                             INNER JOIN Filme f ON v.IdFilme = f.Id
                             ORDER BY v.Id ASC;";
 
-                return _dataContext.SQLConnection.Query<VotoQueryResult, UsuarioQueryResult, FilmeQueryResult, VotoQueryResult>(
+                var result = await _dataContext.SQLConnection.QueryAsync<VotoQueryResult, UsuarioQueryResult, FilmeQueryResult, VotoQueryResult>(
                         sql,
                         map: (voto, usuario, filme) =>
                         {
@@ -66,7 +67,9 @@ namespace Votacao.Infra.Repositories
 
                             return voto;
                         },
-                        splitOn: "Id, Id, Id").Distinct().ToList();
+                        splitOn: "Id, Id, Id");
+
+                return result.Distinct().ToList();
             }
             catch (Exception ex)
             {
@@ -75,7 +78,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public bool CheckUsuarioVotou(long idUsuario)
+        public async Task<bool> CheckUsuarioVotouAsync(long idUsuario)
         {
             try
             {
@@ -85,7 +88,9 @@ namespace Votacao.Infra.Repositories
                             INNER JOIN Voto v ON v.IdUsuario = u.Id
                             WHERE v.IdUsuario=@IdUsuario;";
 
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<bool>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -94,7 +99,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public VotoQueryResult ObterVoto(long id)
+        public async Task<VotoQueryResult> ObterVotoAsync(long id)
         {
             try
             {
@@ -113,7 +118,7 @@ namespace Votacao.Infra.Repositories
                             INNER JOIN Filme f ON v.IdFilme = f.Id
                             WHERE v.Id = @id;";
 
-                return _dataContext.SQLConnection.Query<VotoQueryResult, UsuarioQueryResult, FilmeQueryResult, VotoQueryResult>(
+                var result = await _dataContext.SQLConnection.QueryAsync<VotoQueryResult, UsuarioQueryResult, FilmeQueryResult, VotoQueryResult>(
                         sql,
                         map: (voto, usuario, filme) =>
                         {
@@ -123,7 +128,9 @@ namespace Votacao.Infra.Repositories
                             return voto;
                         },
                         new { Id = id },
-                        splitOn: "Id, Id, Id").FirstOrDefault();
+                        splitOn: "Id, Id, Id");
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {

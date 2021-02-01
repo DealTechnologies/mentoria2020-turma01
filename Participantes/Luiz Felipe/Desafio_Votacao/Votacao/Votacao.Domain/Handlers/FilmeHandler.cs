@@ -30,7 +30,7 @@ namespace Votacao.Domain.Handlers
                 long id = 0;
                 Filme filme = new Filme(id, command.Titulo, command.Diretor);
 
-                id = _filmeRepository.Inserir(filme);
+                id = _filmeRepository.InserirAsync(filme).Result;
 
                 return new AdicionarFilmeCommandResult(true, Avisos.Filme_Gravado_com_sucesso,
                     new
@@ -54,7 +54,7 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AtualizarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (!_filmeRepository.CheckId(command.Id))
+                if (!_filmeRepository.CheckIdAsync(command.Id).Result)
                     AddNotification("Id", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (Notifications.Count() > 0)
@@ -62,7 +62,7 @@ namespace Votacao.Domain.Handlers
 
                 Filme filme = new Filme(command.Id, command.Titulo, command.Diretor);
 
-                _filmeRepository.Alterar(filme);
+                _filmeRepository.AlterarAsync(filme);
 
                 return new AdicionarFilmeCommandResult(true, Avisos.Filme_Atualizado_com_sucesso,
                     new
@@ -86,13 +86,13 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new ApagarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (!_filmeRepository.CheckId(command.Id))
+                if (!_filmeRepository.CheckIdAsync(command.Id).Result)
                     AddNotification("Id", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (Notifications.Count() > 0)
                     return new ApagarFilmeCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, Notifications);
 
-                _filmeRepository.Deletar(command.Id);
+                _filmeRepository.DeletarAsync(command.Id);
 
                 return new ApagarFilmeCommandResult(true, Avisos.Filme_Apagado_com_sucesso,
                     new

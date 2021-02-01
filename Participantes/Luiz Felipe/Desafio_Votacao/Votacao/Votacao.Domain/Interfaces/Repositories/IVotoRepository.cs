@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Queries;
 
@@ -6,9 +7,9 @@ namespace Votacao.Domain.Interfaces.Repositories
 {
     public interface IVotoRepository
     {
-        long Inserir(Voto voto);
-        List<VotoQueryResult> ListarVotos();
-        bool CheckUsuarioVotou(long idUsuario);
-        VotoQueryResult ObterVoto(long id);
+        Task<long> InserirAsync(Voto voto);
+        Task<List<VotoQueryResult>> ListarVotosAsync();
+        Task<bool> CheckUsuarioVotouAsync(long idUsuario);
+        Task<VotoQueryResult> ObterVotoAsync(long id);
     }
 }

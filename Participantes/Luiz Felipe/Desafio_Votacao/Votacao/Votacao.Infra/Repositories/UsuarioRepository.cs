@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Queries;
@@ -20,7 +21,7 @@ namespace Votacao.Infra.Repositories
             _dataContext = dataContext;
         }
 
-        public long Inserir(Usuario usuario)
+        public async Task<long> InserirAsync(Usuario usuario)
         {
             try
             {
@@ -31,7 +32,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"INSERT INTO Usuario (Nome, Login, Senha, Role) VALUES (@Nome, @Login, @Senha, @Role); SELECT SCOPE_IDENTITY();";
 
-                return _dataContext.SQLConnection.ExecuteScalar<long>(sql, _parametros);
+                return await _dataContext.SQLConnection.ExecuteScalarAsync<long>(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -40,7 +41,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public void Alterar(Usuario usuario)
+        public async Task AlterarAsync(Usuario usuario)
         {
             try
             {
@@ -52,7 +53,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"UPDATE Usuario SET Nome=@Nome, Login=@Login, Senha=@Senha, Role=@Role WHERE Id=@Id;";
 
-                _dataContext.SQLConnection.Execute(sql, _parametros);
+                await _dataContext.SQLConnection.ExecuteAsync(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -61,7 +62,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public void Deletar(long id)
+        public async Task DeletarAsync(long id)
         {
             try
             {
@@ -69,7 +70,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"DELETE FROM Usuario WHERE Id=@Id;";
 
-                _dataContext.SQLConnection.Execute(sql, _parametros);
+                await _dataContext.SQLConnection.ExecuteAsync(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -78,13 +79,15 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public List<UsuarioQueryResult> Listar()
+        public async Task<List<UsuarioQueryResult>> ListarAsync()
         {
             try
             {
                 var sql = @"SELECT * FROM Usuario ORDER BY Nome;";
 
-                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql).ToList();
+                var result = await _dataContext.SQLConnection.QueryAsync<UsuarioQueryResult>(sql);
+
+                return result.ToList();
             }
             catch (Exception ex)
             {
@@ -93,7 +96,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public UsuarioQueryResult ObterPorId(long id)
+        public async Task<UsuarioQueryResult> ObterPorIdAsync(long id)
         {
             try
             {
@@ -101,7 +104,9 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Usuario WHERE Id=@Id;";
 
-                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<UsuarioQueryResult>(sql, _parametros);
+                
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -110,7 +115,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public UsuarioQueryResult ObterPorLogin(string login)
+        public async Task<UsuarioQueryResult> ObterPorLoginAsync(string login)
         {
             try
             {
@@ -118,7 +123,9 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Usuario WHERE Login=@Login;";
 
-                return _dataContext.SQLConnection.Query<UsuarioQueryResult>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<UsuarioQueryResult>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -127,7 +134,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public bool CheckId(long id)
+        public async Task<bool> CheckIdAsync(long id)
         {
             try
             {
@@ -135,7 +142,9 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Usuario WHERE Id=@Id;";
 
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<bool>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -144,7 +153,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public bool CheckAutenticacao(string login, string senha)
+        public async Task<bool> CheckAutenticacaoAsync(string login, string senha)
         {
             try
             {
@@ -154,7 +163,9 @@ namespace Votacao.Infra.Repositories
                 var sql = @"SELECT * FROM Usuario 
                             WHERE Login=@Login AND Senha=@Senha;";
 
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<bool>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -163,7 +174,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public bool CheckLogin(string login)
+        public async Task<bool> CheckLoginAsync(string login)
         {
             try
             {
@@ -171,7 +182,9 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Usuario WHERE Login=@Login;";
 
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<bool>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {

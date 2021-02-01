@@ -29,13 +29,13 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new VotarCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (!_usuarioRepository.CheckId(command.IdUsuario))
+                if (!_usuarioRepository.CheckIdAsync(command.IdUsuario).Result)
                     AddNotification("IdUsuario", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
-                if (!_filmeRepository.CheckId(command.IdFilme))
+                if (!_filmeRepository.CheckIdAsync(command.IdFilme).Result)
                     AddNotification("IdFilme", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
-                if (_votoRepository.CheckUsuarioVotou(command.IdUsuario))
+                if (_votoRepository.CheckUsuarioVotouAsync(command.IdUsuario).Result)
                     AddNotification("IdUsuario", Avisos.Esse_usuario_ja_votou);
 
                 if (Notifications.Count() > 0)
@@ -44,8 +44,8 @@ namespace Votacao.Domain.Handlers
                 long id = 0;
                 Voto voto = new Voto(id, command.IdUsuario, command.IdFilme);
 
-                long idVoto = _votoRepository.Inserir(voto);
-                var votoReturn = _votoRepository.ObterVoto(idVoto);
+                long idVoto = _votoRepository.InserirAsync(voto).Result;
+                var votoReturn = _votoRepository.ObterVotoAsync(idVoto).Result;
 
                 return new VotarCommandResult(true, Avisos.Voto_realizado_com_sucesso, new { votoReturn });
             }

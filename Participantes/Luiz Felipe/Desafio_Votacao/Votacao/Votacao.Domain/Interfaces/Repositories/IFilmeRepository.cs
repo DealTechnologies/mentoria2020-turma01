@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Queries;
 
@@ -6,11 +7,11 @@ namespace Votacao.Domain.Interfaces.Repositories
 {
     public interface IFilmeRepository
     {
-        long Inserir(Filme filme);
-        void Alterar(Filme filme);
-        void Deletar(long id);
-        List<FilmeQueryResult> Listar();
-        FilmeQueryResult ObterPorId(long id);
-        bool CheckId(long id);
+        Task<long> InserirAsync(Filme filme);
+        Task AlterarAsync(Filme filme);
+        Task DeletarAsync(long id);
+        Task<List<FilmeQueryResult>> ListarAsync();
+        Task<FilmeQueryResult> ObterPorIdAsync(long id);
+        Task<bool> CheckIdAsync(long id);
     }
 }

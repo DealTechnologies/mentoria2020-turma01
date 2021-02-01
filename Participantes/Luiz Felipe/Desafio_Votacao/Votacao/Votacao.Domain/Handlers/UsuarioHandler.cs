@@ -1,4 +1,5 @@
-﻿using Flunt.Notifications;
+﻿using AutoMapper;
+using Flunt.Notifications;
 using System;
 using System.Linq;
 using Votacao.Domain.Autenticacao;
@@ -15,10 +16,13 @@ namespace Votacao.Domain.Handlers
                                                 ICommandHandler<ApagarUsuarioCommand>
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IMapper _mapper;
 
-        public UsuarioHandler(IUsuarioRepository usuarioRepository)
+        public UsuarioHandler(IUsuarioRepository usuarioRepository,
+                                IMapper mapper)
         {
             _usuarioRepository = usuarioRepository;
+            _mapper = mapper;
         }
 
         public ICommandResult Handler(AdicionarUsuarioCommand command)
@@ -28,7 +32,7 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AdicionarUsuarioCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (_usuarioRepository.CheckLogin(command.Login))
+                if (_usuarioRepository.CheckLoginAsync(command.Login).Result)
                     AddNotification("Login", Avisos.Login_ja_existente_Por_favor_tente_um_login_diferente);
 
                 if (Notifications.Count() > 0)
@@ -37,7 +41,7 @@ namespace Votacao.Domain.Handlers
                 long id = 0;
                 Usuario usuario = new Usuario(id, command.Nome, command.Login, command.Senha, command.Role);
 
-                id = _usuarioRepository.Inserir(usuario);
+                id = _usuarioRepository.InserirAsync(usuario).Result;
 
                 return new AdicionarUsuarioCommandResult(true, Avisos.Usuario_Gravado_com_sucesso,
                     new
@@ -62,7 +66,7 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AtualizarUsuarioCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (!_usuarioRepository.CheckId(command.Id))
+                if (!_usuarioRepository.CheckIdAsync(command.Id).Result)
                     AddNotification("Id", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (Notifications.Count() > 0)
@@ -70,7 +74,7 @@ namespace Votacao.Domain.Handlers
 
                 Usuario usuario = new Usuario(command.Id, command.Nome, command.Login, command.Senha, command.Role);
 
-                _usuarioRepository.Alterar(usuario);
+                _usuarioRepository.AlterarAsync(usuario);
 
                 return new AdicionarUsuarioCommandResult(true, Avisos.Usuario_Atualizado_com_sucesso,
                     new
@@ -96,13 +100,13 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new ApagarUsuarioCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (!_usuarioRepository.CheckId(command.Id))
+                if (!_usuarioRepository.CheckIdAsync(command.Id).Result)
                     AddNotification("Id", Avisos.Id_invalido_Este_Id_nao_esta_cadastrado);
 
                 if (Notifications.Count() > 0)
                     return new ApagarUsuarioCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, Notifications);
 
-                _usuarioRepository.Deletar(command.Id);
+                _usuarioRepository.DeletarAsync(command.Id);
 
                 return new ApagarUsuarioCommandResult(true, Avisos.Usuario_Apagado_com_sucesso,
                     new
@@ -124,15 +128,14 @@ namespace Votacao.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AutenticarUsuarioCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, command.Notifications);
 
-                if (!_usuarioRepository.CheckAutenticacao(command.Login, command.Senha))
+                if (!_usuarioRepository.CheckAutenticacaoAsync(command.Login, command.Senha).Result)
                     AddNotification("Autenticação", Avisos.Login_ou_Senha_invalidos);
 
                 if (Notifications.Count() > 0)
                     return new AutenticarUsuarioCommandResult(false, Avisos.Por_favor_corrija_as_inconsistências_abaixo, Notifications);
 
-                var usuarioResult = _usuarioRepository.ObterPorLogin(command.Login);
-                //TODO: usar AutoMapper
-                Usuario usuario = new Usuario(0, usuarioResult.Nome, usuarioResult.Login, usuarioResult.Senha, usuarioResult.Role);
+                var usuarioResult = _usuarioRepository.ObterPorLoginAsync(command.Login).Result;
+                var usuario = _mapper.Map<Usuario>(usuarioResult);
 
                 var token = TokenService.GenerateToken(usuario);
 

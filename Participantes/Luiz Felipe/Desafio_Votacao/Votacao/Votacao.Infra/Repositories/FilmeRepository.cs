@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Queries;
@@ -20,7 +21,7 @@ namespace Votacao.Infra.Repositories
             _dataContext = dataContext;
         }
 
-        public long Inserir(Filme filme)
+        public async Task<long> InserirAsync(Filme filme)
         {
             try
             {
@@ -29,7 +30,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"INSERT INTO Filme (Titulo, Diretor) VALUES (@Titulo, @Diretor); SELECT SCOPE_IDENTITY();";
 
-                return _dataContext.SQLConnection.ExecuteScalar<long>(sql, _parametros);
+                return await _dataContext.SQLConnection.ExecuteScalarAsync<long>(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -38,7 +39,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public void Alterar(Filme filme)
+        public async Task AlterarAsync(Filme filme)
         {
             try
             {
@@ -48,7 +49,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"UPDATE Filme SET Titulo=@Titulo, Diretor=@Diretor WHERE Id=@Id;";
 
-                _dataContext.SQLConnection.Execute(sql, _parametros);
+                await _dataContext.SQLConnection.ExecuteAsync(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -57,7 +58,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public void Deletar(long id)
+        public async Task DeletarAsync(long id)
         {
             try
             {
@@ -65,7 +66,7 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"DELETE FROM Filme WHERE Id=@Id;";
 
-                _dataContext.SQLConnection.Execute(sql, _parametros);
+                await _dataContext.SQLConnection.ExecuteAsync(sql, _parametros);
             }
             catch (Exception ex)
             {
@@ -74,13 +75,15 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public List<FilmeQueryResult> Listar()
+        public async Task<List<FilmeQueryResult>> ListarAsync()
         {
             try
             {
                 var sql = @"SELECT * FROM Filme ORDER BY Titulo;";
 
-                return _dataContext.SQLConnection.Query<FilmeQueryResult>(sql).ToList();
+                var result = await _dataContext.SQLConnection.QueryAsync<FilmeQueryResult>(sql);
+
+                return result.ToList();
             }
             catch (Exception ex)
             {
@@ -89,7 +92,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public FilmeQueryResult ObterPorId(long id)
+        public async Task<FilmeQueryResult> ObterPorIdAsync(long id)
         {
             try
             {
@@ -97,7 +100,9 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Filme WHERE Id=@Id;";
 
-                return _dataContext.SQLConnection.Query<FilmeQueryResult>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<FilmeQueryResult>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -106,7 +111,7 @@ namespace Votacao.Infra.Repositories
             }
         }
 
-        public bool CheckId(long id)
+        public async Task<bool> CheckIdAsync(long id)
         {
             try
             {
@@ -114,7 +119,9 @@ namespace Votacao.Infra.Repositories
 
                 var sql = @"SELECT * FROM Filme WHERE Id=@Id;";
 
-                return _dataContext.SQLConnection.Query<bool>(sql, _parametros).FirstOrDefault();
+                var result = await _dataContext.SQLConnection.QueryAsync<bool>(sql, _parametros);
+
+                return result.FirstOrDefault();
             }
             catch (Exception ex)
             {

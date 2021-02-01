@@ -42,7 +42,7 @@ namespace Votacao.Api.Controllers
         [Authorize(Roles = "Visitante,Administrador")]
         public IEnumerable<UsuarioQueryResult> Usuarios()
         {
-            return _usuarioRepository.Listar();
+            return _usuarioRepository.ListarAsync().Result;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Votacao.Api.Controllers
         [Authorize(Roles = "Visitante,Administrador")]
         public UsuarioQueryResult Usuario(long id)
         {
-            return _usuarioRepository.ObterPorId(id);
+            return _usuarioRepository.ObterPorIdAsync(id).Result;
         }
 
         /// <summary>

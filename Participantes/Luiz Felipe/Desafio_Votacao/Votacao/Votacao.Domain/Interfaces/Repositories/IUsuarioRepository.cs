@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Votacao.Domain.Entidades;
 using Votacao.Domain.Queries;
 
@@ -6,14 +7,14 @@ namespace Votacao.Domain.Interfaces.Repositories
 {
     public interface IUsuarioRepository
     {
-        long Inserir(Usuario usuario);
-        void Alterar(Usuario usuario);
-        void Deletar(long id);
-        List<UsuarioQueryResult> Listar();
-        UsuarioQueryResult ObterPorId(long id);
-        UsuarioQueryResult ObterPorLogin(string login);
-        bool CheckId(long id);
-        bool CheckAutenticacao(string login, string senha);
-        bool CheckLogin(string login);
+        Task<long> InserirAsync(Usuario usuario);
+        Task AlterarAsync(Usuario usuario);
+        Task DeletarAsync(long id);
+        Task<List<UsuarioQueryResult>> ListarAsync();
+        Task<UsuarioQueryResult> ObterPorIdAsync(long id);
+        Task<UsuarioQueryResult> ObterPorLoginAsync(string login);
+        Task<bool> CheckIdAsync(long id);
+        Task<bool> CheckAutenticacaoAsync(string login, string senha);
+        Task<bool> CheckLoginAsync(string login);
     }
 }
