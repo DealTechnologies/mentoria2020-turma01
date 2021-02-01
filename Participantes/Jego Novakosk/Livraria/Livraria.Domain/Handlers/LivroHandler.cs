@@ -3,19 +3,23 @@ using Livraria.Domain.Commands.Livro.Input;
 using Livraria.Domain.Commands.Livro.Output;
 using Livraria.Domain.Entidades;
 using Livraria.Domain.Interfaces.Commands;
-using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using System;
 
 namespace Livraria.Domain.Handlers
 {
-    public class LivroHandler : Notifiable, ILivroHandler
+    public class LivroHandler : Notifiable, ICommandHandler<AdicionarLivroCommand>,
+                                            ICommandHandler<AtualizarLivroCommand>,
+                                            ICommandHandler<ApagarLivroCommand>
     {
+
         private readonly ILivroRepository _repository;
+
 
         public LivroHandler(ILivroRepository repository)
         {
             _repository = repository;
+
         }
 
         public ICommandResult Handler(AdicionarLivroCommand command)
@@ -23,7 +27,9 @@ namespace Livraria.Domain.Handlers
             try
             {
                 if (!command.ValidarCommand())
-                    return new AdicionarLivroCommandResult(false, "Por favor corrija as inconsistêcias abaixo", command.Notifications);
+                {
+                    return new AdicionarLivroCommandResult(false, "Por favor corrija as inconsistência abaixo", command.Notifications);
+                }
 
                 long id = 0;
                 string nome = command.Nome;
@@ -36,7 +42,7 @@ namespace Livraria.Domain.Handlers
 
                 id = _repository.Inserir(livro);
 
-                var retorno = new AdicionarLivroCommandResult(true, "Livro gravado com sucesso", new
+                var retorno = new AdicionarLivroCommandResult(true, "Livro granado com sucesso", new
                 {
                     Id = id,
                     Nome = livro.Nome,
@@ -50,8 +56,11 @@ namespace Livraria.Domain.Handlers
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
+
+            
         }
 
         public ICommandResult Handler(AtualizarLivroCommand command)
@@ -59,12 +68,14 @@ namespace Livraria.Domain.Handlers
             try
             {
                 if (!command.ValidarCommand())
-                    return new AtualizarLivroCommandResult(false, "Por favor corrija as inconsistêcias abaixo", command.Notifications);
+                {
+                    return new AtualizarLivroCommandResult(false, "Por favor corrija as inconsistência abaixo", command.Notifications);
+                }
 
                 if (!_repository.CheckId(command.Id))
                 {
-                    AddNotification("Id", "Id inválido. Este id não está cadastrado.");
-                    return new AtualizarLivroCommandResult(false, "Por favor corrija as inconsistêcias abaixo", Notifications);
+                    AddNotification("Id", "Id invalido. Este idnão esta cadastrado.");
+                    return new AtualizarLivroCommandResult(false, "Por favor corrija as inconsistência abaixo", Notifications);
                 }
 
                 long id = command.Id;
@@ -76,13 +87,13 @@ namespace Livraria.Domain.Handlers
 
                 Livro livro = new Livro(id, nome, autor, edicao, isbn, imagem);
 
-                _repository.Alterar(livro);
+              _repository.Alterar(livro);
 
-                var retorno = new AtualizarLivroCommandResult(true, "Livro atualizado com sucesso", new
+                var retorno = new AtualizarLivroCommandResult(true, "Livro alterado com sucesso", new
                 {
                     Id = livro.Id,
                     Nome = livro.Nome,
-                    Autor = livro.Autor,
+                    Autor = livro.Edicao,
                     Edicao = livro.Edicao,
                     Isbn = livro.Isbn,
                     Imagem = livro.Imagem
@@ -90,31 +101,39 @@ namespace Livraria.Domain.Handlers
 
                 return retorno;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
+
+
         }
 
         public ICommandResult Handler(ApagarLivroCommand command)
         {
             if (!command.ValidarCommand())
-                return new ApagarLivroCommandResult(false, "Por favor corrija as inconsistêcias abaixo", command.Notifications);
+            {
+                return new ApagarLivroCommandResult(false, "Por favor corrija as inconsistência abaixo", command.Notifications);
+            }
 
             if (!_repository.CheckId(command.Id))
             {
-                AddNotification("Id", "Id inválido. Este id não está cadastrado.");
-                return new ApagarLivroCommandResult(false, "Por favor corrija as inconsistêcias abaixo", Notifications);
+                AddNotification("Id", "Id invalido. Este idnão esta cadastrado.");
+                return new ApagarLivroCommandResult(false, "Por favor corrija as inconsistência abaixo", Notifications);
             }
 
             _repository.Deletar(command.Id);
 
-            var retorno = new ApagarLivroCommandResult(true, "Livro apagado com sucesso", new
+            var retorno = new AtualizarLivroCommandResult(true, "Livro deletado com sucesso", new
             {
-                Id = command.Id
+                Id = command.Id,
+
             });
 
             return retorno;
+
+            
         }
     }
 }

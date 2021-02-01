@@ -1,5 +1,4 @@
 using Livraria.Domain.Handlers;
-using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
 using Livraria.Infra.DataContexts;
@@ -16,37 +15,41 @@ namespace Livraria.Api
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region [+] AppSettings 
 
-            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
+            
 
-            #endregion
+            #region [+] AppSettings
 
-            #region [+] DataContexts 
-
-            services.AddScoped<DataContext>();
+            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra")
+            .Bind(options));
 
             #endregion
 
-            #region [+] Repositories 
+            #region [+] DataContexts
+
+             services.AddScoped<DataContext>();
+
+            #endregion
+
+            #region [+] Repositories
 
             services.AddTransient<ILivroRepository, LivroRepository>();
 
             #endregion
 
-            #region [+] Handlers 
+            #region [+] Handlers
 
-            services.AddTransient<ILivroHandler, LivroHandler>();
+            services.AddTransient<LivroHandler, LivroHandler>();
 
             #endregion
 
@@ -62,20 +65,19 @@ namespace Livraria.Api
                     Version = "v1",
                     Title = "Livraria API",
                     Description = "Projeto responsável por gerenciar uma livraria",
-                    Contact = new OpenApiContact 
-                    { 
-                        Name = "Lucas Santos",
-                        Email = "l_santos@hotmail.com.br",
-                        Url = new Uri("http://github.com/lsantoss")
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Jego Novakosk",
+                        Email = "jnovakosk@gmail.com",
+                        Url = new Uri("https://github.com/JegoANovakosk/CSharp")
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Licença MIT",
-                        Url = new Uri("http://github.com/lsantoss")
+                        Url = new Uri("https://github.com/JegoANovakosk/CSharp")
                     }
                 });
             });
-
             #endregion
 
             services.AddControllers();

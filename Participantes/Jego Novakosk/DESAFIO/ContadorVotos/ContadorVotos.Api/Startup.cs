@@ -1,9 +1,3 @@
-using Livraria.Domain.Handlers;
-using Livraria.Domain.Interfaces.Handlers;
-using Livraria.Domain.Interfaces.Repositories;
-using Livraria.Infra;
-using Livraria.Infra.DataContexts;
-using Livraria.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -11,42 +5,52 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using Voto.Domain.Handlers;
+using Voto.Domain.Interfaces.Handlers;
+using Voto.Domain.Interfaces.Repositories;
+using Voto.Infra;
+using Voto.Infra.DataContexts;
+using Voto.Infra.Repositories;
 
-namespace Livraria.Api
+namespace ContadorVotos.Api
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region [+] AppSettings 
+            #region [+] ConexãoBancoDados
 
-            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
+            services.Configure<SettingsInfra>(resp => Configuration.GetSection("SettingsInfra").Bind(resp));
 
             #endregion
 
-            #region [+] DataContexts 
+            #region [+] Repositories
+
+            services.AddTransient<IFilmeRepository, FilmeRepository>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IVotoRepository, VotoRepository>();
+
+            #endregion
+
+            #region [+] DataContext
 
             services.AddScoped<DataContext>();
 
             #endregion
 
-            #region [+] Repositories 
+            #region [+] Handles
 
-            services.AddTransient<ILivroRepository, LivroRepository>();
-
-            #endregion
-
-            #region [+] Handlers 
-
-            services.AddTransient<ILivroHandler, LivroHandler>();
+            services.AddTransient<IFilmeHandler, FilmeHandler>();  
+            services.AddTransient<IUsuarioHandler, UsuarioHandler>();
+            services.AddTransient<IVotosHandler, VotosHandler>();
 
             #endregion
 
@@ -60,22 +64,21 @@ namespace Livraria.Api
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Livraria API",
-                    Description = "Projeto responsável por gerenciar uma livraria",
-                    Contact = new OpenApiContact 
-                    { 
-                        Name = "Lucas Santos",
-                        Email = "l_santos@hotmail.com.br",
-                        Url = new Uri("http://github.com/lsantoss")
+                    Title = "Votação API",
+                    Description = "Projeto responsável por gerenciar sistema de Votação",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Jego Novakosk",
+                        Email = "jnovakosk@gmail.com",
+                        Url = new Uri("https://github.com/JegoANovakosk/CSharp")
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Licença MIT",
-                        Url = new Uri("http://github.com/lsantoss")
+                        Url = new Uri("https://github.com/JegoANovakosk/CSharp")
                     }
                 });
             });
-
             #endregion
 
             services.AddControllers();
@@ -92,7 +95,7 @@ namespace Livraria.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Livraria API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Votação API");
             });
 
             app.UseHttpsRedirection();

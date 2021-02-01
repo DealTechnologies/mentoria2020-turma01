@@ -1,5 +1,4 @@
 using Livraria.Domain.Handlers;
-using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
 using Livraria.Infra.DataContexts;
@@ -12,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 
-namespace Livraria.Api
+namespace Livraria.API
 {
     public class Startup
     {
@@ -23,60 +22,65 @@ namespace Livraria.Api
             Configuration = configuration;
         }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region [+] AppSettings 
 
-            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
-
-            #endregion
-
-            #region [+] DataContexts 
+            #region [+] DataContexts
 
             services.AddScoped<DataContext>();
 
             #endregion
 
-            #region [+] Repositories 
+            #region [+] Handlers
+
+            services.AddTransient<LivroHandler, LivroHandler>();
+
+            #endregion
+
+            #region [+] Repositories
 
             services.AddTransient<ILivroRepository, LivroRepository>();
 
             #endregion
 
-            #region [+] Handlers 
+            #region [+] AppSettings
 
-            services.AddTransient<ILivroHandler, LivroHandler>();
+            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
 
             #endregion
 
             #region [+] Swagger
 
+
             services.AddSwaggerGen(c =>
             {
-                //c.DescribeAllEnumsAsStrings();
-                c.DescribeAllParametersInCamelCase();
+                // c.DescribeAllEnumsAsStrings()   Troca os enums para string
+                c.DescribeAllParametersInCamelCase(); //Deixa os parâmetros em Camel Case
                 c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\Swagger.xml");
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "Livraria API",
                     Description = "Projeto responsável por gerenciar uma livraria",
-                    Contact = new OpenApiContact 
-                    { 
-                        Name = "Lucas Santos",
-                        Email = "l_santos@hotmail.com.br",
-                        Url = new Uri("http://github.com/lsantoss")
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Ricardo Dantas",
+                        Email = "ricardo.ribeiro@deal.com.br",
+                        Url = new Uri("https://github.com/ricardodantas97")
+
                     },
                     License = new OpenApiLicense
                     {
-                        Name = "Licença MIT",
-                        Url = new Uri("http://github.com/lsantoss")
+                        Name = "Licença MTI",
+                        Url = new Uri("https://github.com/ricardodantas97")
                     }
                 });
             });
 
             #endregion
+
 
             services.AddControllers();
         }
@@ -91,9 +95,9 @@ namespace Livraria.Api
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Livraria API");
-            });
+           {
+               c.SwaggerEndpoint("/swagger/v1/swagger.json", "Livraria API");
+           });
 
             app.UseHttpsRedirection();
 
