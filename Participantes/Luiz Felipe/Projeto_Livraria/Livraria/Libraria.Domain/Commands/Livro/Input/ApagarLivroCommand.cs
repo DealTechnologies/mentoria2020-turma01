@@ -8,7 +8,7 @@ namespace Livraria.Domain.Commands.Livro.Input
 {
     public class ApagarLivroCommand : Notifiable, ICommandPadrao
     {
-        public long Id { get; set; }
+        public string Id { get; set; }
         public string Nome { get; set; }
         public string Autor { get; set; }
         public int Edicao { get; set; }
@@ -19,8 +19,10 @@ namespace Livraria.Domain.Commands.Livro.Input
         {
             try
             {
-                if (Id <= 0)
+                if (string.IsNullOrEmpty(Id))
                     AddNotification("Id", "Id é um campo obrigatório");
+                if (Id.Length < 24)
+                    AddNotification("Id", "Id é um campo Inválido");
 
                 return Valid;
             }

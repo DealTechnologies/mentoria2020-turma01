@@ -3,16 +3,17 @@ using Livraria.Domain.Queries.Livro;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Livraria.Domain.Interfaces.Repositories
 {
     public interface ILivroRepository
     {
-        long Inserir(Livro livro);
-        void Alterar(Livro livro);
-        void Deletar(long id);
-        List<LivroQueryResult> Listar();
-        LivroQueryResult ObterPorId(long id);
-        bool CheckId(long id);
+        Task<string> InserirAsync(Livro livro);
+        Task AlterarAsync(Livro livro);
+        Task DeletarAsync(string id);
+        Task<List<LivroQueryResult>> ListarAsync();
+        Task<LivroQueryResult> ObterPorIdAsync(string id);
+        Task<bool> CheckIdAsync(string id);
     }
 }

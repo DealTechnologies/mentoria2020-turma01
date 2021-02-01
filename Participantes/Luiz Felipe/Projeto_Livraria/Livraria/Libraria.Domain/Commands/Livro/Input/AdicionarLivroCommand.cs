@@ -8,12 +8,12 @@ namespace Livraria.Domain.Commands.Livro.Input
 {
     public class AdicionarLivroCommand : Notifiable, ICommandPadrao
     {
-        public long Id { get; set; }
-        public string Nome { get; private set; }
-        public string Autor { get; private set; }
-        public int Edicao { get; private set; }
-        public string Isbn { get; private set; }
-        public string Imagem { get; private set; }
+        public string Id { get; set; }
+        public string Nome { get; set; }
+        public string Autor { get; set; }
+        public int Edicao { get; set; }
+        public string Isbn { get; set; }
+        public string Imagem { get; set; }
 
         public bool ValidarCommand()
         {

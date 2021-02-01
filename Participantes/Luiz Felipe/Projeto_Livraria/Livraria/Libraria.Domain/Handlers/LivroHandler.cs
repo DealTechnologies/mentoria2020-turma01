@@ -16,6 +16,11 @@ namespace Livraria.Domain.Handlers
     {
         private readonly ILivroRepository _repository;
 
+        public LivroHandler(ILivroRepository repository)
+        {
+            _repository = repository;
+        }
+
         public ICommandResult Handler(AdicionarLivroCommand command)
         {
             try
@@ -23,18 +28,11 @@ namespace Livraria.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AdicionarLivroCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                long id = 0;
-                string nome = command.Nome;
-                string autor = command.Autor;
-                int edicao = command.Edicao;
-                string isbn = command.Isbn;
-                string imagem = command.Imagem;
+                Livro livro = new Livro(command.Nome, command.Autor, command.Edicao, command.Isbn, command.Imagem);
 
-                Livro livro = new Livro(0, nome, autor, edicao, isbn, imagem);
+                var id = _repository.InserirAsync(livro).Result;
 
-                id = _repository.Inserir(livro);
-
-                var retorno = new AdicionarLivroCommandResult(true, "Livro Gravado com sucesso!", new
+                return new AdicionarLivroCommandResult(true, "Livro Gravado com sucesso!", new
                 {
                     Id = id,
                     Nome = livro.Nome,
@@ -42,8 +40,6 @@ namespace Livraria.Domain.Handlers
                     Isbn = livro.Isbn,
                     Imagem = livro.Imagem
                 });
-
-                return retorno;
             }
             catch (Exception ex)
             {
@@ -59,24 +55,19 @@ namespace Livraria.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AtualizarLivroCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                if (!_repository.CheckId(command.Id))
+                if (!_repository.CheckIdAsync(command.Id).Result)
                 {
                     AddNotification("Id", "Id inválido. Este id não está cadastrado.");
                     return new AtualizarLivroCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
                 }
 
-                long id = command.Id;
-                string nome = command.Nome;
-                string autor = command.Autor;
-                int edicao = command.Edicao;
-                string isbn = command.Isbn;
-                string imagem = command.Imagem;
+                string id = command.Id;
 
-                Livro livro = new Livro(0, nome, autor, edicao, isbn, imagem);
+                Livro livro = new Livro(command.Nome, command.Autor, command.Edicao, command.Isbn, command.Imagem) { Id = id };
 
-                _repository.Alterar(livro);
+                _repository.AlterarAsync(livro);
 
-                var retorno = new AtualizarLivroCommandResult(true, "Livro Atualizado com sucesso!", new
+                return new AtualizarLivroCommandResult(true, "Livro Atualizado com sucesso!", new
                 {
                     Id = id,
                     Nome = livro.Nome,
@@ -84,8 +75,6 @@ namespace Livraria.Domain.Handlers
                     Isbn = livro.Isbn,
                     Imagem = livro.Imagem
                 });
-
-                return retorno;
             }
             catch (Exception ex)
             {
@@ -101,22 +90,18 @@ namespace Livraria.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new ApagarLivroCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                if (!_repository.CheckId(command.Id))
+                if (!_repository.CheckIdAsync(command.Id).Result)
                 {
                     AddNotification("Id", "Id inválido. Este id não está cadastrado.");
                     return new ApagarLivroCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
                 }
 
-                long id = command.Id;
+                _repository.DeletarAsync(command.Id);
 
-                _repository.Deletar(command.Id);
-
-                var retorno = new ApagarLivroCommandResult(true, "Livro Apagado com sucesso!", new
+                return new ApagarLivroCommandResult(true, "Livro Apagado com sucesso!", new
                 {
-                    Id = id
+                    Id = command.Id
                 });
-
-                return retorno;
             }
             catch (Exception ex)
             {

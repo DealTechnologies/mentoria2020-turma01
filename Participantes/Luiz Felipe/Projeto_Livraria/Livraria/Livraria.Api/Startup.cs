@@ -1,3 +1,5 @@
+using AutoMapper;
+using Livraria.Domain;
 using Livraria.Domain.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
@@ -25,13 +27,17 @@ namespace Livraria.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region AppSettings
-
-            services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
-
+            #region [+] AppSettings
+            services.Configure<SettingsInfra>(options =>
+            {
+                options.ConnectionString
+                    = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.DataBaseName
+                    = Configuration.GetSection("MongoConnection:DataBaseName").Value;
+            });
             #endregion
 
-            #region DataContexts
+            #region [+] DataContexts
 
             services.AddScoped<DataContext>();
 
@@ -43,7 +49,7 @@ namespace Livraria.Api
 
             #endregion
 
-            #region Repositories
+            #region [+] Repositories
 
             services.AddTransient<ILivroRepository, LivroRepository>();
 
@@ -75,6 +81,11 @@ namespace Livraria.Api
                 });
             });
 
+            #endregion
+
+            #region [+] AutoMapper
+            IMapper mapper = AutoMapperConfig.RegisterMappings();
+            services.AddSingleton(mapper);
             #endregion
 
             services.AddControllers();

@@ -1,41 +1,35 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Livraria.Domain.Entidades;
+using Livraria.Domain.Queries.Livro;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace Livraria.Infra.DataContexts
 {
-    public class DataContext : IDisposable
+    public class DataContext
     {
-        public SqlConnection SQLServerConexao { get; set; }
+        private readonly IMongoDatabase _database;
 
-        public DataContext(IOptions<SettingsInfra> options)
+        public DataContext(IOptions<SettingsInfra> settingsInfra)
         {
             try
             {
-                SQLServerConexao = new SqlConnection(options.Value.ConnectionString);
-                SQLServerConexao.Open();
+                var mongoClient = new MongoClient(settingsInfra.Value.ConnectionString);
+                if (mongoClient != null)
+                    _database = mongoClient.GetDatabase(settingsInfra.Value.DataBaseName);
             }
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Não foi possível se conectar com o Banco de Dados.", ex);
             }
         }
 
-        public void Dispose()
+        public IMongoCollection<LivroQueryResult> Livros
         {
-            try
+            get
             {
-                if (SQLServerConexao.State != ConnectionState.Closed)
-                {
-                    SQLServerConexao.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
+                return _database.GetCollection<LivroQueryResult>("Livro");
             }
         }
     }

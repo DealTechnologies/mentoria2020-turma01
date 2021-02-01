@@ -1,40 +1,40 @@
-﻿using Dapper;
+﻿using AutoMapper;
+using Dapper;
 using Livraria.Domain.Entidades;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Domain.Queries.Livro;
 using Livraria.Infra.DataContexts;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Livraria.Infra.Repositories
 {
     public class LivroRepository : ILivroRepository
     {
-        private readonly DynamicParameters _parametros = new DynamicParameters();
         private readonly DataContext _dataContext;
+        private readonly IMapper _mapper;
 
-        public LivroRepository(DataContext dataContext)
+        public LivroRepository(DataContext dataContext, IMapper mapper)
         {
             _dataContext = dataContext;
+            _mapper = mapper;
         }
 
-        public long Inserir(Livro livro)
+        public async Task<string> InserirAsync(Livro livro)
         {
             try
             {
-                _parametros.Add("Nome", livro.Nome, DbType.String);
-                _parametros.Add("Autor", livro.Autor, DbType.String);
-                _parametros.Add("Edicao", livro.Edicao, DbType.Int32);
-                _parametros.Add("Isbn", livro.Isbn, DbType.String);
-                _parametros.Add("Imagem", livro.Imagem, DbType.String);
+                var livroQueryResult = _mapper.Map<LivroQueryResult>(livro);
+                await _dataContext.Livros.InsertOneAsync(livroQueryResult);
 
-                string sql = @"INSERT INTO Livro VALUES(Nome, Autor, Edicao, Isbn, Imagem) VALUES (@Nome, @Autor, @Edicao, @Isbn, @Imagem); SELECT SCOPE_IDENTITY();";
-
-                //return _dataContext.SQLServerConexao.ExecuteScalar<long>(sql, new { Nome = livro.Nome });
-                return _dataContext.SQLServerConexao.ExecuteScalar<long>(sql, _parametros);
+                return livroQueryResult.Id;
             }
             catch (Exception ex)
             {
@@ -42,19 +42,19 @@ namespace Livraria.Infra.Repositories
             }
         }
 
-        public void Alterar(Livro livro)
+        public async Task AlterarAsync(Livro livro)
         {
             try
             {
-                _parametros.Add("Id", livro.Nome, DbType.Int64);
-                _parametros.Add("Nome", livro.Nome, DbType.String);
-                _parametros.Add("Autor", livro.Autor, DbType.String);
-                _parametros.Add("Edicao", livro.Edicao, DbType.Int32);
-                _parametros.Add("Isbn", livro.Isbn, DbType.String);
-                _parametros.Add("Imagem", livro.Imagem, DbType.String);
+                var livroQueryResult = _mapper.Map<LivroQueryResult>(livro);
 
-                string sql = @"UPDATE Livro SET Nome=@Nome, Autor=@Autor, Edicao=@Edicao, Isbn=@Isbn, Imagem=@Imagem WHERE Id=@Id;";
-                _dataContext.SQLServerConexao.Execute(sql, _parametros);
+                Expression<Func<LivroQueryResult, bool>> filter =
+                    x => x.Id.Equals(livroQueryResult.Id);
+
+                var livroresult = await _dataContext.Livros.FindAsync(filter).Result.FirstOrDefaultAsync();
+
+                if (livroresult != null)
+                    await _dataContext.Livros.ReplaceOneAsync(filter, livroQueryResult);
             }
             catch (Exception ex)
             {
@@ -62,15 +62,14 @@ namespace Livraria.Infra.Repositories
             }
         }
 
-        public void Deletar(long id)
+        public async Task DeletarAsync(string id)
         {
             try
             {
-                _parametros.Add("Id", id, DbType.Int64);
+                Expression<Func<LivroQueryResult, bool>> filter =
+                    x => x.Id.Equals(id);
 
-                string sql = @"DELETE FROM Livro WHERE Id=@Id;";
-
-                _dataContext.SQLServerConexao.Execute(sql, _parametros);
+                await _dataContext.Livros.DeleteOneAsync(filter);
             }
             catch (Exception ex)
             {
@@ -78,13 +77,11 @@ namespace Livraria.Infra.Repositories
             }
         }
 
-        public List<LivroQueryResult> Listar()
+        public async Task<List<LivroQueryResult>> ListarAsync()
         {
             try
             {
-                string sql = @"SELECT * FROM Livro ORDER BY Nome;";
-
-                return _dataContext.SQLServerConexao.Query<LivroQueryResult>(sql).ToList();
+                return await _dataContext.Livros.FindAsync(_ => true).Result.ToListAsync();
             }
             catch (Exception ex)
             {
@@ -92,15 +89,15 @@ namespace Livraria.Infra.Repositories
             }
         }
 
-        public LivroQueryResult ObterPorId(long id)
+        public async Task<LivroQueryResult> ObterPorIdAsync(string id)
         {
             try
             {
-                _parametros.Add("Id", id, DbType.Int64);
+                Expression<Func<LivroQueryResult, bool>> filter =
+                    x => x.Id.Equals(id);
 
-                string sql = @"SELECT * FROM Livro WHERE Id=@Id;";
+                return await _dataContext.Livros.FindAsync(filter).Result.FirstOrDefaultAsync();
 
-                return _dataContext.SQLServerConexao.Query<LivroQueryResult>(sql).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -108,15 +105,19 @@ namespace Livraria.Infra.Repositories
             }
         }
 
-        public bool CheckId(long id)
+        public async Task<bool> CheckIdAsync(string id)
         {
             try
             {
-                _parametros.Add("Id", id, DbType.Int64);
+                Expression<Func<LivroQueryResult, bool>> filter =
+                    x => x.Id.Equals(id);
 
-                string sql = @"SELECT * FROM Livro WHERE Id=@Id;";
+                var livroResult = await _dataContext.Livros.FindAsync(filter).Result.FirstOrDefaultAsync();
 
-                return _dataContext.SQLServerConexao.Query<bool>(sql, _parametros).FirstOrDefault();
+                if (livroResult != null)
+                    return true;
+
+                return false;
             }
             catch (Exception ex)
             {

@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Livraria.Domain.Queries.Livro
 {
     public class LivroQueryResult
     {
-        public long Id { get;  set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get;  set; }
         public string Nome { get;  set; }
         public string Autor { get;  set; }
-        public string Edicao { get;  set; }
+        public int Edicao { get;  set; }
         public string Isbn { get;  set; }
         public string Imagem { get;  set; }
     }
