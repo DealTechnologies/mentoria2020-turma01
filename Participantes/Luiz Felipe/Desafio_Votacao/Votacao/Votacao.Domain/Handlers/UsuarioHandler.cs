@@ -17,12 +17,15 @@ namespace Votacao.Domain.Handlers
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IMapper _mapper;
+        private readonly TokenService _tokenService;
 
         public UsuarioHandler(IUsuarioRepository usuarioRepository,
-                                IMapper mapper)
+                                IMapper mapper,
+                                TokenService tokenService)
         {
             _usuarioRepository = usuarioRepository;
             _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         public ICommandResult Handler(AdicionarUsuarioCommand command)
@@ -137,7 +140,7 @@ namespace Votacao.Domain.Handlers
                 var usuarioResult = _usuarioRepository.ObterPorLoginAsync(command.Login).Result;
                 var usuario = _mapper.Map<Usuario>(usuarioResult);
 
-                var token = TokenService.GenerateToken(usuario);
+                var token = _tokenService.GenerateToken(usuario);
 
                 return new AutenticarUsuarioCommandResult(true, Avisos.Usuario_Autenticado_com_sucesso,
                     new

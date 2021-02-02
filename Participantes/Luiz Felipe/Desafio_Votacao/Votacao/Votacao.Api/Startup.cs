@@ -13,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
 using Votacao.Domain;
+using Votacao.Domain.Autenticacao;
 using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Infra;
@@ -35,6 +36,7 @@ namespace Votacao.Api
         {
             #region [+] AppSettings
             services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
+            services.Configure<SettingsDomain>(options => Configuration.GetSection("SettingsDomain").Bind(options));
             #endregion
 
             #region [+] DataContexts
@@ -92,7 +94,7 @@ namespace Votacao.Api
             #endregion
 
             #region [+] AutenticacaoJWT
-            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("SettingsDomain:SecretKey"));
             services.AddAuthentication(x => 
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -110,6 +112,8 @@ namespace Votacao.Api
                     ValidateAudience = false
                 };
             });
+
+            services.AddTransient<TokenService>();
             #endregion
 
             #region [+] AutoMapper

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Votacao.Domain
 {
-    public class Settings
+    public class SettingsDomain
     {
-        public static string Secret = "fedaf7d8863b48e197b9287d492b708e";
+        public string SecretKey { get; set; }
     }
 }
