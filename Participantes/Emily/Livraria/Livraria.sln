@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Api", "Livraria.Api\Livraria.Api.csproj", "{A47C5D84-3A44-4C82-942C-51549DB9AE32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Domain", "Livraria.Domain\Livraria.Domain.csproj", "{C3FC43D1-3A4E-4F45-AEC4-D01B67779139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Domain", "Livraria.Domain\Livraria.Domain.csproj", "{C3FC43D1-3A4E-4F45-AEC4-D01B67779139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Infra", "Livraria.Infra\Livraria.Infra.csproj", "{E4DE4911-EA16-4225-B2CE-53E8BFAA79B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Infra", "Livraria.Infra\Livraria.Infra.csproj", "{E4DE4911-EA16-4225-B2CE-53E8BFAA79B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

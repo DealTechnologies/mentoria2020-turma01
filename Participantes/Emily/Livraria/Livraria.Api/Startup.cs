@@ -1,19 +1,23 @@
 using ElmahCore.Mvc;
 using ElmahCore.Sql;
+using Livraria.Domain.Autenticacao;
 using Livraria.Domain.Handlers;
 using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
 using Livraria.Infra.DataContexts;
 using Livraria.Infra.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace Livraria.Api
 {
@@ -69,8 +73,8 @@ namespace Livraria.Api
                     Version = "v1",
                     Title = "Livraria API",
                     Description = "Projeto responsável por gerenciar uma livraria",
-                    Contact = new OpenApiContact 
-                    { 
+                    Contact = new OpenApiContact
+                    {
                         Name = "Emily Lira",
                         Email = "emily_saraiva@hotmail.com.br",
                         Url = new Uri("https://github.com/emily-saraiva")
@@ -90,6 +94,28 @@ namespace Livraria.Api
             {
                 options.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Livraria;Data Source=DEALNOTE0104\\SQLEXPRESS;";
             });
+            #endregion
+
+            #region Autenticação [+]
+            services.AddCors();
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                   .AddJwtBearer(x =>
+                   {
+                       x.RequireHttpsMetadata = false;
+                       x.SaveToken = true;
+                       x.TokenValidationParameters = new TokenValidationParameters
+                       {
+                           ValidateIssuerSigningKey = true,
+                           IssuerSigningKey = new SymmetricSecurityKey(key),
+                           ValidateIssuer = false,
+                           ValidateAudience = false
+                       };
+                   });
             #endregion
 
 
@@ -115,7 +141,13 @@ namespace Livraria.Api
 
             app.UseRouting();
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
