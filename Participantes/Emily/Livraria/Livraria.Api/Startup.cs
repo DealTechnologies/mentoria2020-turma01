@@ -13,7 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
-using System.Data.SqlClient;
 
 namespace Livraria.Api
 {
@@ -69,8 +68,8 @@ namespace Livraria.Api
                     Version = "v1",
                     Title = "Livraria API",
                     Description = "Projeto responsável por gerenciar uma livraria",
-                    Contact = new OpenApiContact 
-                    { 
+                    Contact = new OpenApiContact
+                    {
                         Name = "Emily Lira",
                         Email = "emily_saraiva@hotmail.com.br",
                         Url = new Uri("https://github.com/emily-saraiva")
@@ -91,6 +90,8 @@ namespace Livraria.Api
                 options.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Livraria;Data Source=DEALNOTE0104\\SQLEXPRESS;";
             });
             #endregion
+
+            
 
 
         }
@@ -115,7 +116,13 @@ namespace Livraria.Api
 
             app.UseRouting();
 
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
