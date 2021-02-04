@@ -1,0 +1,18 @@
+CRUD Cliente  -> Admin e Cliente
+CRUD Equipamento
+Tela de Locação de Equipamento
+
+Mongo DB
+RepositoryPatern
+
+Reports a partir do Mongo (Grafana):
+ - Equipamentos Locados 
+ - Clientes
+
+Tarefas Gerenciadas no TRELLO
+
+25 minutos por dia com Lucas;
+Tirar dúvidas de negócio com Baião;
+
+Definir as Entidades
+Definir os Endpoints
