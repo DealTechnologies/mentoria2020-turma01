@@ -1,18 +1,23 @@
 using ElmahCore.Mvc;
 using ElmahCore.Sql;
+using Livraria.Domain.Autenticacao;
 using Livraria.Domain.Handlers;
 using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
 using Livraria.Infra.DataContexts;
 using Livraria.Infra.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Data.SqlClient;
+using System.Text;
 
 namespace Livraria.Api
 {
@@ -91,7 +96,27 @@ namespace Livraria.Api
             });
             #endregion
 
-            
+            #region Autenticação [+]
+            services.AddCors();
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                   .AddJwtBearer(x =>
+                   {
+                       x.RequireHttpsMetadata = false;
+                       x.SaveToken = true;
+                       x.TokenValidationParameters = new TokenValidationParameters
+                       {
+                           ValidateIssuerSigningKey = true,
+                           IssuerSigningKey = new SymmetricSecurityKey(key),
+                           ValidateIssuer = false,
+                           ValidateAudience = false
+                       };
+                   });
+            #endregion
 
 
         }
