@@ -20,6 +20,8 @@ Definir os Endpoints ->
 - Link do diagrama
 https://app.diagrams.net/#G1DAxIgcsqg1-Gvh8v464dtb5yzz6J3P7Y
 
+- Link do Trello
+https://trello.com/b/DHJ03rkM/desafio-loca%C3%A7%C3%A3o
 -------------------------------------------------------------------------------------
 Endpoints					    Permissões
 
