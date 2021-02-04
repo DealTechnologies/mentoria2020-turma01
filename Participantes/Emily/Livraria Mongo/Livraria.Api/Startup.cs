@@ -5,6 +5,7 @@ using Livraria.Domain.Interfaces.Handlers;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Infra;
 using Livraria.Infra.DataContexts;
+using Livraria.Infra.DataContexts.MongoDataContext;
 using Livraria.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+
 
 namespace Livraria.Api
 {
@@ -34,13 +36,13 @@ namespace Livraria.Api
 
             #endregion
 
-            #region Controller [+]
+            #region [+] Controller 
             services.AddControllers();
             #endregion
 
             #region [+] DataContexts 
 
-            services.AddScoped<DataContext>();
+            services.AddScoped<MongoDataContext>();
 
             #endregion
 
@@ -84,14 +86,15 @@ namespace Livraria.Api
 
             #endregion
 
-            #region Elmah [+]
+            #region [+] Elmah 
             services.AddElmah<SqlErrorLog>(options =>
             {
                 options.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Livraria;Data Source=DEALNOTE0104\\SQLEXPRESS;";
             });
             #endregion
 
-            
+
+
 
 
         }
@@ -123,6 +126,7 @@ namespace Livraria.Api
 
             app.UseAuthorization();
             app.UseAuthentication();
+
 
             app.UseEndpoints(endpoints =>
             {
