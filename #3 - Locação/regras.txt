@@ -17,6 +17,8 @@ Tirar dúvidas de negócio com Baião;
 Definir as Entidades -> Ok
 Definir os Endpoints -> 
 
+- Link do diagrama
+https://app.diagrams.net/#G1DAxIgcsqg1-Gvh8v464dtb5yzz6J3P7Y
 
 -------------------------------------------------------------------------------------
 Endpoints					    Permissões
