@@ -1,10 +1,12 @@
 using Locadora.Domain;
 using Locadora.Domain.Autenticacao;
+using Locadora.Domain.Interfaces;
 using Locadora.Infra;
 using Locadora.Infra.DataContexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -92,6 +94,12 @@ namespace Locadora.Api
 
             services.AddTransient<TokenService>();
             #endregion
+
+            #region [+] UnitOfWork
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            #endregion
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddControllers();
         }

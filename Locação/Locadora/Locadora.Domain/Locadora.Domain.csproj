@@ -19,15 +19,9 @@
     <Folder Include="Commands\Equipamentos\Outputs\" />
     <Folder Include="Commands\Locacoes\Inputs\" />
     <Folder Include="Commands\Locacoes\Outputs\" />
-    <Folder Include="Entidades\" />
     <Folder Include="Handlers\" />
     <Folder Include="Interfaces\Commands\" />
-    <Folder Include="Interfaces\Repositories\" />
     <Folder Include="Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Locadora.Infra\Locadora.Infra.csproj" />
   </ItemGroup>
 
 </Project>

@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Locadora.Domain\Locadora.Domain.csproj" />
+    <ProjectReference Include="..\Locadora.Infra\Locadora.Infra.csproj" />
   </ItemGroup>
 
 

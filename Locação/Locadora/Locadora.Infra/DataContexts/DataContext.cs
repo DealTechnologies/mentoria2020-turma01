@@ -1,22 +1,26 @@
 ﻿using Microsoft.Extensions.Options;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Locadora.Infra.DataContexts
 {
     public class DataContext
     {
-        private readonly IMongoDatabase _database;
+        public IMongoDatabase MongoDBConexao { get; set; }
+        public MongoClient MongoClient { get; set; }
 
         public DataContext(IOptions<SettingsInfra> settingsInfra)
         {
             try
             {
+                BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+
                 var mongoClient = new MongoClient(settingsInfra.Value.ConnectionString);
                 if (mongoClient != null)
-                    _database = mongoClient.GetDatabase(settingsInfra.Value.DataBaseName);
+                    MongoDBConexao = mongoClient.GetDatabase(settingsInfra.Value.DataBaseName);
             }
             catch (Exception ex)
             {
@@ -25,28 +29,17 @@ namespace Locadora.Infra.DataContexts
             }
         }
 
-        //public IMongoCollection<ClienteQueryResult> Clientes
-        //{
-        //    get
-        //    {
-        //        return _database.GetCollection<ClienteQueryResult>("Livro");
-        //    }
-        //}
-
-        //public IMongoCollection<EquipamentoQueryResult> Equipamentos
-        //{
-        //    get
-        //    {
-        //        return _database.GetCollection<EquipamentoQueryResult>("Livro");
-        //    }
-        //}
-
-        //public IMongoCollection<LocacaoQueryResult> Locacoes
-        //{
-        //    get
-        //    {
-        //        return _database.GetCollection<LocacaoQueryResult>("Livro");
-        //    }
-        //}
+        public void Dispose()
+        {
+            try
+            {
+                if (MongoDBConexao != null)
+                    MongoDBConexao = null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
