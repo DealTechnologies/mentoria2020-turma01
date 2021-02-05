@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem para Base64</title>
+</head>
+<body>
+    <input id="inputFileToLoad" type="file" onchange="converterImgParaBase64(this);" />
+    <div id="imgTest"></div>
+    <script>
+        function converterImgParaBase64(element) {
+            var file = element.files;
+            if (file.length > 0) {
+                var fileToLoad = file[0];
+                var fileReader = new FileReader();
+                fileReader.onload = function(fileLoadedEvent) {
+                    var srcData = fileLoadedEvent.target.result; // <--- data: base64
+                    imprimirImgNaTela(srcData);
+                    console.log(srcData)
+                }
+                fileReader.readAsDataURL(fileToLoad);
+            }
+        }
+
+        function imprimirImgNaTela(img) {
+            var newImage = document.createElement('img');
+            newImage.src = img;
+
+            document.getElementById("imgTest").innerHTML = newImage.outerHTML;
+        }
+    </script>
+</body>
+</html>
