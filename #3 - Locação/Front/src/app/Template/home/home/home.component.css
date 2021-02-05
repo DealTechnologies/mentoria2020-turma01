@@ -1,0 +1,9 @@
+.toolbar {
+  padding-right: 2%;
+  height: 64px;
+  font-size: 2rem;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
