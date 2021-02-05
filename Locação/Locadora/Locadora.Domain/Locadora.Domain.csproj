@@ -15,15 +15,10 @@
     <Folder Include="Commands\Clientes\Inputs\" />
     <Folder Include="Commands\Clientes\" />
     <Folder Include="Commands\Clientes\Outputs\" />
-    <Folder Include="Commands\Equipamentos\Inputs\" />
-    <Folder Include="Commands\Equipamentos\Outputs\" />
     <Folder Include="Commands\Locacoes\Inputs\" />
     <Folder Include="Commands\Locacoes\Outputs\" />
-    <Folder Include="Entidades\" />
     <Folder Include="Handlers\" />
-    <Folder Include="Interfaces\Commands\" />
     <Folder Include="Interfaces\Repositories\" />
-    <Folder Include="Queries\" />
   </ItemGroup>
 
   <ItemGroup>
