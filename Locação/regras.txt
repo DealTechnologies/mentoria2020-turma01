@@ -25,8 +25,9 @@ https://app.diagrams.net/#G1DAxIgcsqg1-Gvh8v464dtb5yzz6J3P7Y
 - Link do Trello
 https://trello.com/b/DHJ03rkM/desafio-loca%C3%A7%C3%A3o
 
-- Link do Protótipo da tela
-https://lucid.app/lucidchart/invitations/accept/f6dde4d9-5a3c-468d-8839-1c3c1109c339
+- Link do programa de Protótipo da tela - download
+https://icons8.com.br/lunacy
+
 
 - Link converter imagens de base 64
 https://stackoverflow.com/questions/6150289/how-can-i-convert-an-image-into-base64-string-using-javascript
