@@ -3,6 +3,7 @@ using Locadora.Domain.Autenticacao;
 using Locadora.Domain.Interfaces;
 using Locadora.Infra;
 using Locadora.Infra.DataContexts;
+using Locadora.Infra.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

@@ -18,12 +18,9 @@
     <Folder Include="Commands\Locacoes\Inputs\" />
     <Folder Include="Commands\Locacoes\Outputs\" />
     <Folder Include="Handlers\" />
-<<<<<<< HEAD
     <Folder Include="Interfaces\Commands\" />
     <Folder Include="Queries\" />
-=======
     <Folder Include="Interfaces\Repositories\" />
->>>>>>> a5a175719b8c2d00bee42943e02d27177ddcdd78
   </ItemGroup>
 
 </Project>
