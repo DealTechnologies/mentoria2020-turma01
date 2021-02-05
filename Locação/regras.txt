@@ -37,7 +37,8 @@ Endpoints					    Permissões
 CRUD Cliente
 - GET    http://locacao/api/v1/clientes         ->  Administrador
 - GET    http://locacao/api/v1/clientes/id	->  Administrador
-- POST   http://locacao/api/v1/clientes		->  Cliente
+- POST   http://locacao/api/v1/clientes		->  Anonimo
+- POST   http://locacao/api/v1/login		->  Anonimo
 - PUT    http://locacao/api/v1/clientes/id	->  Administrador/Cliente
 - DELETE http://locacao/api/v1/clientes/id	->  Administrador
 
