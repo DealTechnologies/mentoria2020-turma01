@@ -7,11 +7,24 @@
             <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Item 1</button>
-            <button mat-menu-item>Item 2</button>
+            <button mat-menu-item>
+                <a mat-list-item>
+                    <i class="material-icons">home</i>
+                    Início
+                </a>
+            </button>
+            <button mat-menu-item></button>
         </mat-menu>
 
-        <mat-toolbar-row>
+        <div class="divBusca">
+            <input type="text" class="txtBusca" placeholder="Pesquisar..."/>
+            <button mat-icon-button class="btnBusca">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+
+
+        <div>
 
             <span class="example-spacer"></span>
             <span>
@@ -21,6 +34,8 @@
                 aria-label="Example icon-button with heart icon">
                 <mat-icon>login</mat-icon>
             </button>
+        </div>
 
-        </mat-toolbar-row>
+      
     </mat-toolbar-row>
+    </mat-toolbar>

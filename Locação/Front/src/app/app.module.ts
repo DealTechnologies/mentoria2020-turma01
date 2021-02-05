@@ -1,3 +1,4 @@
+import { CardComponent } from './Template/home/card/card.component.spec';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -20,14 +21,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FooterComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +46,9 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

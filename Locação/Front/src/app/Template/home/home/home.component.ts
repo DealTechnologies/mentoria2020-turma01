@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '600px',
-      height: '400px'
+      width: '400px',
+      height: '500px'
     });
   }
 
