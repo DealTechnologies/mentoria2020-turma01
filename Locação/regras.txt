@@ -15,13 +15,22 @@ Tarefas Gerenciadas no TRELLO
 Tirar dúvidas de negócio com Baião;
 
 Definir as Entidades -> Ok
-Definir os Endpoints -> 
+Definir os Endpoints -> ok
+
+-------------------------------------------------------------------------------------
 
 - Link do diagrama
 https://app.diagrams.net/#G1DAxIgcsqg1-Gvh8v464dtb5yzz6J3P7Y
 
 - Link do Trello
 https://trello.com/b/DHJ03rkM/desafio-loca%C3%A7%C3%A3o
+
+- Link do Protótipo da tela
+https://lucid.app/lucidchart/invitations/accept/f6dde4d9-5a3c-468d-8839-1c3c1109c339
+
+- Link converter imagens de base 64
+https://stackoverflow.com/questions/6150289/how-can-i-convert-an-image-into-base64-string-using-javascript
+
 -------------------------------------------------------------------------------------
 Endpoints					    Permissões
 
@@ -34,8 +43,9 @@ CRUD Cliente
 
 
 CRUD Equipamento
-- GET    http://locacao/api/v1/equipamentos	->  Administrador
-- GET    http://locacao/api/v1/equipamentos/id	->  Administrador
+- GET    http://locacao/api/v1/equipamentos	->  Administrador/Cliente
+- GET    http://locacao/api/v1/equipamentos/id	->  Administrador/Cliente
+- GET    http://locacao/api/v1/equipamentos/pesquisa ->  Administrador/Cliente
 - POST   http://locacao/api/v1/equipamentos	->  Administrador
 - PUT    http://locacao/api/v1/equipamentos/id	->  Administrador
 - DELETE http://locacao/api/v1/equipamentos/id	->  Administrador
