@@ -1,41 +1,39 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
     <mat-toolbar-row class="toolbar">
-        <span>Locação</span>
-        <span class="example-spacer"></span>
-        <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
-            aria-label="Example icon-button with menu icon">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-                <a mat-list-item>
-                    <i class="material-icons">home</i>
-                    Início
-                </a>
+        <div fxFlex="30">
+            <span>Locação</span>
+            <span class="example-spacer"></span>
+            <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
+                aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
             </button>
-            <button mat-menu-item></button>
-        </mat-menu>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <a mat-list-item>
+                        <i class="material-icons">home</i>
+                        Início
+                    </a>
+                </button>
+                <button mat-menu-item></button>
+            </mat-menu>
+        </div>
 
-        <div class="divBusca">
-            <input type="text" class="txtBusca" placeholder="Pesquisar..."/>
+        <div class="divBusca" fxFlex="40">
+            <input matInput type="search" class="txtBusca" placeholder="Pesquisar..." />
             <button mat-icon-button class="btnBusca">
                 <mat-icon>search</mat-icon>
             </button>
         </div>
 
 
-        <div>
-
-            <span class="example-spacer"></span>
-            <span>
-                <h3>Entrar</h3>
-            </span>
-            <button (click)="openDialog()" mat-icon-button class="example-icon favorite-icon"
+        <div fxFlex="30">
+            <span></span>
+            <button style="float: right;" (click)="openDialog()" mat-icon-button class="example-icon favorite-icon"
                 aria-label="Example icon-button with heart icon">
                 <mat-icon>login</mat-icon>
             </button>
         </div>
 
-      
+
     </mat-toolbar-row>
-    </mat-toolbar>
+</mat-toolbar>

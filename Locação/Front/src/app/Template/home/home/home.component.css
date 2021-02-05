@@ -5,30 +5,49 @@
   justify-content: space-between;
 }
 
+.example-icon {
+  padding: 0 14px;
+}
 
-.divBusca{
+.example-spacer {
+  flex: 1 1 auto;
+
+}
+
+.divBusca {
   background-color: white;
-  border:solid 2px #E0EEEE;
-  border-radius:15px;
-  width:600px;
-  height:35px;
-  display: flex; flex-direction: row; justify-content: center; align-items: center
+  border: solid 2px #E0EEEE;
+  border-radius: 15px;
+  width: 600px;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+textarea:focus,
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 
-.txtBusca{
-  float:left;
-  background-color:transparent;
-  padding-left:10px;
-  font-size:15px;
-  border:none;
-  height:32px;
-  width:500px;
+.txtBusca {
+  float: left;
+  background-color: transparent;
+  padding-left: 10px;
+  font-size: 15px;
+  border: none;
+  height: 32px;
+  width: 500px;
+
 }
 
-.btnBusca{
-  border:none;
+.btnBusca {
+  border: none;
   float: right;
-  font-weight:bold;
+  font-weight: bold;
   color: gray;
 }
