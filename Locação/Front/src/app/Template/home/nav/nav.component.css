@@ -1,0 +1,14 @@
+.nav {
+  background-color: #f2f2f2;
+  width: 200px;
+}
+
+
+.nav i {
+  padding-right: 10px;
+}
+
+.content {
+  background-color: #FFF;
+  padding: 20px;
+}
