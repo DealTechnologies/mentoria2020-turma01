@@ -8,8 +8,8 @@ namespace Locadora.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
-        //IRepository<Cliente> Clientes { get; }
-        IRepository<Equipamento> Equipamentos { get; }
+        IClienteRepository Clientes { get; }
+        IEquipamentoRepository Equipamentos { get; }
         //IRepository<Locacao> Locacaos { get; }
     }
 }

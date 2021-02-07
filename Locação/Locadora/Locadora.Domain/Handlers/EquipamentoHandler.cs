@@ -19,7 +19,7 @@ namespace Locadora.Domain.Handlers
             _unitofwork = unitofwork;
         }
 
-        public ICommandResult Handle(AdicionarEquipamentoCommand command)
+        public ICommandResult Handler(AdicionarEquipamentoCommand command)
         {
             try
             {
@@ -56,12 +56,12 @@ namespace Locadora.Domain.Handlers
             }
         }
 
-        public ICommandResult Handle(AtualizarEquipamentoCommand command)
+        public ICommandResult Handler(AtualizarEquipamentoCommand command)
         {
             throw new NotImplementedException();
         }
 
-        public ICommandResult Handle(ApagarEquipamentoCommand command)
+        public ICommandResult Handler(ApagarEquipamentoCommand command)
         {
             throw new NotImplementedException();
         }

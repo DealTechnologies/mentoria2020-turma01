@@ -1,7 +1,9 @@
+using AutoMapper;
 using Locadora.Domain;
 using Locadora.Domain.Autenticacao;
 using Locadora.Domain.Handlers;
 using Locadora.Domain.Interfaces;
+using Locadora.Domain.Interfaces.Repositories;
 using Locadora.Infra;
 using Locadora.Infra.DataContexts;
 using Locadora.Infra.Repositories;
@@ -16,6 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
+using Votacao.Domain;
 
 namespace Locadora.Api
 {
@@ -41,11 +44,13 @@ namespace Locadora.Api
             #endregion
 
             #region [+] Handlers
-            services.AddTransient<EquipamentoHandler, EquipamentoHandler>();
+            services.AddTransient<EquipamentoHandler>();
+            services.AddTransient<ClienteHandler>();
             #endregion
 
             #region [+] Repositories
-
+            services.AddTransient<IEquipamentoRepository, EquipamentoRepository>();
+            services.AddTransient<IClienteRepository, ClienteRepository>();
             #endregion
 
             #region [+] Swagger
@@ -99,6 +104,11 @@ namespace Locadora.Api
 
             #region [+] UnitOfWork
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            #endregion
+
+            #region [+] AutoMapper
+            IMapper mapper = AutoMapperConfig.RegisterMappings();
+            services.AddSingleton(mapper);
             #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

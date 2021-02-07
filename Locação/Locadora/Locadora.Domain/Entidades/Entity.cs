@@ -1,17 +1,19 @@
-﻿using System;
+﻿using Flunt.Notifications;
+using System;
 
 namespace Locadora.Domain.Entidades
 {
-    public abstract class Entity
+    public abstract class Entity : Notifiable
     {
         public Guid Id { get; private set; }
 
+        protected Entity()
+        {
+            Id = Guid.NewGuid();
+        }
         protected Entity(Guid id)
         {
-            if (Guid.Empty == id)
-                Id = Guid.NewGuid();
-            else
-                Id = id;
+            Id = id;
         }
 
         public Guid GetId()

@@ -61,7 +61,7 @@ namespace Locadora.Api.Controllers
         {
             try
             {
-                return  _handler.Handle(command);
+                return  _handler.Handler(command);
             }
             catch (Exception ex)
             {

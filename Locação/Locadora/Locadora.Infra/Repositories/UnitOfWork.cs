@@ -11,8 +11,8 @@ namespace Locadora.Infra.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         protected readonly DataContext Context;
-        //private BaseRepository<Cliente> _clientes;
-        private BaseRepository<Equipamento> _equipamentos;
+        private ClienteRepository _clientes;
+        private EquipamentoRepository _equipamentos;
         //private BaseRepository<Locacao> _locacacoes;
 
         public UnitOfWork(DataContext context)
@@ -20,16 +20,16 @@ namespace Locadora.Infra.Repositories
             Context = context;
         }
 
-        //public IRepository<Cliente> Clientes
-        //{
-        //    get
-        //    {
-        //        return _clientes ??
-        //            (_clientes = new BaseRepository<Cliente>(Context));
-        //    }
-        //}
+        public IClienteRepository Clientes
+        {
+            get
+            {
+                return _clientes ??
+                    (_clientes = new ClienteRepository(Context));
+            }
+        }
 
-        public IRepository<Equipamento> Equipamentos
+        public IEquipamentoRepository Equipamentos
         {
             get
             {

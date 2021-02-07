@@ -1,7 +1,4 @@
 ﻿using Microsoft.Extensions.Options;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using System;
 
@@ -16,7 +13,8 @@ namespace Locadora.Infra.DataContexts
         {
             try
             {
-                BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+                //BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+                MongoBsonClassMap.Register();
 
                 var mongoClient = new MongoClient(settingsInfra.Value.ConnectionString);
                 if (mongoClient != null)
@@ -27,11 +25,6 @@ namespace Locadora.Infra.DataContexts
 
                 throw new Exception("Não foi possível se conectar com o Banco de Dados.", ex);
             }
-        }
-
-        public IMongoCollection<T> GetCollection<T>(string name)
-        {
-            return MongoDBConexao.GetCollection<T>(name);
         }
 
         public void Dispose()

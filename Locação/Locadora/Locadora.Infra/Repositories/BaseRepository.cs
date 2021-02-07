@@ -17,6 +17,7 @@ namespace Locadora.Infra.Repositories
         public BaseRepository(DataContext context)
         {
             Context = context;
+            Collection = Context.MongoDBConexao.GetCollection<TEntity>(typeof(TEntity).Name);
         }
 
         public virtual async Task<TEntity> ObterPorIdAsync(Guid id)
