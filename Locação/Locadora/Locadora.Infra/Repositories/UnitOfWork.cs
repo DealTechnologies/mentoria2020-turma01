@@ -1,4 +1,6 @@
-﻿using Locadora.Domain.Interfaces;
+﻿using Locadora.Domain.Entidades;
+using Locadora.Domain.Interfaces;
+using Locadora.Domain.Interfaces.Repositories;
 using Locadora.Infra.DataContexts;
 using System;
 using System.Collections.Generic;
@@ -10,13 +12,13 @@ namespace Locadora.Infra.Repositories
     {
         protected readonly DataContext Context;
         //private BaseRepository<Cliente> _clientes;
-        //private BaseRepository<Equipamento> _equipamentos;
+        private BaseRepository<Equipamento> _equipamentos;
         //private BaseRepository<Locacao> _locacacoes;
 
-        //public UnitOfWork(DataContext context)
-        //{
-        //    Context = context;
-        //}
+        public UnitOfWork(DataContext context)
+        {
+            Context = context;
+        }
 
         //public IRepository<Cliente> Clientes
         //{
@@ -27,15 +29,15 @@ namespace Locadora.Infra.Repositories
         //    }
         //}
 
-        //public IRepository<Equipamento> Equipamentos
-        //{
-        //    get
-        //    {
-        //        return _equipamentos ??
-        //            (_equipamentos = new BaseRepository<Equipamento>(Context));
-        //    }
-        //}
-        
+        public IRepository<Equipamento> Equipamentos
+        {
+            get
+            {
+                return _equipamentos ??
+                    (_equipamentos = new EquipamentoRepository(Context));
+            }
+        }
+
         //public IRepository<Locacao> Locacacoes
         //{
         //    get

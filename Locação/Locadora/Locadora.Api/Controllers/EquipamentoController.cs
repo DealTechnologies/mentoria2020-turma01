@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Locadora.Domain.Commands.Equipamentos.Inputs;
+using Locadora.Domain.Handlers;
+using Locadora.Domain.Interfaces;
+using Locadora.Domain.Interfaces.Commands;
 using Locadora.Domain.Queries;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,11 +16,14 @@ namespace Locadora.Api.Controllers
         //private readonly IEquipamentoRepository _repository;
         //private readonly EquipamentoHandler _handler;
 
-        //public EquipamentoController(IEquipamentoRepository repository, EquipamentoHandler handler)
-        //{
-        //    _repository = repository;
-        //    _handler = handler;
-        //}
+        private readonly IUnitOfWork _unitofwork;
+        private readonly EquipamentoHandler _handler;
+
+        public EquipamentoController(IUnitOfWork unitofwork, EquipamentoHandler handler)
+        {
+            _unitofwork = unitofwork;
+            _handler = handler;
+        }
 
         //[HttpGet]
         //[Route("v1/Equipamentos")]
@@ -24,7 +31,7 @@ namespace Locadora.Api.Controllers
         //{
         //    try
         //    {
-        //        return _repository.Listar();
+        //        return _unitofwork.Equipamentos.ListarAsync();
         //    }
         //    catch (Exception ex)
         //    {
@@ -48,19 +55,19 @@ namespace Locadora.Api.Controllers
         //    }
         //}
 
-        //        [HttpPost]
-        //        [Route("v1/Equipamentos")]
-        //        public ICommandResult UsuarioInserir([FromBody] AdicionarEquipamentoCommand command)
-        //        {
-        //            try
-        //            {
-        //                return _handler.Handler(command);
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                throw ex;
-        //            }
-        //        }
+        [HttpPost]
+        [Route("v1/Equipamentos")]
+        public ICommandResult UsuarioInserir([FromBody] AdicionarEquipamentoCommand command)
+        {
+            try
+            {
+                return  _handler.Handle(command);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //        [HttpPut]
         //        [Route("v1/Equipamentos/{id}")]
         //        public ICommandResult UsuarioAlterar(long id, [FromBody] AtualizarFilmeCommand command)

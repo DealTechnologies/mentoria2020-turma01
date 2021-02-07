@@ -17,9 +17,7 @@
     <Folder Include="Commands\Clientes\Outputs\" />
     <Folder Include="Commands\Locacoes\Inputs\" />
     <Folder Include="Commands\Locacoes\Outputs\" />
-    <Folder Include="Handlers\" />
     <Folder Include="Interfaces\Commands\" />
-    <Folder Include="Queries\" />
     <Folder Include="Interfaces\Repositories\" />
   </ItemGroup>
 

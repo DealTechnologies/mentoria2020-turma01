@@ -6,9 +6,12 @@ namespace Locadora.Domain.Entidades
     {
         public Guid Id { get; private set; }
 
-        protected Entity()
+        protected Entity(Guid id)
         {
-            Id = Guid.NewGuid();
+            if (Guid.Empty == id)
+                Id = Guid.NewGuid();
+            else
+                Id = id;
         }
 
         public Guid GetId()

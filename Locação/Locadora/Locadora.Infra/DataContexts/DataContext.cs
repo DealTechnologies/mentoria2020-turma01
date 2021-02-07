@@ -29,6 +29,11 @@ namespace Locadora.Infra.DataContexts
             }
         }
 
+        public IMongoCollection<T> GetCollection<T>(string name)
+        {
+            return MongoDBConexao.GetCollection<T>(name);
+        }
+
         public void Dispose()
         {
             try

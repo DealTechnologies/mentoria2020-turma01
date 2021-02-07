@@ -1,5 +1,6 @@
 using Locadora.Domain;
 using Locadora.Domain.Autenticacao;
+using Locadora.Domain.Handlers;
 using Locadora.Domain.Interfaces;
 using Locadora.Infra;
 using Locadora.Infra.DataContexts;
@@ -40,7 +41,7 @@ namespace Locadora.Api
             #endregion
 
             #region [+] Handlers
-
+            services.AddTransient<EquipamentoHandler, EquipamentoHandler>();
             #endregion
 
             #region [+] Repositories
