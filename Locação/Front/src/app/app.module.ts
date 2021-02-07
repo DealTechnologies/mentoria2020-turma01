@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatCardModule} from '@angular/material/card';
+import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadastrar-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     FooterComponent,
     NavComponent,
     LoginComponent,
-    CardComponent
+    CardComponent,
+    CadastrarUsuarioComponent
   ],
   imports: [
     BrowserModule,
