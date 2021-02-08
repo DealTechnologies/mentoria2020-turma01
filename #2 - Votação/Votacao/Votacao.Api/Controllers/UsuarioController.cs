@@ -153,7 +153,7 @@ namespace Votacao.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/usuarios/login")]
-        public ICommandResult UsuarioPost([FromBody] LogarUsuarioCommand command)
+        public ICommandResult UsuarioLogin([FromBody] LogarUsuarioCommand command)
         {
             try
             {
