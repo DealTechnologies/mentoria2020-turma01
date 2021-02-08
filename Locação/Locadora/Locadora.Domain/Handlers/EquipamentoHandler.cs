@@ -58,12 +58,65 @@ namespace Locadora.Domain.Handlers
 
         public ICommandResult Handler(AtualizarEquipamentoCommand command)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (!command.ValidarCommand())
+                    return new AtualizarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+
+                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.SaldoEstoque, command.ValorDiaria);
+
+                //if (!_unitofwork.Equipamentos.(command.Id))
+                //{
+                //    AddNotification("Id", "Id inválido. Este id não está cadastrado");
+                //    return new AtualizarFilmeCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
+                //}
+
+                _unitofwork.Equipamentos.AlterarAsync(equipamento);
+
+                var retorno = new AtualizarEquipamentoCommandResult(true, "Equipamento atualizado com sucesso!", new
+                {
+                    Nome = equipamento.Nome,
+                    Descricao = equipamento.Descricao,
+                    Cor = equipamento.Cor,
+                    Modelo = equipamento.Modelo,
+                    SaldoEstoque = equipamento.SaldoEstoque,
+                    ValorDiaria = equipamento.ValorDiaria
+                }) ;
+
+                return retorno;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public ICommandResult Handler(ApagarEquipamentoCommand command)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (!command.ValidarCommand())
+                    return new ApagarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+
+                //if (!_unitofwork.Equipamentos.(command.Id))
+                //{
+                //    AddNotification("Id", "Id inválido. Este id não está cadastrado");
+                //    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
+                //}
+
+                _unitofwork.Clientes.DeletarAsync(command.Id);
+
+                return new ApagarEquipamentoCommandResult(true, "Usuario Apagado com sucesso!",
+                    new
+                    {
+                        Id = command.Id
+                    });
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
