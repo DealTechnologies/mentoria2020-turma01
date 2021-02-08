@@ -54,11 +54,13 @@ namespace Locadora.Api
             #region [+] Handlers
             services.AddTransient<EquipamentoHandler>();
             services.AddTransient<ClienteHandler>();
+            services.AddTransient<LocacaoHandler>();
             #endregion
 
             #region [+] Repositories
             services.AddTransient<IEquipamentoRepository, EquipamentoRepository>();
             services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<ILocacaoRepository, LocacaoRepository>();
             #endregion
 
             #region [+] Swagger

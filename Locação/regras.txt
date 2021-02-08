@@ -97,6 +97,53 @@ Body Put - Alterar Cliente
 
 
 
+-------- Controller Locacao ---------------------------------------------------------------------------------------
+Body Post - Inserir Locacao
+{
+  "idUsuario": "ec1bd1e4-febe-463e-a99c-f24ff7675f47",
+  "equipamentos": [
+    {"Id": "6f3b64fa-999a-4aef-8fcc-4e7ece0f0aae",
+     "Nome": "Equipamento Teste 1",
+     "Descricao": "Equipamento Teste 1",
+     "Cor": "Verde",
+     "Modelo": "2",
+     "Imagem": "",
+     "SaldoEstoque": 10.0,
+     "ValorDiaria": 10.0
+     },
+    {
+     "Id": "6f3b64fa-999a-4aef-8fcc-4e7ece0f0aae",
+     "Nome": "Equipamento Teste 2",
+     "Descricao": "Equipamento Teste 2",
+     "Cor": "Preto",
+     "Modelo": "3",
+     "Imagem": "",
+     "SaldoEstoque": 20.0,
+     "ValorDiaria": 50.0
+     },
+    {
+     "Id": "6f3b64fa-999a-4aef-8fcc-4e7ece0f0aae",
+     "Nome": "Equipamento Teste 3",
+     "Descricao": "Equipamento Teste 3",
+     "Cor": "Vermelho",
+     "Modelo": "10",
+     "Imagem": "",
+     "SaldoEstoque": 5.0,
+     "ValorDiaria": 25.0
+     }
+  ],
+  "dataLocacao": "2020/01/20",
+  "dataDevolucao": "2021/02/15",
+  "valorFrete": 15.0,
+  "valorAluguel": 30.0,
+  "valorTotal": 45.0
+}
+
+
+
+
+
+
 
 
 

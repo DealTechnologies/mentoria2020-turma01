@@ -1,5 +1,4 @@
 ﻿using Flunt.Notifications;
-using Locadora.Domain.Entidades;
 using Locadora.Domain.Interfaces.Commands;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
     public class AdicionarLocacaoCommand : Notifiable, ICommandPadrao
     {
         public Guid IdUsuario { get; set; }
-        public List<Equipamento> Equipamentos { get; set; }
+        public List<EquipamentoDto> Equipamentos { get; set; }
         public string DataLocacao { get; set; }
         public string DataDevolucao { get; set; }
         public double ValorFrete { get; set; }
@@ -19,8 +18,6 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
         public double ValorTotal { get; set; }
         public DateTime DataLocacaoConvertida { get; private set; }
         public DateTime DataDevolucaoConvertida { get; private set; }
-
-        public DateTime DataNascimentoConvertida { get; private set; }
 
         public bool ValidarCommand()
         {
@@ -51,7 +48,7 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
                 DateTime dtLocacao;
                 if (string.IsNullOrEmpty(DataLocacao))
                     AddNotification("DataLocacao", "Data de Locacao obrigatório");
-                else if (!DateTime.TryParseExact(DataLocacao, "dd-MM-yyyy", culture, DateTimeStyles.None, out dtLocacao))
+                else if (!DateTime.TryParseExact(DataLocacao, "yyyy/MM/dd", culture, DateTimeStyles.None, out dtLocacao))
                     AddNotification("DataLocacao", "Data de Locacao inválida");
                 else
                     DataLocacaoConvertida = dtLocacao;
@@ -59,7 +56,7 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
                 DateTime dtDevolucao;
                 if (string.IsNullOrEmpty(DataDevolucao))
                     AddNotification("DataDevolucao", "Data de Locacao obrigatório");
-                else if (!DateTime.TryParseExact(DataDevolucao, "dd-MM-yyyy", culture, DateTimeStyles.None, out dtDevolucao))
+                else if (!DateTime.TryParseExact(DataDevolucao, "yyyy/MM/dd", culture, DateTimeStyles.None, out dtDevolucao))
                     AddNotification("DataDevolucao", "Data de Locacao inválida");
                 else
                     DataDevolucaoConvertida = dtDevolucao;
@@ -76,5 +73,17 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
                 throw ex;
             }
         }
+    }
+
+    public class EquipamentoDto
+    {
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string Cor { get; set; }
+        public string Modelo { get; set; }
+        public string Imagem { get; set; }
+        public double SaldoEstoque { get; set; }
+        public double ValorDiaria { get; set; }
     }
 }

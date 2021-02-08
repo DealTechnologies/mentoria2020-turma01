@@ -41,7 +41,9 @@ namespace Locadora.Domain.Handlers
 
             var cliente = _unitOfWork.Clientes.ObterPorIdAsync(command.IdUsuario).Result;
 
-            Locacao locacao = new Locacao(cliente, command.Equipamentos, command.DataLocacaoConvertida, command.DataDevolucaoConvertida, command.ValorFrete, command.ValorAluguel, command.ValorTotal);
+            var listaEquipamentos = _mapper.Map<List<EquipamentoDto>, List<Equipamento>>(command.Equipamentos);
+
+            Locacao locacao = new Locacao(cliente, listaEquipamentos, command.DataLocacaoConvertida, command.DataDevolucaoConvertida, command.ValorFrete, command.ValorAluguel, command.ValorTotal);
 
             if (locacao.Invalid)
                 return new AdicionarLocacaoCommandResult(false, "Por favor, corrija as inconsistências abaixo", locacao.Notifications);
