@@ -27,6 +27,14 @@ namespace Locadora.Api.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Equipamentos
+        /// </summary>                
+        /// <remarks><h2><b>Lista todos os Equipamentos.</b></h2></remarks>
+        /// <response code="200">OK Request</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/Equipamentos")]
         public IEnumerable<EquipamentoQueryResult> Equipamentos()
@@ -42,20 +50,29 @@ namespace Locadora.Api.Controllers
             }
         }
 
-        //[HttpGet]
-        //[Route("v1/Equipamentos/{id}")]
-        //public EquipamentoQueryResult Usuario(long id)
-        //{
-        //    try
-        //    {
-        //        return _repository.ObterPorId(id);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //}
+        /// <summary>
+        /// Equipamentos
+        /// </summary>                
+        /// <remarks><h2><b>Consulta o equipamento.</b></h2></remarks>
+        /// <param name="id">Parâmetro requerido id do Cliente</param>
+        /// <response code="200">OK Request</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="500">Internal Server Error</response>
+        [HttpGet]
+        [Route("v1/Equipamentos/{id}")]
+        public EquipamentoQueryResult Equipamento(Guid id)
+        {
+            try
+            {
+                var equipamento = _unitofwork.Equipamentos.ObterPorIdAsync(id).Result;
+                return _mapper.Map<EquipamentoQueryResult>(equipamento);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         /// <summary>
         /// Incluir equipamento 

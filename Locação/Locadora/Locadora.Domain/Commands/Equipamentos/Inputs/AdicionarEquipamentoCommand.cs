@@ -12,6 +12,7 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
         public string Descricao { get; set; }
         public string Cor { get; set; }
         public string Modelo { get; set; }
+        public string Imagem { get; set; }
         public double SaldoEstoque { get; set; }
         public double ValorDiaria { get; set; }
         public bool ValidarCommand()
@@ -35,7 +36,10 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
                     AddNotification("Modelo", "Modelo é um campo obrigatório");
                 else if (Modelo.Length > 50)
                     AddNotification("Modelo", "Modelo maior que o esperado");
-                
+
+                if (string.IsNullOrEmpty(Imagem))
+                    AddNotification("imagem", "imagem é um campo obrigatório");
+
                 if (SaldoEstoque <= 0)
                     AddNotification("SaldoEstoque", "SaldoEstoque é um campo obrigatório");
 

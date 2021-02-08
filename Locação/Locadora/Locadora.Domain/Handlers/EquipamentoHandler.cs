@@ -30,10 +30,11 @@ namespace Locadora.Domain.Handlers
                 string descricao = command.Descricao;
                 string cor = command.Cor;
                 string modelo = command.Modelo;
+                string imagem = command.Imagem;
                 double saldoEstoque = command.SaldoEstoque;
                 double valorDiaria = command.ValorDiaria;
 
-                Equipamento equipamento = new Equipamento(Guid.Empty, nome, descricao, cor, modelo, saldoEstoque, valorDiaria);
+                Equipamento equipamento = new Equipamento(Guid.Empty, nome, descricao, cor, modelo, imagem, saldoEstoque, valorDiaria);
 
                 _unitofwork.Equipamentos.InserirAsync(equipamento);
 
@@ -44,6 +45,7 @@ namespace Locadora.Domain.Handlers
                     Descricao = equipamento.Descricao,
                     Cor = equipamento.Cor,
                     Modelo = equipamento.Modelo,
+                    Imagem = equipamento.Imagem,
                     SaldoEstoque = equipamento.SaldoEstoque,
                     ValorDiaria = equipamento.ValorDiaria
                 });
@@ -63,13 +65,23 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AtualizarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.SaldoEstoque, command.ValorDiaria);
+                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria);
 
-                //if (!_unitofwork.Equipamentos.(command.Id))
-                //{
-                //    AddNotification("Id", "Id inválido. Este id não está cadastrado");
-                //    return new AtualizarFilmeCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
-                //}
+
+
+                //Fazer dessa forma mesmo?
+                var task = _unitofwork.Equipamentos.CheckIdAsync(command.Id);
+                task.Wait();
+                bool isValid = task.Result;
+
+                if (!isValid)
+                {
+                    AddNotification("Id", "Id inválido. Este id não está cadastrado");
+                    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
+                }
+
+
+
 
                 _unitofwork.Equipamentos.AlterarAsync(equipamento);
 
@@ -79,6 +91,7 @@ namespace Locadora.Domain.Handlers
                     Descricao = equipamento.Descricao,
                     Cor = equipamento.Cor,
                     Modelo = equipamento.Modelo,
+                    Imagem = equipamento.Imagem,
                     SaldoEstoque = equipamento.SaldoEstoque,
                     ValorDiaria = equipamento.ValorDiaria
                 }) ;
@@ -98,13 +111,28 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new ApagarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                //if (!_unitofwork.Equipamentos.(command.Id))
-                //{
-                //    AddNotification("Id", "Id inválido. Este id não está cadastrado");
-                //    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
-                //}
 
-                _unitofwork.Clientes.DeletarAsync(command.Id);
+
+
+
+                //Fazer dessa forma mesmo?
+                var task = _unitofwork.Equipamentos.CheckIdAsync(command.Id);
+                task.Wait();
+                bool isValid = task.Result;
+
+                if (!isValid)
+                {
+                    AddNotification("Id", "Id inválido. Este id não está cadastrado");
+                    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
+                }
+
+
+
+
+
+
+
+                _unitofwork.Equipamentos.DeletarAsync(command.Id);
 
                 return new ApagarEquipamentoCommandResult(true, "Usuario Apagado com sucesso!",
                     new

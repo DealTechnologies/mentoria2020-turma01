@@ -15,6 +15,7 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
         public string Descricao { get; set; }
         public string Cor { get; set; }
         public string Modelo { get; set; }
+        public string Imagem { get; set; }
         public double SaldoEstoque { get; set; }
         public double ValorDiaria { get;set; }
         public bool ValidarCommand()
@@ -41,6 +42,9 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
                 AddNotification("Modelo", "Modelo obrigatório");
             else if (Modelo.Length > 11)
                 AddNotification("Modelo", "Modelo maior que o esperado");
+
+            if (string.IsNullOrEmpty(Imagem))
+                AddNotification("Imagem", "Imagem obrigatório");
 
             if (SaldoEstoque < 0)
                 AddNotification("SaldoEstoque", "SaldoEstoque inválido!");
