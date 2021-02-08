@@ -1,10 +1,12 @@
 ﻿using Locadora.Domain.Entidades;
 using Locadora.Domain.Interfaces.Repositories;
 using Locadora.Infra.DataContexts;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Locadora.Infra.Repositories
@@ -20,32 +22,49 @@ namespace Locadora.Infra.Repositories
             Collection = Context.MongoDBConexao.GetCollection<TEntity>(typeof(TEntity).Name);
         }
 
-        public virtual async Task<TEntity> ObterPorIdAsync(Guid id)
+        public async Task<TEntity> ObterPorIdAsync(Guid id)
         {
-            var data = await Collection.FindAsync(Builders<TEntity>.Filter.Eq("_id", id));
-            return data.FirstOrDefault();
+            try
+            {
+                return await Collection.FindAsync(Builders<TEntity>.Filter.Eq("_id", id)).Result.FirstOrDefaultAsync();
+            }
+            catch (Exception ex) { throw ex; }
         }
 
-        public virtual async Task<IEnumerable<TEntity>> ListarAsync()
+        public async Task<IEnumerable<TEntity>> ListarAsync()
         {
-            var all = await Collection.FindAsync(Builders<TEntity>.Filter.Empty);
-            return all.ToList();
+            try
+            {
+                return await Collection.FindAsync(Builders<TEntity>.Filter.Empty).Result.ToListAsync();
+            }
+            catch (Exception ex) { throw ex; }
         }
 
-        public virtual async Task<Guid> InserirAsync(TEntity entity)
+        public async Task InserirAsync(TEntity entity)
         {
-            await Collection.InsertOneAsync(entity);
-            return entity.GetId();
+            try
+            {
+                await Collection.InsertOneAsync(entity);
+            }
+            catch (Exception ex) { throw ex; }
         }
 
-        public virtual async Task AlterarAsync(TEntity entity)
+        public async Task AlterarAsync(TEntity entity)
         {
-            await Collection.ReplaceOneAsync(Builders<TEntity>.Filter.Eq("_id", entity.GetId()), entity);
+            try
+            {
+                await Collection.ReplaceOneAsync(Builders<TEntity>.Filter.Eq("_id", entity.GetId()), entity);
+            }
+            catch (Exception ex) { throw ex; }
         }
 
-        public virtual async Task DeletarAsync(Guid id)
+        public async Task DeletarAsync(Guid id)
         {
-            await Collection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", id));
+            try
+            {
+                await Collection.DeleteOneAsync(Builders<TEntity>.Filter.Eq("_id", id));
+            }
+            catch (Exception ex) { throw ex; }
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Locadora.Domain.Entidades
         private void AtribuirCpf(string numeroCpf)
         {
             var cpf = new Cpf(numeroCpf);
-            if (!Cpf.EhValido())
+            if (!cpf.EhValido())
             {
                 AddNotification("Cpf","Cpf inválido.");
                 return;

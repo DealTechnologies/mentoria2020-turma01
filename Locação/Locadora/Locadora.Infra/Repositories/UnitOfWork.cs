@@ -1,10 +1,6 @@
-﻿using Locadora.Domain.Entidades;
-using Locadora.Domain.Interfaces;
+﻿using Locadora.Domain.Interfaces;
 using Locadora.Domain.Interfaces.Repositories;
 using Locadora.Infra.DataContexts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Locadora.Infra.Repositories
 {

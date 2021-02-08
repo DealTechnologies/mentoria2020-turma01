@@ -16,6 +16,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using System;
 using System.Text;
 using Votacao.Domain;
@@ -34,6 +37,9 @@ namespace Locadora.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
+            BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+
             #region [+] AppSettings
             services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
             services.Configure<SettingsDomain>(options => Configuration.GetSection("SettingsDomain").Bind(options));

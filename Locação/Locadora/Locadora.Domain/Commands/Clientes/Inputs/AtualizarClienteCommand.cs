@@ -16,6 +16,14 @@ namespace Locadora.Domain.Commands.Clientes.Inputs
         public string DataNascimento { get; set; }
         public DateTime DataNascimentoConvertida { get; private set; }
 
+        public string Cep { get; set; }
+        public string Rua { get; set; }
+        public int Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public string Pais { get; set; }
+
         public bool ValidarCommand()
         {
             try
@@ -48,13 +56,48 @@ namespace Locadora.Domain.Commands.Clientes.Inputs
                 else if (Email.Length > 50)
                     AddNotification("Email", "Email maior que o esperado");
 
+                CultureInfo culture = new CultureInfo("pt-BR");
                 DateTime dtNascimento;
                 if (string.IsNullOrEmpty(DataNascimento))
                     AddNotification("DataNascimento", "Data de Nascimento obrigatório");
-                else if (!DateTime.TryParseExact(DataNascimento, "MM-dd-yyyy", null, DateTimeStyles.None, out dtNascimento))
+                else if (!DateTime.TryParseExact(DataNascimento, "dd-MM-yyyy", culture, DateTimeStyles.None, out dtNascimento))
                     AddNotification("DataNascimento", "Data de Nascimento inválida");
                 else
                     DataNascimentoConvertida = dtNascimento;
+
+
+                if (string.IsNullOrEmpty(Cep))
+                    AddNotification("Cep", "Cep obrigatório");
+                else if (Cep.Length > 9)
+                    AddNotification("Cep", "Cep maior que o esperado");
+
+                if (string.IsNullOrEmpty(Rua))
+                    AddNotification("Rua", "Rua obrigatório");
+                else if (Rua.Length > 50)
+                    AddNotification("Rua", "Rua maior que o esperado");
+
+                if (Numero <= 0)
+                    AddNotification("Numero", "Número obrigatório");
+
+                if (string.IsNullOrEmpty(Complemento))
+                    AddNotification("Complemento", "Complemento obrigatório");
+                else if (Complemento.Length > 9)
+                    AddNotification("Complemento", "Complemento maior que o esperado");
+
+                if (string.IsNullOrEmpty(Cidade))
+                    AddNotification("Cidade", "Cidade obrigatório");
+                else if (Cidade.Length > 50)
+                    AddNotification("Cidade", "Cidade maior que o esperado");
+
+                if (string.IsNullOrEmpty(Estado))
+                    AddNotification("Estado", "Estado obrigatório");
+                else if (Estado.Length > 50)
+                    AddNotification("Estado", "Estado maior que o esperado");
+
+                if (string.IsNullOrEmpty(Pais))
+                    AddNotification("Pais", "Pais obrigatório");
+                else if (Pais.Length > 50)
+                    AddNotification("Pais", "Pais maior que o esperado");
 
                 return Valid;
             }

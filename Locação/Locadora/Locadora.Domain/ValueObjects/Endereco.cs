@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace Locadora.Domain.ValueObjects
 {
@@ -40,8 +41,8 @@ namespace Locadora.Domain.ValueObjects
 
         public bool EhValido()
         {
-            if (!Cep.EhValido())
-                return false;
+            //if (!Cep.EhValido())
+            //    return false;
 
             return true;
         }
