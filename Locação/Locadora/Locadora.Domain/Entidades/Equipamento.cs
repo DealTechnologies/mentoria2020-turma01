@@ -21,5 +21,16 @@ namespace Locadora.Domain.Entidades
             SaldoEstoque = saldoEstoque;
             ValorDiaria = valorDiaria;
         }
+
+        public Equipamento(string nome, string descricao, string cor, string modelo, string imagem, double saldoEstoque, double valorDiaria)
+        {
+            Nome = nome;
+            Descricao = descricao;
+            Cor = cor;
+            Modelo = modelo;
+            Imagem = imagem;
+            SaldoEstoque = saldoEstoque;
+            ValorDiaria = valorDiaria;
+        }
     }
 }

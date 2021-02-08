@@ -34,7 +34,7 @@ namespace Locadora.Domain.Handlers
                 double saldoEstoque = command.SaldoEstoque;
                 double valorDiaria = command.ValorDiaria;
 
-                Equipamento equipamento = new Equipamento(Guid.Empty, nome, descricao, cor, modelo, imagem, saldoEstoque, valorDiaria);
+                Equipamento equipamento = new Equipamento(nome, descricao, cor, modelo, imagem, saldoEstoque, valorDiaria);
 
                 _unitofwork.Equipamentos.InserirAsync(equipamento);
 
@@ -65,23 +65,16 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AtualizarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria);
-
-
-
-                //Fazer dessa forma mesmo?
-                var task = _unitofwork.Equipamentos.CheckIdAsync(command.Id);
-                task.Wait();
-                bool isValid = task.Result;
-
-                if (!isValid)
+                if (!_unitofwork.Equipamentos.CheckIdAsync(command.Id).Result)
                 {
                     AddNotification("Id", "Id inválido. Este id não está cadastrado");
-                    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
                 }
-
-
-
+                
+                if(Invalid)
+                    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
+                
+                
+                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria);
 
                 _unitofwork.Equipamentos.AlterarAsync(equipamento);
 
@@ -111,26 +104,13 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new ApagarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-
-
-
-
-                //Fazer dessa forma mesmo?
-                var task = _unitofwork.Equipamentos.CheckIdAsync(command.Id);
-                task.Wait();
-                bool isValid = task.Result;
-
-                if (!isValid)
+                if (!_unitofwork.Equipamentos.CheckIdAsync(command.Id).Result)
                 {
                     AddNotification("Id", "Id inválido. Este id não está cadastrado");
-                    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
                 }
 
-
-
-
-
-
+                if (Invalid)
+                    return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
 
                 _unitofwork.Equipamentos.DeletarAsync(command.Id);
 
