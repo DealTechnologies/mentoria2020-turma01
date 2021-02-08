@@ -77,6 +77,12 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AtualizarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
+                if (!_unitOfWork.Clientes.CheckIdAsync(command.Id).Result)
+                    AddNotification("Id", "Id inválido. Este id não está cadastrado.");
+
+                if (Invalid)
+                    return new AtualizarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
+
                 Cliente cliente = new Cliente(command.Id, command.Nome, command.Senha, command.Rg, command.Cpf, command.Email, command.DataNascimentoConvertida);
                 cliente.AtribuirEndereco(command.Cep, command.Rua, command.Numero, command.Complemento, command.Cidade, command.Estado, command.Pais);
 
@@ -113,6 +119,9 @@ namespace Locadora.Domain.Handlers
             {
                 if (!command.ValidarCommand())
                     return new ApagarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
+
+                if (!_unitOfWork.Clientes.CheckIdAsync(command.Id).Result)
+                    AddNotification("Id", "Id inválido. Este id não está cadastrado.");
 
                 if (Invalid)
                     return new ApagarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);

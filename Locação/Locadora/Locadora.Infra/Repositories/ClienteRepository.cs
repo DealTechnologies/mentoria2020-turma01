@@ -1,6 +1,5 @@
 ﻿using Locadora.Domain.Entidades;
 using Locadora.Domain.Interfaces.Repositories;
-using Locadora.Domain.Queries;
 using Locadora.Infra.DataContexts;
 using MongoDB.Driver;
 using System;
