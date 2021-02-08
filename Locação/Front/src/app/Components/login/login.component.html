@@ -1,24 +1,19 @@
 <div fxLayout="column" fxLayoutAlign="center center">
 
     <mat-card-title fxLayout="row" fxLayoutAlign="center center" style="height: 100px; margin-bottom: 20px;">
-        Login
+        <img class="logo" src="../../../assets/imagens/logo.png" alt="">
     </mat-card-title>
+
     <form class="example-form">
         <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                favor inseria a email valido
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email é <strong>Obrigatorio</strong>
-            </mat-error>
-
+            <mat-label>Cpf</mat-label>
+            <input matInput [formControl]="cpfFormControl" placeholder="Ex. 00000000000" required
+                [(ngModel)]="login.cpf" name="cpf">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Senha</mat-label>
-            <input type="password" matInput placeholder="*************">
+            <input type="password" matInput placeholder="*************" [(ngModel)]="login.senha" name="senha">
 
         </mat-form-field>
 
@@ -26,10 +21,10 @@
 
     </form>
 
-    <div class="button" style="margin-top:20px;">
+    <div class="button" (click)="logar()" style="margin-top:20px;">
         <button fxFlex="50%" mat-raised-button color="primary">Entrar</button>
     </div>
-    <span>
-        caso não tenha acesso<a mat-button (click)="ClosedLogin()" [routerLink]="['/cadastrar']">cadastre-se</a>
+    <span style="margin-top: 20px;">
+        Não tem conta? <a mat-button (click)="ClosedLogin()" [routerLink]="['/cadastrar']">cadastre-se!</a>
     </span>
 </div>
