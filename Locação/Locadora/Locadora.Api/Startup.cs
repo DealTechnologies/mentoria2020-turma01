@@ -119,6 +119,7 @@ namespace Locadora.Api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
+            services.AddCors();
             services.AddControllers();
         }
 
@@ -139,6 +140,13 @@ namespace Locadora.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
 
             app.UseAuthentication();
             app.UseAuthorization();
