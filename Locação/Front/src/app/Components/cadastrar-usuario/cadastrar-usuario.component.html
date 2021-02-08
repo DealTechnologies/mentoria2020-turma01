@@ -3,31 +3,33 @@
         <form class="example-form" fxLayout="column">
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>Nome</mat-label>
-                <input matInput type="password" placeholder="Nome">
+                <input matInput type="text" placeholder="Nome" [(ngModel)]="usuarioAdd.nome" name="nome">
             </mat-form-field>
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>Senha</mat-label>
-                <input matInput type="password" placeholder="Senha">
+                <input matInput type="password" placeholder="Senha" [(ngModel)]="usuarioAdd.senha" name="senha">
             </mat-form-field>
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>RG</mat-label>
-                <input matInput placeholder="RG">
+                <input matInput placeholder="RG" [(ngModel)]="usuarioAdd.rg" name="rg">
             </mat-form-field>
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>CPF</mat-label>
-                <input matInput placeholder="CPF">
+                <input matInput placeholder="CPF" [(ngModel)]="usuarioAdd.cpf" name="cpf">
             </mat-form-field>
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Email">
+                <input matInput placeholder="Email" [(ngModel)]="usuarioAdd.email" name="email">
             </mat-form-field>
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>Data de Nascimento</mat-label>
-                <input type="date" matInput placeholder="Data">
+                <input type="date | date:dd/MM/yyyy" matInput placeholder="Data Ex:00/00/0000"
+                    [(ngModel)]="usuarioAdd.dataNascimento " name="dataNascimento ">
+
             </mat-form-field>
         </form>
 
-        <button mat-raised-button color="primary">Salvar</button>
+        <button mat-raised-button (click)="AdicionarUsuario()" color="primary">Salvar</button>
         <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active" color="warn"
             style="margin: 20px;">Cancelar</button>
 
