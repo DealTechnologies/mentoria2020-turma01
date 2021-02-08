@@ -10,6 +10,6 @@ namespace Locadora.Domain.Interfaces
     {
         IClienteRepository Clientes { get; }
         IEquipamentoRepository Equipamentos { get; }
-        //IRepository<Locacao> Locacaos { get; }
+        ILocacaoRepository Locacoes { get; }
     }
 }

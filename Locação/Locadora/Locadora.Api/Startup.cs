@@ -1,4 +1,6 @@
 using AutoMapper;
+using ElmahCore;
+using ElmahCore.Mvc;
 using Locadora.Domain;
 using Locadora.Domain.Autenticacao;
 using Locadora.Domain.Handlers;
@@ -117,6 +119,13 @@ namespace Locadora.Api
             services.AddSingleton(mapper);
             #endregion
 
+            #region [+] Elmah
+            services.AddElmah<XmlFileErrorLog>(options =>
+            {
+                options.LogPath = "~/log";
+            });
+            #endregion
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddCors();
@@ -138,6 +147,8 @@ namespace Locadora.Api
             });
 
             app.UseHttpsRedirection();
+
+            app.UseElmah();
 
             app.UseRouting();
 

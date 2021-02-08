@@ -9,7 +9,7 @@ namespace Locadora.Infra.Repositories
         protected readonly DataContext Context;
         private ClienteRepository _clientes;
         private EquipamentoRepository _equipamentos;
-        //private BaseRepository<Locacao> _locacacoes;
+        private LocacaoRepository _locacoes;
 
         public UnitOfWork(DataContext context)
         {
@@ -34,13 +34,13 @@ namespace Locadora.Infra.Repositories
             }
         }
 
-        //public IRepository<Locacao> Locacacoes
-        //{
-        //    get
-        //    {
-        //        return _locacacoes ??
-        //            (_locacacoes = new BaseRepository<Locacao>(Context));
-        //    }
-        //}
+        public ILocacaoRepository Locacoes
+        {
+            get
+            {
+                return _locacoes ??
+                    (_locacoes = new LocacaoRepository(Context));
+            }
+        }
     }
 }
