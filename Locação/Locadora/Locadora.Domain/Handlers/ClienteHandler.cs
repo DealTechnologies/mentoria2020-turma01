@@ -6,6 +6,7 @@ using Locadora.Domain.Commands.Clientes.Outputs;
 using Locadora.Domain.Entidades;
 using Locadora.Domain.Interfaces;
 using Locadora.Domain.Interfaces.Commands;
+using Locadora.Domain.Queries;
 using System;
 using System.Linq;
 
@@ -36,7 +37,7 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AdicionarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                if (_unitOfWork.Clientes.CheckLoginAsync(command.Cpf).Result)
+                if (_unitOfWork.Clientes.CheckCpfAsync(command.Cpf).Result)
                     AddNotification("Cpf", "CPF já cadastrado.");
 
                 if (Invalid)
@@ -51,11 +52,12 @@ namespace Locadora.Domain.Handlers
 
                 var retorno = new AdicionarClienteCommandResult(true, "Cliente gravado com sucesso!", new
                 {
+                    Id = cliente.GetId(),
                     cliente.Nome,
                     Senha = "******",
                     cliente.Rg,
-                    cliente.Cpf,
-                    cliente.Email,
+                    CPF = cliente.Cpf.Numero,
+                    cliente.Email.EnderecoEmail,
                     cliente.DataNascimento,
                     cliente.Role
                 });
@@ -76,19 +78,23 @@ namespace Locadora.Domain.Handlers
                     return new AtualizarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 Cliente cliente = new Cliente(command.Id, command.Nome, command.Senha, command.Rg, command.Cpf, command.Email, command.DataNascimentoConvertida);
+                cliente.AtribuirEndereco(command.Cep, command.Rua, command.Numero, command.Complemento, command.Cidade, command.Estado, command.Pais);
 
                 if (cliente.Invalid)
                     return new AtualizarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", cliente.Notifications);
 
                 _unitOfWork.Clientes.AlterarAsync(cliente);
 
+                var clienteResult = _mapper.Map<ClienteQueryResult>(cliente);
+
                 var retorno = new AtualizarClienteCommandResult(true, "Cliente atualizado com sucesso!", new
                 {
+                    Id = cliente.GetId(),
                     cliente.Nome,
                     Senha = "******",
                     cliente.Rg,
-                    cliente.Cpf,
-                    cliente.Email,
+                    CPF = cliente.Cpf.Numero,
+                    cliente.Email.EnderecoEmail,
                     cliente.DataNascimento,
                     cliente.Role
                 });
@@ -108,12 +114,12 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new ApagarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                if (Notifications.Count() > 0)
+                if (Invalid)
                     return new ApagarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
 
                 _unitOfWork.Clientes.DeletarAsync(command.Id);
 
-                return new ApagarClienteCommandResult(true, "Usuario Apagado com sucesso!",
+                return new ApagarClienteCommandResult(true, "Cliente Apagado com sucesso!",
                     new
                     {
                         command.Id
@@ -136,20 +142,22 @@ namespace Locadora.Domain.Handlers
                 if (!_unitOfWork.Clientes.CheckAutenticacaoAsync(command.Cpf, command.Senha).Result)
                     AddNotification("Autenticação", "CPF ou Senha inválidos");
 
-                if (Notifications.Count() > 0)
+                if (Invalid)
                     return new AutenticarClienteCommandResult(false, "Por favor, corrija as inconsistências abaixo", Notifications);
 
-                var usuarioResult = _unitOfWork.Clientes.ObterPorLoginAsync(command.Cpf).Result;
-                var usuario = _mapper.Map<Cliente>(usuarioResult);
+                var cliente = _unitOfWork.Clientes.ObterPorCpfAsync(command.Cpf).Result;
 
-                var token = _tokenService.GenerateToken(usuario);
+                var token = _tokenService.GenerateToken(cliente);
+
+                var clienteResult = _mapper.Map<ClienteQueryResult>(cliente);
 
                 return new AutenticarClienteCommandResult(true, "Usuário Autenticado com sucesso",
                     new
                     {
-                        usuario.Cpf,
-                        usuario.Nome,
-                        usuario.Role,
+                        clienteResult.Id,
+                        clienteResult.Cpf,
+                        clienteResult.Nome,
+                        clienteResult.Role,
                         token
                     });
             }

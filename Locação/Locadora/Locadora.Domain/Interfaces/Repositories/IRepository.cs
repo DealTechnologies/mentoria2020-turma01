@@ -10,7 +10,7 @@ namespace Locadora.Domain.Interfaces.Repositories
     {
         Task<TEntity> ObterPorIdAsync(Guid id);
         Task<IEnumerable<TEntity>> ListarAsync();
-        Task<Guid> InserirAsync(TEntity entity);
+        Task InserirAsync(TEntity entity);
         Task AlterarAsync(TEntity entity);
         Task DeletarAsync(Guid id);
     }

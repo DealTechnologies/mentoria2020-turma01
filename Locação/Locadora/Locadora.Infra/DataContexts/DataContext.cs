@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using System;
 
@@ -13,7 +16,6 @@ namespace Locadora.Infra.DataContexts
         {
             try
             {
-                //BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
                 MongoBsonClassMap.Register();
 
                 var mongoClient = new MongoClient(settingsInfra.Value.ConnectionString);

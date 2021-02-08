@@ -45,11 +45,12 @@ namespace Locadora.Domain.Commands.Clientes.Inputs
                     AddNotification("Email", "Email obrigatório");
                 else if (Email.Length > 50)
                     AddNotification("Email", "Email maior que o esperado");
-                
+
+                CultureInfo culture = new CultureInfo("pt-BR");
                 DateTime dtNascimento;
                 if (string.IsNullOrEmpty(DataNascimento))
                     AddNotification("DataNascimento", "Data de Nascimento obrigatório");
-                else if (!DateTime.TryParseExact(DataNascimento, "MM-dd-yyyy", null, DateTimeStyles.None, out dtNascimento))
+                else if (!DateTime.TryParseExact(DataNascimento, "dd-MM-yyyy", culture, DateTimeStyles.None, out dtNascimento))
                     AddNotification("DataNascimento", "Data de Nascimento inválida");
                 else
                     DataNascimentoConvertida = dtNascimento;

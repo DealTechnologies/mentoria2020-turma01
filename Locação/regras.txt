@@ -60,7 +60,40 @@ Locacao
 - DELETE *** Não deletar uma locação
 
 
+-------- Controller Cliente ---------------------------------------------------------------------------------------
+Body Post - Autenticar
+{
+  "cpf": "02392470006",
+  "senha": "123456"
+}
 
+Body Post - Cadastrar Cliente
+{
+  "nome": "Felipe",
+  "senha": "123456",
+  "rg": "32555393",
+  "cpf": "02300128500",
+  "email": "luizfelipems12@gmail.com",
+  "dataNascimento": "25-03-1994"
+}
+
+Body Put - Alterar Cliente
+{
+  "id": "ec1bd1e4-febe-463e-a99c-f24ff7675f47",
+  "nome": "Felipe",
+  "senha": "123456",
+  "rg": "32555393",
+  "cpf": "02300128500",
+  "email": "luizfelipems12@gmail.com",
+  "dataNascimento": "25-03-1994",
+  "cep": "49095-150",
+  "rua": "Rua da Quebrada",
+  "numero": 24,
+  "complemento": "Casa",
+  "cidade": "Aracaju",
+  "estado": "Sergipe",
+  "pais": "Brasil"
+}
 
 
 
