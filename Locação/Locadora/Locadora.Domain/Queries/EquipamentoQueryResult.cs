@@ -11,6 +11,7 @@ namespace Locadora.Domain.Queries
         public string Descricao { get; set; }
         public string Cor { get; set; }
         public string Modelo { get; set; }
+        public string Imagem { get; set; }
         public double SaldoEstoque { get; set; }
         public double ValorDiaria { get; set; }
 

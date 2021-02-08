@@ -29,7 +29,15 @@ namespace Votacao.Domain
                     .ForMember(cr => cr.Pais, c => c.MapFrom(x => x.Endereco.Pais))
                     .ForMember(cr => cr.Principal, c => c.MapFrom(x => x.Endereco.Principal));
 
-
+                cfg.CreateMap<Equipamento, EquipamentoQueryResult>()
+                   .ForMember(cr => cr.Id, c => c.MapFrom(x => x.Id))
+                   .ForMember(cr => cr.Nome, c => c.MapFrom(x => x.Nome))
+                   .ForMember(cr => cr.Descricao, c => c.MapFrom(x => x.Descricao))
+                   .ForMember(cr => cr.Cor, c => c.MapFrom(x => x.Cor))
+                   .ForMember(cr => cr.Modelo, c => c.MapFrom(x => x.Modelo))
+                   .ForMember(cr => cr.Imagem, c => c.MapFrom(x => x.Imagem))
+                   .ForMember(cr => cr.SaldoEstoque, c => c.MapFrom(x => x.SaldoEstoque))
+                   .ForMember(cr => cr.ValorDiaria, c => c.MapFrom(x => x.ValorDiaria));
 
             }).CreateMapper();
         }
