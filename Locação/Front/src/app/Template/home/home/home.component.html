@@ -1,12 +1,15 @@
-<mat-toolbar color="primary" class="mat-elevation-z8">
+<mat-toolbar class="background mat-elevation-z8">
     <mat-toolbar-row class="toolbar">
         <div fxFlex="30">
-            <span [routerLink]="['']" routerLinkActive="router-link-active">Locação</span>
-            <span class="example-spacer"></span>
+            <img class="logo" src="../../../../assets/imagens/logo.png" alt="">
+            <span [routerLink]="['']" routerLinkActive="router-link-active"></span>
+            
+            <div fxFlex="30" class="centro">
             <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
                 aria-label="Example icon-button with menu icon">
-                <mat-icon>menu</mat-icon>
+                <mat-icon style="color: antiquewhite;">menu</mat-icon>
             </button>
+            
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>
                     <a mat-list-item>
@@ -14,8 +17,27 @@
                         Início
                     </a>
                 </button>
-                <button mat-menu-item></button>
+                <button mat-menu-item>
+                    <a mat-list-item>
+                        <i class="material-icons">account_box</i>
+                        Perfil
+                    </a>
+                </button>
+                <button mat-menu-item>
+                    <a mat-list-item>
+                        <i class="material-icons">card_travel</i>
+                        Meus Pedidos
+                    </a>
+                </button>
+
+                <button mat-menu-item>
+                    <a mat-list-item>
+                        <i class="material-icons">security</i>
+                        Privacidade
+                    </a>
+                </button>
             </mat-menu>
+            </div>
         </div>
 
         <div class="divBusca" fxFlex="40">
@@ -26,12 +48,8 @@
         </div>
 
 
-        <div fxFlex="30">
-            <span></span>
-            <button style="float: right;" (click)="openDialog()" mat-icon-button class="example-icon favorite-icon"
-                aria-label="Example icon-button with heart icon">
-                <mat-icon>login</mat-icon>
-            </button>
+        <div fxFlex="30"> 
+            <a style="float: right;" (click)="openDialog()" mat-raised-button color="primary" routerLink="signup">Entrar</a>
         </div>
 
 

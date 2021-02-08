@@ -1,8 +1,9 @@
 <div fxLayout="column" fxLayoutAlign="center center">
 
     <mat-card-title fxLayout="row" fxLayoutAlign="center center" style="height: 100px; margin-bottom: 20px;">
-        Login
+        <img class="logo" src="../../../assets/imagens/logo.png" alt="">
     </mat-card-title>
+    
     <form class="example-form">
         <mat-form-field class="example-full-width">
             <mat-label>Email</mat-label>
@@ -26,10 +27,10 @@
 
     </form>
 
-    <div class="button" style="margin-top:20px;">
+    <div class="button">
         <button fxFlex="50%" mat-raised-button color="primary">Entrar</button>
     </div>
-    <span>
-        caso não tenha acesso<a mat-button (click)="ClosedLogin()" [routerLink]="['/cadastrar']">cadastre-se</a>
+    <span style="margin-top: 20px;">
+        Não tem conta? <a mat-button (click)="ClosedLogin()" [routerLink]="['/cadastrar']">cadastre-se!</a>
     </span>
 </div>
