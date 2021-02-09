@@ -15,6 +15,7 @@ import { Usuario } from '../Usuario';
   providedIn: 'root'
 })
 export class LoginService {
+
   private usuarioAutenticado: boolean = false;
 
   mostrarMenu = new EventEmitter<boolean>()

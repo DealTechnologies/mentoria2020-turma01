@@ -56,7 +56,9 @@
             </button>
         </div>
 
-        <div fxFlex="10" *ngIf="showButton" [routerLink]="['/Atualizar']" routerLinkActive="router-link-active">
+
+
+        <div fxFlex="10" *ngIf="showButton" [routerLink]="['/atualizar']" routerLinkActive="router-link-active">
             <a style="float: right;" mat-raised-button color="warn" routerLink="signup">Finalizar
                 Cadastro</a>
         </div>
@@ -66,3 +68,5 @@
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
+<app-nav></app-nav>
+<app-footer></app-footer>

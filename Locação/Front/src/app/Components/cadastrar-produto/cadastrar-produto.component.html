@@ -2,7 +2,8 @@
     <mat-card class="example-form mat-elevation-z4">
         <form class="example-form" fxLayout="column">
 
-            <input style="margin-top: 20px; padding-left: 2%; padding-right: 2%;" type="file" />
+            <input (change)="base64File($event)" style="margin-top: 20px; padding-left: 2%; padding-right: 2%;"
+                type="file" />
 
             <mat-form-field appearance="outline" style=" margin-top: 20px; padding-left: 2%; padding-right: 2%;">
                 <mat-label>Nome do produto</mat-label>
@@ -36,9 +37,9 @@
         </form>
 
         <div style="justify-content: space-between; display: flex;">
-        <button style="margin: 20px;" mat-raised-button color="primary">Salvar</button>
-        <button mat-raised-button routerLinkActive="router-link-active" color="warn"
-            style="margin: 20px;">Cancelar</button>
+            <button style="margin: 20px;" mat-raised-button color="primary">Salvar</button>
+            <button mat-raised-button routerLinkActive="router-link-active" color="warn"
+                style="margin: 20px;">Cancelar</button>
         </div>
 
     </mat-card>
