@@ -3,9 +3,11 @@ using Flunt.Notifications;
 using Locadora.Domain.Autenticacao;
 using Locadora.Domain.Commands.Locacoes.Inputs;
 using Locadora.Domain.Commands.Locacoes.Outputs;
+using Locadora.Domain.EmailConfs;
 using Locadora.Domain.Entidades;
 using Locadora.Domain.Interfaces;
 using Locadora.Domain.Interfaces.Commands;
+using Locadora.Domain.Interfaces.Email;
 using Locadora.Domain.Queries;
 using System;
 using System.Collections.Generic;
@@ -18,14 +20,17 @@ namespace Locadora.Domain.Handlers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly TokenService _tokenService;
+        private readonly IEmailSender _emailSender;
 
         public LocacaoHandler(IUnitOfWork unitOfWork,
                                 IMapper mapper,
-                                TokenService tokenService)
+                                TokenService tokenService,
+                                IEmailSender emailSender)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _tokenService = tokenService;
+            _emailSender = emailSender;
         }
 
         public ICommandResult Handler(AdicionarLocacaoCommand command)
@@ -48,7 +53,13 @@ namespace Locadora.Domain.Handlers
             if (locacao.Invalid)
                 return new AdicionarLocacaoCommandResult(false, "Por favor, corrija as inconsistências abaixo", locacao.Notifications);
 
-            _unitOfWork.Locacoes.InserirAsync(locacao);
+            var locacaoRealizada = _unitOfWork.Locacoes.InserirAsync(locacao).IsCompleted;
+
+            if (locacaoRealizada)
+            {
+                string mensagemBody = MensagemEmail.EmailConfirmacaoLocacao(locacao);
+                _emailSender.EnviarEmailAsync(cliente.Email.EnderecoEmail, "Locadora de Equipamentos", mensagemBody);
+            }
 
             var locacaoResult = _mapper.Map<LocacaoQueryResult>(locacao);
 

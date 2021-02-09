@@ -1,10 +1,13 @@
 using AutoMapper;
 using ElmahCore;
 using ElmahCore.Mvc;
+using ElmahCore.Mvc.Notifiers;
 using Locadora.Domain;
 using Locadora.Domain.Autenticacao;
+using Locadora.Domain.EmailConfs;
 using Locadora.Domain.Handlers;
 using Locadora.Domain.Interfaces;
+using Locadora.Domain.Interfaces.Email;
 using Locadora.Domain.Interfaces.Repositories;
 using Locadora.Infra;
 using Locadora.Infra.DataContexts;
@@ -45,6 +48,7 @@ namespace Locadora.Api
             #region [+] AppSettings
             services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
             services.Configure<SettingsDomain>(options => Configuration.GetSection("SettingsDomain").Bind(options));
+            services.Configure<EmailOptions>(options => Configuration.GetSection("EmailSettings").Bind(options));
             #endregion
 
             #region [+] DataContexts
@@ -126,6 +130,10 @@ namespace Locadora.Api
             {
                 options.LogPath = "~/log";
             });
+            #endregion
+
+            #region [+] Email
+            services.AddTransient<IEmailSender, AuthMessageSender>();
             #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
