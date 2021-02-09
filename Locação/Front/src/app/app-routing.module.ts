@@ -14,6 +14,7 @@ const routes: Routes = [
     path: '', component: HomeComponent, children: [
       { path: '', component: CardComponent },
       { path: 'cadastrar', component: CadastrarUsuarioComponent },
+      { path: 'cadastrarproduto/:id', component: CadastrarProdutoComponent },
       { path: 'cadastrarproduto', component: CadastrarProdutoComponent },
       { path: 'meuspedidos', component: MeusPedidosComponent },
       { path: 'listarproduto', component: ListarProdutoComponent },

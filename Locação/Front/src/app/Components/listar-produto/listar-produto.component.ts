@@ -1,6 +1,7 @@
 import { Equipamentos } from './../../Services/equipamentos/Equipamentos';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
+import { ActivatedRoute } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -30,15 +31,18 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ListarProdutoComponent implements OnInit {
 
   equipamentos: Equipamentos[] = []
-  displayedColumns: string[] = ['name', 'descricao', 'cor', 'modelo', 'saldo', 'valor'];
+  displayedColumns: string[] = ['name', 'descricao', 'cor', 'modelo', 'saldo', 'valor', 'acao'];
 
 
+  constructor(
+    private equipamentosService: EquipamentosService,
 
-  constructor(private equipamentosService: EquipamentosService) {
+  ) {
 
   }
 
   ngOnInit(): void {
+
     this.equipamentosService.ListarTodos().subscribe(resp => {
       console.log(resp)
       this.equipamentos = resp

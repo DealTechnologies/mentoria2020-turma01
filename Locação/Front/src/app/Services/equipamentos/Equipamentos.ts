@@ -1,4 +1,5 @@
 export interface Equipamentos {
+    id?: string;
     nome: string;
     descricao: string;
     cor: string;

@@ -30,7 +30,7 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
 
             if (string.IsNullOrEmpty(Descricao))
                 AddNotification("Descricao", "Descricao obrigatória");
-            else if (!(Descricao.Length >= 3 && Descricao.Length <= 6))
+            else if (!(Descricao.Length >= 3))
                 AddNotification("Descricao", "Descricao deve ser maior que 3 e menor que 6 digitos");
 
             if (string.IsNullOrEmpty(Cor))

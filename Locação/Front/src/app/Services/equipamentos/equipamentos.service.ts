@@ -22,13 +22,13 @@ export class EquipamentosService {
     return this.http.post<Equipamentos>(client, usuario)
   }
 
-  AtualizarEquipamento(usurio: Equipamentos): Observable<Equipamentos> {
-    var id = localStorage.getItem("id");
+  AtualizarEquipamento(id: string | null, usurio: Equipamentos): Observable<Equipamentos> {
+
     var client = `${this.url}/Equipamentos/${id}`
     return this.http.put<Equipamentos>(client, usurio)
   }
 
-  BuscarEquipamentoId(id: string): Observable<Equipamentos> {
+  BuscarEquipamentoId(id: string | null): Observable<Equipamentos> {
     var client = `${this.url}/Equipamentos/${id}`
     return this.http.get<Equipamentos>(client)
   }
