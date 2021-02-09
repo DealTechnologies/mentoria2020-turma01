@@ -13,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Locacoes\Inputs\" />
-    <Folder Include="Commands\Locacoes\Outputs\" />
     <Folder Include="Interfaces\Commands\" />
   </ItemGroup>
 

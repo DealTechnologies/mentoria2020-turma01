@@ -50,7 +50,7 @@ namespace Locadora.Domain.Commands.Clientes.Inputs
                 DateTime dtNascimento;
                 if (string.IsNullOrEmpty(DataNascimento))
                     AddNotification("DataNascimento", "Data de Nascimento obrigatório");
-                else if (DateTime.TryParseExact(DataNascimento, "dd-MM-yyyy", culture, DateTimeStyles.None, out dtNascimento))
+                else if (!DateTime.TryParseExact(DataNascimento, "yyyy/MM/dd", culture, DateTimeStyles.None, out dtNascimento))
                     AddNotification("DataNascimento", "Data de Nascimento inválida");
                 else
                     DataNascimentoConvertida = dtNascimento;
