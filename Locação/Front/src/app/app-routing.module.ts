@@ -1,3 +1,4 @@
+import { MeuCarrinhoComponent } from './Components/meu-carrinho/meu-carrinho.component';
 import { HomeComponent } from './Template/home/home/home.component';
 import { CardComponent } from './Template/home/card/card.component.spec';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: 'cadastrarproduto', component: CadastrarProdutoComponent },
       { path: 'meuspedidos', component: MeusPedidosComponent },
       { path: 'listarproduto', component: ListarProdutoComponent },
-      { path: 'atualizar', component: AtualizarUsuarioComponent }],
+      { path: 'atualizar', component: AtualizarUsuarioComponent },
+      { path: 'meucarrinho', component: MeuCarrinhoComponent }],
     canActivate: [AuthGuardGuard]
   },
   {

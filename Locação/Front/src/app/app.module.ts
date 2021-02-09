@@ -1,3 +1,4 @@
+import { MeuCarrinhoComponent } from './Components/meu-carrinho/meu-carrinho.component';
 import { CardComponent } from './Template/home/card/card.component.spec';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -46,7 +47,8 @@ import { MeusPedidosComponent } from './Components/meus-pedidos/meus-pedidos.com
     CadastrarProdutoComponent,
     ListarProdutoComponent,
     AtualizarUsuarioComponent,
-    MeusPedidosComponent
+    MeusPedidosComponent,
+    MeuCarrinhoComponent
 
   ],
   imports: [

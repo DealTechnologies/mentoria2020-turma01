@@ -1,6 +1,6 @@
 <mat-toolbar class="background mat-elevation-z8">
     <mat-toolbar-row class="toolbar">
-        <div fxFlex="30">
+        <div fxFlex="20">
             <img class="logo" src="../../../../assets/imagens/logo.png" alt="">
             <span [routerLink]="['']" routerLinkActive="router-link-active"></span>
 
@@ -48,7 +48,6 @@
             </div>
         </div>
 
-
         <div class="divBusca" fxFlex="40">
             <input matInput type="search" class="txtBusca" placeholder="Pesquisar..." />
             <button mat-icon-button class="btnBusca">
@@ -56,17 +55,25 @@
             </button>
         </div>
 
-
-
         <div fxFlex="10" *ngIf="showButton" [routerLink]="['/atualizar']" routerLinkActive="router-link-active">
             <a style="float: right;" mat-raised-button color="warn" routerLink="signup">Finalizar
                 Cadastro</a>
         </div>
-        <div fxFlex="30" *ngIf="!mostrarMenu">
+
+        <div fxFlex="10" style="align-items:flex-end">
+            <button [routerLink]="['/meucarrinho']" mat-icon-button class="example-icon"
+                aria-label="Example icon-button with menu icon">
+                <mat-icon style="color: antiquewhite;">add_shopping_cart</mat-icon>
+            </button>
+        </div>
+
+        <div fxFlex="10" *ngIf="!mostrarMenu">
             <a style="float: right;" (click)="openDialog()" mat-raised-button color="primary"
                 routerLink="signup">Entrar</a>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
+
+
 <app-nav></app-nav>
 <app-footer></app-footer>

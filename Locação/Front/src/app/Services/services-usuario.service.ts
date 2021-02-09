@@ -35,7 +35,5 @@ export class ServicesUsuarioService {
     localStorage.getItem("token");
     var client = `${this.url}/clientes/${id}`
     return this.http.get<Usuario>(client)
-
-
   }
 }
