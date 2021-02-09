@@ -10,8 +10,8 @@
                 <mat-icon style="color: antiquewhite;">menu</mat-icon>
             </button>
             
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+            <mat-menu #menu="matMenu" >
+                <button mat-menu-item [routerLink]="['']" >
                     <a mat-list-item>
                         <i class="material-icons">home</i>
                         Início
@@ -23,6 +23,21 @@
                         Perfil
                     </a>
                 </button>
+
+                <button mat-menu-item [routerLink]="['/cadastrarproduto']">
+                    <a mat-list-item >
+                        <i class="material-icons">add_shopping_cart</i>
+                        Adicionar produto
+                    </a>
+                </button>
+
+                <button mat-menu-item [routerLink]="['/listarproduto']">
+                    <a mat-list-item >
+                        <i class="material-icons">list</i>
+                        Listar meus produtos
+                    </a>
+                </button>
+
                 <button mat-menu-item>
                     <a mat-list-item>
                         <i class="material-icons">card_travel</i>

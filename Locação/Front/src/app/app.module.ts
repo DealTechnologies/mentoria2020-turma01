@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './Template/home/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
-
+import {MatTableModule} from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,8 +25,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadastrar-usuario.component';
-
-
+import { CadastrarProdutoComponent } from './Components/cadastrar-produto/cadastrar-produto.component';
+import { ListarProdutoComponent } from './Components/listar-produto/listar-produto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +35,10 @@ import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadast
     NavComponent,
     LoginComponent,
     CardComponent,
-    CadastrarUsuarioComponent
+    CadastrarUsuarioComponent,
+    CadastrarProdutoComponent,
+    ListarProdutoComponent
+
   ],
   imports: [
     HttpClientModule,
@@ -54,7 +57,8 @@ import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadast
     MatInputModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
