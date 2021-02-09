@@ -31,17 +31,23 @@ namespace Locadora.Domain.Entidades
         public bool ClientePossuiEndereco()
         {
             if (Cliente.Endereco == null)
+            {
                 AddNotification("Endereco", "O Cliente não possui endereço");
+                return false;
+            }
 
-            return false;
+            return true;
         }
 
         public bool EquipamentoPossuiSaldoEstoque()
         {
             if (!Equipamentos.Any(e => e.SaldoEstoque > 0))
+            {
                 AddNotification("Equipamentos", "Alguns itens não possuem saldo em estoque");
+                return false;
+            }
 
-            return false;
+            return true;
         }
     }
 }
