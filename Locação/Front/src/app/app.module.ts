@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +29,7 @@ import { ListarProdutoComponent } from './Components/listar-produto/listar-produ
 import { LoginService } from './Services/login/login.service';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { AtualizarUsuarioComponent } from './Components/atualizarUsuario/atualizar-usuario/atualizar-usuario.component';
+import { MeusPedidosComponent } from './Components/meus-pedidos/meus-pedidos.component';
 
 
 
@@ -45,7 +45,8 @@ import { AtualizarUsuarioComponent } from './Components/atualizarUsuario/atualiz
     CadastrarUsuarioComponent,
     CadastrarProdutoComponent,
     ListarProdutoComponent,
-    AtualizarUsuarioComponent
+    AtualizarUsuarioComponent,
+    MeusPedidosComponent
 
   ],
   imports: [
