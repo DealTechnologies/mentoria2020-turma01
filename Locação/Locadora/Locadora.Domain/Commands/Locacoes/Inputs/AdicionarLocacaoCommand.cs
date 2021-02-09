@@ -48,7 +48,7 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
                 DateTime dtLocacao;
                 if (string.IsNullOrEmpty(DataLocacao))
                     AddNotification("DataLocacao", "Data de Locacao obrigatório");
-                else if (!DateTime.TryParseExact(DataLocacao, "yyyy/MM/dd", culture, DateTimeStyles.None, out dtLocacao))
+                else if (!DateTime.TryParseExact(DataLocacao, "yyyy-MM-dd", culture, DateTimeStyles.None, out dtLocacao))
                     AddNotification("DataLocacao", "Data de Locacao inválida");
                 else
                     DataLocacaoConvertida = dtLocacao;
@@ -56,7 +56,7 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
                 DateTime dtDevolucao;
                 if (string.IsNullOrEmpty(DataDevolucao))
                     AddNotification("DataDevolucao", "Data de Locacao obrigatório");
-                else if (!DateTime.TryParseExact(DataDevolucao, "yyyy/MM/dd", culture, DateTimeStyles.None, out dtDevolucao))
+                else if (!DateTime.TryParseExact(DataDevolucao, "yyyy-MM-dd", culture, DateTimeStyles.None, out dtDevolucao))
                     AddNotification("DataDevolucao", "Data de Locacao inválida");
                 else
                     DataDevolucaoConvertida = dtDevolucao;
