@@ -17,10 +17,10 @@
                             Início
                         </a>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item [routerLink]="['/atualizar']">
                         <a mat-list-item>
                             <i class="material-icons">account_box</i>
-                            Perfil
+                            Editar perfil
                         </a>
                     </button>
 
@@ -38,53 +38,12 @@
                         </a>
                     </button>
 
-                    <button mat-menu-item>
+                    <button mat-menu-item [routerLink]="['/meuspedidos']">
                         <a mat-list-item>
                             <i class="material-icons">card_travel</i>
                             Meus Pedidos
                         </a>
                     </button>
-
-                    <div fxFlex="30" class="centro" *ngIf="mostrarMenu">
-                        <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
-                            aria-label="Example icon-button with menu icon">
-                            <mat-icon style="color: antiquewhite;">menu</mat-icon>
-                        </button>
-
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item>
-                                <a mat-list-item>
-                                    <i class="material-icons">home</i>
-                                    Início
-                                </a>
-                            </button>
-                            <button mat-menu-item>
-                                <a mat-list-item>
-                                    <i class="material-icons">account_box</i>
-                                    Perfil
-                                </a>
-                            </button>
-                            <button mat-menu-item>
-                                <a mat-list-item>
-                                    <i class="material-icons">card_travel</i>
-                                    Meus Pedidos
-                                </a>
-                            </button>
-
-                            <button mat-menu-item>
-                                <a mat-list-item>
-                                    <i class="material-icons">security</i>
-                                    Privacidade
-                                </a>
-                            </button>
-                            <button mat-menu-item (click)="sair()">
-                                <a mat-list-item>
-                                    <i class="material-icons">exit</i>
-                                    Sair
-                                </a>
-                            </button>
-                        </mat-menu>
-                    </div>
                 </mat-menu>
             </div>
         </div>
@@ -96,8 +55,6 @@
                 <mat-icon>search</mat-icon>
             </button>
         </div>
-
-
 
         <div fxFlex="10" *ngIf="showButton" [routerLink]="['/Atualizar']" routerLinkActive="router-link-active">
             <a style="float: right;" mat-raised-button color="warn" routerLink="signup">Finalizar

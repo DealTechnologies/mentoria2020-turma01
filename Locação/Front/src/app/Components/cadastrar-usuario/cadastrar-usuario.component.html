@@ -36,9 +36,10 @@
 
         </form>
 
-        <button mat-raised-button (click)="AdicionarUsuario()" color="primary">Salvar</button>
-        <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active" color="warn"
-            style="margin: 20px;">Cancelar</button>
-
+        <div style="justify-content: space-between; display: flex;">
+            <button (click)="AdicionarUsuario()" style="margin: 20px;" mat-raised-button color="primary">Salvar</button>
+            <button [routerLink]="['']" mat-raised-button routerLinkActive="router-link-active" color="warn"
+                style="margin: 20px;">Cancelar</button>
+            </div>
     </mat-card>
 </div>

@@ -76,10 +76,11 @@
             </mat-form-field>
 
         </form>
+        <div style="justify-content: space-between; display: flex;">
 
-        <button mat-raised-button (click)="atualizar()" color="primary">Atualizar</button>
+        <button mat-raised-button style="margin: 20px;" (click)="atualizar()" color="primary">Atualizar</button>
         <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active" color="warn"
             style="margin: 20px;">Cancelar</button>
-
+        </div>
     </mat-card>
 </div>
