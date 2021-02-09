@@ -85,25 +85,27 @@
                             </button>
                         </mat-menu>
                     </div>
+                </mat-menu>
             </div>
-
-            <div class="divBusca" fxFlex="40">
-                <input matInput type="search" class="txtBusca" placeholder="Pesquisar..." />
-                <button mat-icon-button class="btnBusca">
-                    <mat-icon>search</mat-icon>
-                </button>
-            </div>
+        </div>
 
 
-            <div fxFlex="10" *ngIf="showButton" [routerLink]="['/Atualizar']" routerLinkActive="router-link-active">
-                <a style="float: right;" mat-raised-button color="warn" routerLink="signup">Finalizar
-                    Cadastro</a>
-            </div>
-            <div fxFlex="30" *ngIf="!mostrarMenu">
-                <a style="float: right;" (click)="openDialog()" mat-raised-button color="primary"
-                    routerLink="signup">Entrar</a>
-            </div>
+        <div class="divBusca" fxFlex="40">
+            <input matInput type="search" class="txtBusca" placeholder="Pesquisar..." />
+            <button mat-icon-button class="btnBusca">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
 
 
+
+        <div fxFlex="10" *ngIf="showButton" [routerLink]="['/Atualizar']" routerLinkActive="router-link-active">
+            <a style="float: right;" mat-raised-button color="warn" routerLink="signup">Finalizar
+                Cadastro</a>
+        </div>
+        <div fxFlex="30" *ngIf="!mostrarMenu">
+            <a style="float: right;" (click)="openDialog()" mat-raised-button color="primary"
+                routerLink="signup">Entrar</a>
+        </div>
     </mat-toolbar-row>
 </mat-toolbar>

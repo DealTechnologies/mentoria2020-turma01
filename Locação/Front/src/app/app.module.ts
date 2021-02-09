@@ -33,6 +33,7 @@ import { AtualizarUsuarioComponent } from './Components/atualizarUsuario/atualiz
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { AtualizarUsuarioComponent } from './Components/atualizarUsuario/atualiz
     CardComponent,
     CadastrarUsuarioComponent,
     CadastrarProdutoComponent,
-    ListarProdutoComponent
+    ListarProdutoComponent,
+    AtualizarUsuarioComponent
 
   ],
   imports: [
@@ -65,7 +67,7 @@ import { AtualizarUsuarioComponent } from './Components/atualizarUsuario/atualiz
     FlexLayoutModule,
     MatCardModule,
     MatTableModule,
-    AtualizarUsuarioComponent
+
   ],
   providers: [LoginService, AuthGuardGuard],
   bootstrap: [AppComponent]
