@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './Template/home/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,6 +27,12 @@ import { MatCardModule } from '@angular/material/card';
 import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadastrar-usuario.component';
 import { CadastrarProdutoComponent } from './Components/cadastrar-produto/cadastrar-produto.component';
 import { ListarProdutoComponent } from './Components/listar-produto/listar-produto.component';
+import { LoginService } from './Services/login/login.service';
+import { AuthGuardGuard } from './guard/auth-guard.guard';
+import { AtualizarUsuarioComponent } from './Components/atualizarUsuario/atualizar-usuario/atualizar-usuario.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +64,10 @@ import { ListarProdutoComponent } from './Components/listar-produto/listar-produ
     ReactiveFormsModule,
     FlexLayoutModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    AtualizarUsuarioComponent
   ],
-  providers: [],
+  providers: [LoginService, AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

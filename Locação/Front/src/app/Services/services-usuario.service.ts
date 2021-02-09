@@ -24,11 +24,18 @@ export class ServicesUsuarioService {
     return this.http.post<UsuarioAdd>(client, usuario)
   }
 
+  AtualizarUsuario(usurio: Usuario): Observable<Usuario> {
+    var id = localStorage.getItem("id");
+    var client = `${this.url}/clientes/${id}`
+    return this.http.put<Usuario>(client, usurio)
+  }
+
   BuscarUsuarioId(): Observable<Usuario> {
     var id = localStorage.getItem("id");
     localStorage.getItem("token");
     var client = `${this.url}/clientes/${id}`
     return this.http.get<Usuario>(client)
+
 
   }
 }

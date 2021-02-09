@@ -1,6 +1,6 @@
 import { CardComponent } from './Template/home/card/card.component.spec';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadastrar-usuario.component';
 import { CadastrarProdutoComponent } from './Components/cadastrar-produto/cadastrar-produto.component';
 import { ListarProdutoComponent } from './Components/listar-produto/listar-produto.component';

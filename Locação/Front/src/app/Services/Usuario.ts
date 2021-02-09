@@ -6,10 +6,9 @@ export interface Usuario {
     cpf: string;
     email: string;
     dataNascimento: string;
-    role: string;
     cep: string;
     rua: string;
-    numero: number;
+    numero?: number;
     complemento: string;
     cidade: string;
     estado: string;

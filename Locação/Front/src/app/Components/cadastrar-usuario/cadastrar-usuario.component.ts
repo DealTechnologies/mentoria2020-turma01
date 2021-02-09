@@ -34,9 +34,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.servicesUsuario.BuscarUsuarioId().subscribe(resp => {
-      console.log(resp);
-    })
+
   }
 
   AdicionarUsuario(): void {
