@@ -3,42 +3,92 @@
         <div fxFlex="30">
             <img class="logo" src="../../../../assets/imagens/logo.png" alt="">
             <span [routerLink]="['']" routerLinkActive="router-link-active"></span>
-            
+
             <div fxFlex="30" class="centro">
-            <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
-                aria-label="Example icon-button with menu icon">
-                <mat-icon style="color: antiquewhite;">menu</mat-icon>
-            </button>
-            
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                    <a mat-list-item>
-                        <i class="material-icons">home</i>
-                        Início
-                    </a>
-                </button>
-                <button mat-menu-item>
-                    <a mat-list-item>
-                        <i class="material-icons">account_box</i>
-                        Perfil
-                    </a>
-                </button>
-                <button mat-menu-item>
-                    <a mat-list-item>
-                        <i class="material-icons">card_travel</i>
-                        Meus Pedidos
-                    </a>
+                <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon style="color: antiquewhite;">menu</mat-icon>
                 </button>
 
-                <button mat-menu-item>
-                    <a mat-list-item>
-                        <i class="material-icons">security</i>
-                        Privacidade
-                    </a>
-                </button>
-            </mat-menu>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item [routerLink]="['']">
+                        <a mat-list-item>
+                            <i class="material-icons">home</i>
+                            Início
+                        </a>
+                    </button>
+                    <button mat-menu-item>
+                        <a mat-list-item>
+                            <i class="material-icons">account_box</i>
+                            Perfil
+                        </a>
+                    </button>
+
+                    <button mat-menu-item [routerLink]="['/cadastrarproduto']">
+                        <a mat-list-item>
+                            <i class="material-icons">add_shopping_cart</i>
+                            Adicionar produto
+                        </a>
+                    </button>
+
+                    <button mat-menu-item [routerLink]="['/listarproduto']">
+                        <a mat-list-item>
+                            <i class="material-icons">list</i>
+                            Listar meus produtos
+                        </a>
+                    </button>
+
+                    <button mat-menu-item>
+                        <a mat-list-item>
+                            <i class="material-icons">card_travel</i>
+                            Meus Pedidos
+                        </a>
+                    </button>
+
+                    <div fxFlex="30" class="centro" *ngIf="mostrarMenu">
+                        <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
+                            aria-label="Example icon-button with menu icon">
+                            <mat-icon style="color: antiquewhite;">menu</mat-icon>
+                        </button>
+
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                                <a mat-list-item>
+                                    <i class="material-icons">home</i>
+                                    Início
+                                </a>
+                            </button>
+                            <button mat-menu-item>
+                                <a mat-list-item>
+                                    <i class="material-icons">account_box</i>
+                                    Perfil
+                                </a>
+                            </button>
+                            <button mat-menu-item>
+                                <a mat-list-item>
+                                    <i class="material-icons">card_travel</i>
+                                    Meus Pedidos
+                                </a>
+                            </button>
+
+                            <button mat-menu-item>
+                                <a mat-list-item>
+                                    <i class="material-icons">security</i>
+                                    Privacidade
+                                </a>
+                            </button>
+                            <button mat-menu-item (click)="sair()">
+                                <a mat-list-item>
+                                    <i class="material-icons">exit</i>
+                                    Sair
+                                </a>
+                            </button>
+                        </mat-menu>
+                    </div>
+                </mat-menu>
             </div>
         </div>
+
 
         <div class="divBusca" fxFlex="40">
             <input matInput type="search" class="txtBusca" placeholder="Pesquisar..." />
@@ -48,10 +98,14 @@
         </div>
 
 
-        <div fxFlex="30"> 
-            <a style="float: right;" (click)="openDialog()" mat-raised-button color="primary" routerLink="signup">Entrar</a>
+
+        <div fxFlex="10" *ngIf="showButton" [routerLink]="['/Atualizar']" routerLinkActive="router-link-active">
+            <a style="float: right;" mat-raised-button color="warn" routerLink="signup">Finalizar
+                Cadastro</a>
         </div>
-
-
+        <div fxFlex="30" *ngIf="!mostrarMenu">
+            <a style="float: right;" (click)="openDialog()" mat-raised-button color="primary"
+                routerLink="signup">Entrar</a>
+        </div>
     </mat-toolbar-row>
 </mat-toolbar>
