@@ -1,7 +1,9 @@
+import { Equipamentos } from './../../Services/equipamentos/Equipamentos';
 import { Observable, Subscriber } from 'rxjs';
 
 
 import { Component, OnInit } from '@angular/core';
+import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
 
 
 @Component({
@@ -10,8 +12,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastrar-produto.component.css']
 })
 
-export class CadastrarProdutoComponent {
+export class CadastrarProdutoComponent implements OnInit {
 
+  imagem: string = '';
+
+  equipamento: Equipamentos = {
+    nome: '',
+    cor: '',
+    descricao: '',
+    imagem: ' ',
+    modelo: '',
+    saldoEstoque: 0,
+    valorDiaria: 0
+  }
+  constructor(private equipamentosService: EquipamentosService
+  ) { }
+
+  ngOnInit(): void {
+
+  }
+
+  Adicionar(): void {
+    this.equipamento.imagem = this.imagem;
+    this.equipamentosService.AdicionarEquipamento(this.equipamento).subscribe(x => {
+      try {
+        console.log(x)
+
+      } catch (error) {
+        console.log(error);
+      }
+    })
+  }
 
 
   base64File($event: Event) {
@@ -26,7 +57,7 @@ export class CadastrarProdutoComponent {
       this.readFile(file, subscribe);
     });
     observable.subscribe((d) => {
-      console.log(d);
+      this.imagem = d;
     })
   }
 

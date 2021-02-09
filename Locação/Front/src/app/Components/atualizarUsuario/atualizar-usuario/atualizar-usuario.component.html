@@ -29,7 +29,7 @@
             <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
                 <mat-label>Data de Nascimento</mat-label>
                 <input type="date" matInput placeholder="Data Ex:00/00/0000" [(ngModel)]="usuario.dataNascimento "
-                    name="dataNascimento ">{{usuario.dataNascimento | date:"dd/MM/yyyy"}}
+                    name="dataNascimento ">
 
             </mat-form-field>
 
@@ -78,9 +78,9 @@
         </form>
         <div style="justify-content: space-between; display: flex;">
 
-        <button mat-raised-button style="margin: 20px;" (click)="atualizar()" color="primary">Atualizar</button>
-        <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active" color="warn"
-            style="margin: 20px;">Cancelar</button>
+            <button mat-raised-button style="margin: 20px;" (click)="atualizar()" color="primary">Atualizar</button>
+            <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active" color="warn"
+                style="margin: 20px;">Cancelar</button>
         </div>
     </mat-card>
 </div>

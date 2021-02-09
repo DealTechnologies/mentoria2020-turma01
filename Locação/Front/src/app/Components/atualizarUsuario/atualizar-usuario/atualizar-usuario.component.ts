@@ -35,13 +35,17 @@ export class AtualizarUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.BuscarUsuario()
+  }
+
+  BuscarUsuario() {
     this.serviceUsuario.BuscarUsuarioId().subscribe(resp => {
       this.usuario = resp;
-
-    })
+    });
   }
 
   atualizar(): void {
+
     this.serviceUsuario.AtualizarUsuario(this.usuario).subscribe(resp => {
       console.log(resp)
       this.router.navigate([''])
