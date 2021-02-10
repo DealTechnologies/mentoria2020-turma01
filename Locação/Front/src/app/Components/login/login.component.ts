@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   cpfFormControl = new FormControl('', [Validators.required]);
 
   constructor(
-    public dialogRef: MatDialogRef<LoginComponent>,
+
     private serviceLogin: LoginService,
     private servicesUsuario: ServicesUsuarioService,
     private router: Router,
@@ -43,23 +43,24 @@ export class LoginComponent implements OnInit {
     this.serviceLogin.mostrarMenu.subscribe(
       mostrar => this.mostrarMenu = mostrar
     )
-    state
   }
 
 
-  ClosedLogin(): void {
-    this.dialogRef.close()
-    this.router.navigate(['/']);
+  // ClosedLogin(): void {
+  //   this.dialogRef.close()
+  //   this.router.navigate(['/cadastrar']);
 
-  }
+  // }
 
   logar(): void {
     this.serviceLogin.login(this.login).subscribe(x => {
       this.login = x
+      console.log(x)
       localStorage.clear();
       localStorage.setItem(`token`, `${this.login.data?.token}`);
       localStorage.setItem(`id`, `${this.login.data?.id}`);
-      this.ClosedLogin();
+      localStorage.setItem(`role`, `${this.login.data?.role}`);
+      this.router.navigate(['']);
 
     })
   }

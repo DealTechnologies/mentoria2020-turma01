@@ -39,11 +39,11 @@ export class HomeComponent implements OnInit {
     this.mostrarMenu = false
     this.showButton = false
   }
-  openDialog() {
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '400px',
-      height: '500px'
-    });
-  }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(LoginComponent, {
+  //     width: '400px',
+  //     height: '500px'
+  //   });
+  // }
 
 }
