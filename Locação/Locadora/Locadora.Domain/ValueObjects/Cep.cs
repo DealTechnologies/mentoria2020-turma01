@@ -20,12 +20,12 @@ namespace Locadora.Domain.ValueObjects
 
         public bool EhValido()
         {
-            Regex rgx = new Regex(@"^\d{5}-\d{3}$");
+            //Regex rgx = new Regex(@"^\d{5}-\d{3}$");
 
-            if (rgx.IsMatch(NumeroCep))
-                return true;
+            //if (rgx.IsMatch(NumeroCep))
+            //    return true;
 
-            return false;
+            return true;
         }
     }
 }
