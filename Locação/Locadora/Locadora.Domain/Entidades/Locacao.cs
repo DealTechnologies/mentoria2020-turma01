@@ -55,7 +55,7 @@ namespace Locadora.Domain.Entidades
         {
             if (!Equipamentos.Any(e => e.QuantidadeAlugado > 0))
             {
-                AddNotification("Equipamentos", "Alguns itens não possuem itens no carrinho");
+                AddNotification("Equipamentos", "Alguns itens não possuem quantidade alugado no carrinho");
                 return false;
             }
 
