@@ -55,9 +55,11 @@ export class LoginComponent implements OnInit {
   logar(): void {
     this.serviceLogin.login(this.login).subscribe(x => {
       this.login = x
+      console.log(x)
       localStorage.clear();
       localStorage.setItem(`token`, `${this.login.data?.token}`);
       localStorage.setItem(`id`, `${this.login.data?.id}`);
+      localStorage.setItem(`role`, `${this.login.data?.role}`);
       this.router.navigate(['']);
 
     })

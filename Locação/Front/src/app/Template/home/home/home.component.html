@@ -1,10 +1,11 @@
 <mat-toolbar class="background mat-elevation-z8">
     <mat-toolbar-row class="toolbar">
         <div fxFlex="20">
-            <img class="logo" src="../../../../assets/imagens/logo.png" alt="">
+            <img class="logo" src="../../../../assets/imagens/logo.png" alt="" [routerLink]="['']"
+                routerLinkActive="router-link-active">
             <span [routerLink]="['']" routerLinkActive="router-link-active"></span>
 
-            <div fxFlex="30" class="centro">
+            <div fxFlex="30" *ngIf="mostrarMenu" class="centro">
                 <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon"
                     aria-label="Example icon-button with menu icon">
                     <mat-icon style="color: antiquewhite;">menu</mat-icon>
@@ -55,7 +56,7 @@
             </button>
         </div>
 
-        <div fxFlex="10" *ngIf="showButton" [routerLink]="['/atualizar']">
+        <div fxFlex="10" *ngIf="mostrarMenu" [routerLink]="['/atualizar']">
             <a style="float: right;" mat-raised-button color="warn">Finalizar
                 Cadastro</a>
         </div>
@@ -68,7 +69,8 @@
         </div>
 
         <div fxFlex="10" *ngIf="!mostrarMenu">
-            <a style="float: right;" mat-raised-button color="primary">Entrar</a>
+            <a style="float: right;" [routerLink]="['/login']" routerLinkActive="router-link-active" mat-raised-button
+                color="primary">Entrar</a>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

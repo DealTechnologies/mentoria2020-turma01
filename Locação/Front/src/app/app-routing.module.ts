@@ -1,7 +1,7 @@
 import { LoginComponent } from 'src/app/Components/login/login.component';
 import { MeuCarrinhoComponent } from './Components/meu-carrinho/meu-carrinho.component';
 import { HomeComponent } from './Template/home/home/home.component';
-import { CardComponent } from './Template/home/card/card.component.spec';
+import { CardComponent } from './Template/home/card/card.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { CadastrarUsuarioComponent } from './Components/cadastrar-usuario/cadastrar-usuario.component';

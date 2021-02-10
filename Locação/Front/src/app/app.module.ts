@@ -1,5 +1,5 @@
 import { MeuCarrinhoComponent } from './Components/meu-carrinho/meu-carrinho.component';
-import { CardComponent } from './Template/home/card/card.component.spec';
+import { CardComponent } from './Template/home/card/card.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';

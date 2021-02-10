@@ -2,17 +2,15 @@
 
     <div fxFlex="70" fxLayout="row wrap" fxLayoutGap="16px grid">
 
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9,10,11,12]">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let equep of equipamentos">
             <mat-card class="elevacao">
                 <mat-card-header>
-                    <mat-card-title>Martelo</mat-card-title>
+                    <mat-card-title>{{equep.nome}}</mat-card-title>
                 </mat-card-header>
-                <img mat-card-image
-                    src="https://img.lojadomecanico.com.br/IMAGENS/2/253/108333/Martelo-de-Unha-com-Cabo-de-Madeira-18mm-tramontina-40200018-1.JPG"
-                    alt="">
+                <img mat-card-image src="{{equep.imagem}}" alt="">
                 <mat-card-content>
                     <p>
-                        R$80,00 a diaria
+                        {{equep.valorDiaria | currency:'R$'}}
                     </p>
                 </mat-card-content>
                 <mat-card-actions>

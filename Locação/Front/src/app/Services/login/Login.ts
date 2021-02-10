@@ -5,6 +5,7 @@ export interface Login {
     senha: string;
     data?: {
         id: string,
-        token: string
+        token: string,
+        role: string
     }
 }
