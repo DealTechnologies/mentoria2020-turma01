@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './Usuario';
@@ -25,15 +25,29 @@ export class ServicesUsuarioService {
   }
 
   AtualizarUsuario(usurio: Usuario): Observable<Usuario> {
+    let headers = new HttpHeaders();
+    if (localStorage.getItem('token') != null) {
+
+      headers = headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    }
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     var id = localStorage.getItem("id");
     var client = `${this.url}/clientes/${id}`
-    return this.http.put<Usuario>(client, usurio)
+    return this.http.put<Usuario>(client, usurio, { headers: headers })
   }
 
   BuscarUsuarioId(): Observable<Usuario> {
+
+    let headers = new HttpHeaders();
+    if (localStorage.getItem('token') != null) {
+
+      headers = headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+    }
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+
     var id = localStorage.getItem("id");
     localStorage.getItem("token");
     var client = `${this.url}/clientes/${id}`
-    return this.http.get<Usuario>(client)
+    return this.http.get<Usuario>(client, { headers: headers })
   }
 }

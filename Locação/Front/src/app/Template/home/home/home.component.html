@@ -18,31 +18,37 @@
                             Início
                         </a>
                     </button>
-                    <button mat-menu-item [routerLink]="['/atualizar']">
+                    <button *ngIf="showButtonClient" mat-menu-item [routerLink]="['/atualizar']">
                         <a mat-list-item>
                             <i class="material-icons">account_box</i>
                             Editar perfil
                         </a>
                     </button>
 
-                    <button mat-menu-item [routerLink]="['/cadastrarproduto']">
+                    <button *ngIf="showButtonAdin" mat-menu-item [routerLink]="['/cadastrarproduto']">
                         <a mat-list-item>
                             <i class="material-icons">add_shopping_cart</i>
                             Adicionar produto
                         </a>
                     </button>
 
-                    <button mat-menu-item [routerLink]="['/listarproduto']">
+                    <button *ngIf="showButtonAdin" mat-menu-item [routerLink]="['/listarproduto']">
                         <a mat-list-item>
                             <i class="material-icons">list</i>
                             Listar meus produtos
                         </a>
                     </button>
 
-                    <button mat-menu-item [routerLink]="['/meuspedidos']">
+                    <button *ngIf="showButtonClient" mat-menu-item [routerLink]="['/meuspedidos']">
                         <a mat-list-item>
                             <i class="material-icons">card_travel</i>
                             Meus Pedidos
+                        </a>
+                    </button>
+                    <button mat-menu-item (click)="sair()">
+                        <a mat-list-item>
+                            <i class="material-icons">card_travel</i>
+                            sair
                         </a>
                     </button>
                 </mat-menu>
