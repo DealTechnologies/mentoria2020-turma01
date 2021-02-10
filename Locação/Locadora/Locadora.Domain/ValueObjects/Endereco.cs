@@ -55,5 +55,10 @@ namespace Locadora.Domain.ValueObjects
 
             Cep = cep;
         }
+
+        public string ObterEnderecoCompleto()
+        {
+            return $"{Rua} {Numero.ToString()} {Complemento} {Cidade}/{Estado} - {Cep.NumeroCep} {Pais}";
+        }
     }
 }

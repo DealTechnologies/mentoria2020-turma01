@@ -1,7 +1,6 @@
 using AutoMapper;
 using ElmahCore;
 using ElmahCore.Mvc;
-using ElmahCore.Mvc.Notifiers;
 using Locadora.Domain;
 using Locadora.Domain.Autenticacao;
 using Locadora.Domain.EmailConfs;
@@ -48,7 +47,7 @@ namespace Locadora.Api
             #region [+] AppSettings
             services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
             services.Configure<SettingsDomain>(options => Configuration.GetSection("SettingsDomain").Bind(options));
-            services.Configure<EmailOptions>(options => Configuration.GetSection("EmailSettings").Bind(options));
+            services.Configure<EmailSettings>(options => Configuration.GetSection("EmailSettings").Bind(options));
             #endregion
 
             #region [+] DataContexts

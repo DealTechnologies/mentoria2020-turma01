@@ -1,4 +1,7 @@
 ﻿using Locadora.Domain.Entidades;
+using System;
+using System.Drawing;
+using System.IO;
 using System.Text;
 
 namespace Locadora.Domain.EmailConfs
@@ -8,6 +11,37 @@ namespace Locadora.Domain.EmailConfs
         public static string EmailConfirmacaoLocacao(Locacao locacao)
         {
             StringBuilder TabelaEquipamentos = new StringBuilder("");
+
+            foreach (var itemEquipamento in locacao.Equipamentos)
+            {
+                var tabelaEquipamentos = $@"
+                                            <table border='0' cellpadding='0' cellspacing='0' width='100%' height='100px'>
+                                                <tr>
+                                                    <td width='150' valign='top'>
+                                                    </td>
+                                                    <td width='260' valign='top'>
+                                                        <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+                                                            <tr>
+                                                                <td style='padding: 25px 0 0 0;'>
+                                                                    Nome: {itemEquipamento.Nome} <br /><br />
+                                                                    Descricao: {itemEquipamento.Descricao} <br /><br />
+                                                                    @QuantidadeAlugado <br /><br />
+                                                                    ValorDiaria: <b>{itemEquipamento.ValorDiaria.ToString("R$ #,###.00")}</b> <br /><br />
+                                                                    Cor: {itemEquipamento.Cor}  <br /><br />
+                                                                    Modelo: {itemEquipamento.Modelo}  <br /><br />
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <hr />
+                                                    </td>
+                                                    <td width='150' valign='top'>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            ";
+
+                TabelaEquipamentos.Append(tabelaEquipamentos);
+            }
 
             var stringHtml = $@"
                             <!DOCTYPE html>
@@ -22,7 +56,7 @@ namespace Locadora.Domain.EmailConfs
                                 <table align='center' border='1' cellpadding='0' cellspacing='0' width='600' style='border-collapse: collapse;'>
                                         <tr>
                                             <td align='center' bgcolor='#3f48cc' >
-                                                <img src='logo.png' alt='Locadora de Ferramentas' width='300' height='230' style='display: block;' />
+                                                Locadora de Ferramentas
                                             </td>
                                         </tr>
                                         <tr>
@@ -30,7 +64,7 @@ namespace Locadora.Domain.EmailConfs
                                                 <table border='0' cellpadding='0' cellspacing='0' width='100%'>
                                                     <tr>
                                                         <td>
-                                                            Olá {locacao.Cliente.Nome}, segue abaixo os equipamentos alugados por você!
+                                                            Olá {locacao.Cliente.Nome}, os equipamentos vão chegar em {locacao.DiasParaChegadaPedido().ToString()} de dias no endereço que consta no seu cadastro: <br /> <b>{locacao.Cliente.Endereco.ObterEnderecoCompleto()}</b>
                                                         <hr />
                                                         </td>
                                                     </tr>
@@ -40,11 +74,11 @@ namespace Locadora.Domain.EmailConfs
                                                                 <tr>
                                                                     <td>
                                             
-                                                                        Data da Locacao: {locacao.DataDevolucao.ToString("dd/MM/yyyy")} <br />
+                                                                        Data da Locacao: {locacao.DataLocacao.ToString("dd/MM/yyyy")} <br />
                                                                         Data da Devolucao: {locacao.DataDevolucao.ToString("dd/MM/yyyy")} <br />
                                                                         Valor do Aluguel: {locacao.ValorAluguel.ToString("R$ #,###.00")} <br />
                                                                         Valor do Frete: {locacao.ValorFrete.ToString("R$ #,###.00")} <br />
-                                                                        Valor total: {locacao.ValorAluguel.ToString("R$ #,###.00")}
+                                                                        Valor total: {locacao.ValorTotal.ToString("R$ #,###.00")}
                                                                     <hr />
                                                                     </td>
                                                                 </tr>
@@ -59,7 +93,7 @@ namespace Locadora.Domain.EmailConfs
                                                                             <tr>
                                                                                 <td width='260' valign='top'>
                                                                                     <!-- Equipamentos -->
-                                                                                    @tabelaEquipamentos
+                                                                                    {TabelaEquipamentos.ToString()}
 
                                                                                 </td>
                                                                             </tr>
@@ -81,20 +115,7 @@ namespace Locadora.Domain.EmailConfs
                                             <td style='padding: 30px 30px 30px 30px; background-color: #848beb;'>
                                                 <table border='0' cellpadding='0' cellspacing='0' width='100%'>
                                                     <tr>
-                                                        <td width='75%'>
-                                                            &reg; Locadora de Ferramentas
-                                                           </td>
-                                                        <td align='right'>
-                                                            <table border='0' cellpadding='0' cellspacing='0'>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href='https://github.com/DealTechnologies/mentoria2020-turma01/tree/master/Loca%C3%A7%C3%A3o' target='_blank'>
-                                                                            <img src='iconegithub.png' alt='Twitter' width='25' height='25' style='display: block;' border='0' />
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
+                                                        <td width='75%'> &reg; Locadora de Ferramentas</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -104,41 +125,6 @@ namespace Locadora.Domain.EmailConfs
                             </html>
 
                             ";
-
-            foreach (var itemEquipamento in locacao.Equipamentos)
-            {
-                var tabelaEquipamentos = $@"
-                                            <table border='0' cellpadding='0' cellspacing='0' width='100%' height='100px'>
-                                                <tr>
-                                                    <td width='150' valign='top'>
-                                                    </td>
-                                                    <td width='260' valign='top'>
-                                                        <table border='0' cellpadding='0' cellspacing='0' width='100%' style='background-color: #cbd7de;'>
-                                                            <tr>
-                                                                <td>
-                                                                    <img src='images/left.gif' alt='' width='100%' height='140' style='display: block;' />
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style='padding: 25px 0 0 0;'>
-                                                                    {itemEquipamento.Nome} <br /><br />
-                                                                    {itemEquipamento.Descricao} <br /><br />
-                                                                    @Quantidade <br /><br />
-                                                                    {itemEquipamento.ValorDiaria} <br /><br />
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                    <td width='150' valign='top'>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                            ";
-
-                TabelaEquipamentos.Append(tabelaEquipamentos);
-            }
-
-            stringHtml.Replace("@tabelaEquipamentos", TabelaEquipamentos.ToString());
 
             return stringHtml;
         }

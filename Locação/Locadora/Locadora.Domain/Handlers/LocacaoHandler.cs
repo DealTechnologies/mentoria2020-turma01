@@ -53,13 +53,10 @@ namespace Locadora.Domain.Handlers
             if (locacao.Invalid)
                 return new AdicionarLocacaoCommandResult(false, "Por favor, corrija as inconsistências abaixo", locacao.Notifications);
 
-            var locacaoRealizada = _unitOfWork.Locacoes.InserirAsync(locacao).IsCompleted;
+            _unitOfWork.Locacoes.InserirAsync(locacao);
 
-            if (locacaoRealizada)
-            {
-                string mensagemBody = MensagemEmail.EmailConfirmacaoLocacao(locacao);
-                _emailSender.EnviarEmailAsync(cliente.Email.EnderecoEmail, "Locadora de Equipamentos", mensagemBody);
-            }
+            string mensagemBody = MensagemEmail.EmailConfirmacaoLocacao(locacao);
+            _emailSender.EnviarEmailAsync(cliente.Email.EnderecoEmail, "Locadora de Equipamentos", mensagemBody);
 
             var locacaoResult = _mapper.Map<LocacaoQueryResult>(locacao);
 

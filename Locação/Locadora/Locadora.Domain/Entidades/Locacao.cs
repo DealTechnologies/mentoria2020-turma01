@@ -49,5 +49,10 @@ namespace Locadora.Domain.Entidades
 
             return true;
         }
+
+        public int DiasParaChegadaPedido()
+        {
+            return DataDevolucao.Subtract(DataLocacao).Days;
+        }
     }
 }
