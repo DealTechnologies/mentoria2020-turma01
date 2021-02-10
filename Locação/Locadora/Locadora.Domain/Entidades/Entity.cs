@@ -11,7 +11,8 @@ namespace Locadora.Domain.Entidades
         protected Entity()
         {
             Id = Guid.NewGuid();
-            ts = DateTime.Now;
+            
+            ts = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
         }
         protected Entity(Guid id)
         {
