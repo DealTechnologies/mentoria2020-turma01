@@ -8,6 +8,7 @@ using Locadora.Domain.Handlers;
 using Locadora.Domain.Interfaces;
 using Locadora.Domain.Interfaces.Commands;
 using Locadora.Domain.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Locadora.Api.Controllers
@@ -37,6 +38,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/Equipamentos")]
+        [AllowAnonymous]
         public IEnumerable<EquipamentoQueryResult> Equipamentos()
         {
             try
@@ -61,6 +63,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/Equipamentos/{id}")]
+        [Authorize(Roles = "Cliente,Administrador")]
         public EquipamentoQueryResult Equipamento(Guid id)
         {
             try
@@ -84,6 +87,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/Equipamentos")]
+        [Authorize(Roles = "Administrador")]
         public ICommandResult EquipamentoInserir([FromBody] AdicionarEquipamentoCommand command)
         {
             try
@@ -108,6 +112,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPut]
         [Route("v1/Equipamentos/{id}")]
+        [Authorize(Roles = "Administrador")]
         public ICommandResult EquipamentoAlterar(Guid id, [FromBody] AtualizarEquipamentoCommand command)
         {
             try
@@ -133,6 +138,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Route("v1/Equipamentos/{id}")]
+        [Authorize(Roles = "Administrador")]
         public ICommandResult EquipamentoApagar(Guid id)
         {
             try

@@ -4,6 +4,7 @@ using Locadora.Domain.Handlers;
 using Locadora.Domain.Interfaces;
 using Locadora.Domain.Interfaces.Commands;
 using Locadora.Domain.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/locacoes")]
-        //[Authorize(Roles = "Cliente,Administrador")]
+        [Authorize(Roles = "Cliente")]
         public IEnumerable<LocacaoQueryResult> Locacoes()
         {
             var locacoes = _unitOfWork.Locacoes.ListarAsync().Result;
@@ -56,7 +57,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/locacoes/{id}")]
-        //[Authorize(Roles = "Cliente,Administrador")]
+        [Authorize(Roles = "Cliente")]
         public LocacaoQueryResult Locacao(Guid id)
         {
             var locacao = _unitOfWork.Locacoes.ObterPorIdAsync(id).Result;
@@ -73,7 +74,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/locacoes")]
-        //[AllowAnonymous]
+        [Authorize(Roles = "Cliente")]
         public ICommandResult LocacaoInserir([FromBody] AdicionarLocacaoCommand command)
         {
             return _handler.Handler(command);

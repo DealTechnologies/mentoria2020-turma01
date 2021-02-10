@@ -37,7 +37,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/login")]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public ICommandResult Login([FromBody] AutenticarClienteCommand command)
         {
             return _handler.Handler(command);
@@ -53,7 +53,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/clientes")]
-        //[Authorize(Roles = "Cliente,Administrador")]
+        [Authorize(Roles = "Administrador")]
         public IEnumerable<ClienteQueryResult> Cliente()
         {
             var cliente = _unitOfWork.Clientes.ListarAsync().Result;
@@ -71,7 +71,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpGet]
         [Route("v1/clientes/{id}")]
-        //[Authorize(Roles = "Cliente,Administrador")]
+        [Authorize(Roles = "Cliente,Administrador")]
         public ClienteQueryResult Cliente(Guid id)
         {
             var cliente = _unitOfWork.Clientes.ObterPorIdAsync(id).Result;
@@ -88,7 +88,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/clientes")]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public ICommandResult ClienteInserir([FromBody] AdicionarClienteCommand command)
         {
             return _handler.Handler(command);
@@ -106,7 +106,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPut]
         [Route("v1/clientes/{id}")]
-        //[Authorize(Roles = "Cliente,Administrador")]
+        [Authorize(Roles = "Cliente,Administrador")]
         public ICommandResult ClienteAlterar(Guid id, [FromBody] AtualizarClienteCommand command)
         {
             command.Id = id;
@@ -124,7 +124,7 @@ namespace Locadora.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Route("v1/clientes/{id}")]
-        //[Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         public ICommandResult ClienteApagar(Guid id)
         {
             ApagarClienteCommand command = new ApagarClienteCommand() { Id = id };
