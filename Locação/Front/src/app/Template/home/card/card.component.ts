@@ -26,4 +26,8 @@ export class CardComponent implements OnInit {
     })
   }
 
+  Alugar(equipamento: Equipamentos) {
+    console.log(equipamento);
+  }
+
 }

@@ -72,7 +72,12 @@ import { MeusPedidosComponent } from './Components/meus-pedidos/meus-pedidos.com
     MatTableModule,
 
   ],
-  providers: [LoginService, AuthGuardGuard],
+  providers: [
+    LoginService,
+    AuthGuardGuard,
+    CardComponent
+  ]
+  ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

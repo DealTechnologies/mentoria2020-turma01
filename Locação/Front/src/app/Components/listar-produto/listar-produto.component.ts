@@ -1,7 +1,8 @@
 import { Equipamentos } from './../../Services/equipamentos/Equipamentos';
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
   name: string;
@@ -47,6 +48,10 @@ export class ListarProdutoComponent implements OnInit {
     if (localStorage.getItem('token') === null) {
       this.router.navigate(['/login'])
     }
+    this.listarTodos()
+  }
+
+  listarTodos(): void {
 
     this.equipamentosService.ListarTodos().subscribe(resp => {
       console.log(resp)
@@ -54,5 +59,17 @@ export class ListarProdutoComponent implements OnInit {
       console.log(this.equipamentos)
 
     })
+  }
+
+  removerEqp(id: string): void {
+    this.equipamentosService.deletarEquipamento(id).subscribe(resp => {
+      Swal.fire(
+        'deletado!',
+        'Equipamento removido!',
+        'success'
+      );
+      this.listarTodos()
+    });
+    this.router.navigate(['/listarproduto'])
   }
 }
