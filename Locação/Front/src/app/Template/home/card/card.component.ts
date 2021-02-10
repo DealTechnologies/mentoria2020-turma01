@@ -11,6 +11,7 @@ import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.
 export class CardComponent implements OnInit {
 
   equipamentos: Equipamentos[] = [];
+  equipamentosCarrinho: Equipamentos[] = []
 
   constructor(private router: Router,
     private equipamentoService: EquipamentosService) { }
@@ -27,7 +28,8 @@ export class CardComponent implements OnInit {
   }
 
   Alugar(equipamento: Equipamentos) {
-    console.log(equipamento);
+    this.equipamentosCarrinho.push(equipamento);
+    console.log(this.equipamentosCarrinho);
   }
 
 }

@@ -14,25 +14,23 @@ export interface Transaction {
 })
 export class MeuCarrinhoComponent implements OnInit {
 
+  displayedColumns: string[] = ['nome', 'valor'];
+  transactions = this.carrinho.equipamentosCarrinho
+  
   constructor(
     private router: Router,
     private carrinho: CardComponent
-  ) { }
-
-  ngOnInit(): void {
-    if (localStorage.getItem('token') === null) {
-      this.router.navigate(['/login'])
-    }
-    //  this.carrinho.equipamentos
+    ) { }
+    
+    ngOnInit(): void {
+      if (localStorage.getItem('token') === null) {
+        this.router.navigate(['/login'])
+      }
+    console.log(this.transactions)
   }
 
-  displayedColumns: string[] = ['item', 'cost'];
-  transactions: Transaction[] = [
-    { item: 'Beach ball', cost: 4 },
-    { item: 'Frete', cost: 15 },
-  ];
 
   getTotalCost() {
-    return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
+    return this.transactions.map(t => t.valorDiaria).reduce((acc, value) => acc + value, 0);
   }
 }
