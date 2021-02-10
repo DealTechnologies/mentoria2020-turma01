@@ -25,11 +25,7 @@ export class MeuCarrinhoComponent implements OnInit {
   displayedColumns: string[] = ['item', 'cost'];
   transactions: Transaction[] = [
     { item: 'Beach ball', cost: 4 },
-    { item: 'Towel', cost: 80 },
-    { item: 'Frisbee', cost: 2 },
-    { item: 'Sunscreen', cost: 4 },
-    { item: 'Cooler', cost: 25 },
-    { item: 'Swim suit', cost: 15 },
+    { item: 'Frete', cost: 15 },
   ];
 
   getTotalCost() {
