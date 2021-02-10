@@ -7,4 +7,5 @@ export interface Equipamentos {
     imagem: string;
     saldoEstoque: number;
     valorDiaria: number;
+    quantidadeAlugado: Number;
 }

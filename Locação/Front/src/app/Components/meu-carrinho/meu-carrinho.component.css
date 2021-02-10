@@ -21,6 +21,11 @@ table {
    justify-content: flex-start;
  }
 
+ .flex-centralizado {
+  display: flex;
+  justify-content: center;
+}
+
 
 
   

@@ -1,26 +1,44 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-<table mat-table [dataSource]="transactions" class="mat-elevation-z8">
-    <!-- Item Column -->
-    <ng-container matColumnDef="item">
-        <th class="cabecalho" mat-header-cell *matHeaderCellDef> Item </th>
-        <td mat-cell *matCellDef="let transaction"> {{transaction.item}} </td>
-        <td mat-footer-cell *matFooterCellDef> Total </td>
-    </ng-container>
+<div class="content " fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="20%" class="flex-centralizado">
+        <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
+            <mat-label>Data de locação</mat-label>
+            <input type="date" matInput placeholder="Data Ex:00/00/0000 " name="dataNascimento ">
+        </mat-form-field>
+    </div>
 
-    <!-- Cost Column -->
-    <ng-container matColumnDef="cost">
-        <th class="cabecalho" mat-header-cell *matHeaderCellDef> Preço/diária </th>
-        <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
-        <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-</table>
-
-<div style="justify-content: space-between; display: flex;">
-    <button [routerLink]="['/card']" style="margin-top: 10px; margin-right: 5px;" mat-raised-button color="primary">Continuar comprando</button>
-    <button style="margin-top: 10px;" mat-raised-button routerLinkActive="router-link-active" color="warn">Finalizar</button>
+    <div fxFlex="20%" class="flex-centralizado">
+        <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
+            <mat-label>Data de devolução</mat-label>
+            <input type="date" matInput placeholder="Data Ex:00/00/0000 " name="dataNascimento ">
+        </mat-form-field>
+    </div>
 </div>
+
+<div fxLayout="column" fxLayoutAlign="center center">
+    <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+        <!-- Item Column -->
+        <ng-container matColumnDef="nome">
+            <th class="cabecalho" mat-header-cell *matHeaderCellDef> Item </th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.nome}} </td>
+            <td mat-footer-cell *matFooterCellDef> Total </td>
+        </ng-container>
+
+        <!-- Cost Column -->
+        <ng-container matColumnDef="valor">
+            <th class="cabecalho" mat-header-cell *matHeaderCellDef> Preço/diária </th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.valorDiaria | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+
+    <div style="justify-content: space-between; display: flex;">
+        <button [routerLink]="['/card']" style="margin-top: 10px; margin-right: 5px;" mat-raised-button
+            color="primary">Continuar comprando</button>
+        <button style="margin-top: 10px;" mat-raised-button routerLinkActive="router-link-active"
+            color="warn">Finalizar</button>
+    </div>
 </div>

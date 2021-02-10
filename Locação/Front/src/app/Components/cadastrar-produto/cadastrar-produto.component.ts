@@ -5,6 +5,7 @@ import { Observable, Subscriber } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class CadastrarProdutoComponent implements OnInit {
     imagem: ' ',
     modelo: '',
     saldoEstoque: 0,
-    valorDiaria: 0
+    valorDiaria: 0,
+    quantidadeAlugado: 1
   }
   constructor(
     private equipamentosService: EquipamentosService,
@@ -62,6 +64,11 @@ export class CadastrarProdutoComponent implements OnInit {
           console.log(x)
           this.id = false
           this.router.navigate([''])
+          Swal.fire(
+            'Atualizado!',
+            'Equipamento Atualizado!',
+            'success'
+          );
         } catch (error) {
           console.log(error);
         }
@@ -71,7 +78,12 @@ export class CadastrarProdutoComponent implements OnInit {
       this.equipamentosService.AdicionarEquipamento(this.equipamento).subscribe(x => {
         try {
           console.log(x)
-
+          this.router.navigate([''])
+          Swal.fire(
+            'Adicionado!',
+            'Equipamento Adicionado!',
+            'success'
+          );
         } catch (error) {
           console.log(error);
         }

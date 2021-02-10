@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { CardComponent } from 'src/app/Template/home/card/card.component';
 
 export interface Transaction {
   item: string;
@@ -13,26 +14,23 @@ export interface Transaction {
 })
 export class MeuCarrinhoComponent implements OnInit {
 
+  displayedColumns: string[] = ['nome', 'valor'];
+  transactions = this.carrinho.equipamentosCarrinho
+  
   constructor(
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-    if (localStorage.getItem('token') === null) {
-      this.router.navigate(['/login'])
-    }
+    private router: Router,
+    private carrinho: CardComponent
+    ) { }
+    
+    ngOnInit(): void {
+      if (localStorage.getItem('token') === null) {
+        this.router.navigate(['/login'])
+      }
+    console.log(this.transactions)
   }
-  displayedColumns: string[] = ['item', 'cost'];
-  transactions: Transaction[] = [
-    { item: 'Beach ball', cost: 4 },
-    { item: 'Towel', cost: 80 },
-    { item: 'Frisbee', cost: 2 },
-    { item: 'Sunscreen', cost: 4 },
-    { item: 'Cooler', cost: 25 },
-    { item: 'Swim suit', cost: 15 },
-  ];
+
 
   getTotalCost() {
-    return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
+    return this.transactions.map(t => t.valorDiaria).reduce((acc, value) => acc + value, 0);
   }
 }
