@@ -4,7 +4,7 @@ import { Observable, Subscriber } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
 import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,9 +16,10 @@ import { ActivatedRoute } from '@angular/router';
 export class CadastrarProdutoComponent implements OnInit {
 
   imagem: string = '';
-  id = localStorage.getItem('idProduto')
+  id: boolean = false
 
   equipamento: Equipamentos = {
+    id: '',
     nome: '',
     cor: '',
     descricao: '',
@@ -29,15 +30,22 @@ export class CadastrarProdutoComponent implements OnInit {
   }
   constructor(
     private equipamentosService: EquipamentosService,
+    private router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem('token') === null) {
+      this.router.navigate(['/login'])
+    }
+
     const id = this.route.snapshot.paramMap.get('id');
     if (id != null) {
       this.equipamentosService.BuscarEquipamentoId(id).subscribe(resp => {
         this.equipamento = resp;
         console.log(this.equipamento)
+        this.id = true
         localStorage.setItem('idProduto', `${this.equipamento.id}`);
       })
 
@@ -46,13 +54,14 @@ export class CadastrarProdutoComponent implements OnInit {
 
   Adicionar(): void {
 
-    if (localStorage.getItem('idProduto') != '') {
+    if (this.id) {
+      console.log(this.equipamento)
       this.equipamento.imagem = this.equipamento.imagem;
-      this.equipamentosService.AtualizarEquipamento(this.id, this.equipamento).subscribe(x => {
+      this.equipamentosService.AtualizarEquipamento(localStorage.getItem('idProduto'), this.equipamento).subscribe(x => {
         try {
           console.log(x)
-          localStorage.removeItem('idProduto')
-
+          this.id = false
+          this.router.navigate([''])
         } catch (error) {
           console.log(error);
         }
@@ -99,9 +108,5 @@ export class CadastrarProdutoComponent implements OnInit {
       subscribe.error(error);
       subscribe.complete();
     };
-
-
   }
-
-
 }

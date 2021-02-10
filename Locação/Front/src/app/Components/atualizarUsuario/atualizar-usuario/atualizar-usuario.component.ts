@@ -35,6 +35,9 @@ export class AtualizarUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('token') === null) {
+      this.router.navigate(['/login'])
+    }
     this.BuscarUsuario()
   }
 

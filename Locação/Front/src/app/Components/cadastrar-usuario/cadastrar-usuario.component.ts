@@ -34,6 +34,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('token'))
 
   }
 

@@ -25,6 +25,7 @@
         <button fxFlex="50%" mat-raised-button color="primary">Entrar</button>
     </div>
     <span style="margin-top: 20px;">
-        Não tem conta? <a mat-button (click)="ClosedLogin()" [routerLink]="['/cadastrar']">cadastre-se!</a>
+        Não tem conta? <a mat-button [routerLink]="['/cadastrar']"
+            routerLinkActive="router-link-active">cadastre-se!</a>
     </span>
 </div>

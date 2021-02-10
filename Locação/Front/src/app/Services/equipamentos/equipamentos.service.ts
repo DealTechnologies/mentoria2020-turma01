@@ -23,9 +23,8 @@ export class EquipamentosService {
   }
 
   AtualizarEquipamento(id: string | null, usurio: Equipamentos): Observable<Equipamentos> {
-
     var client = `${this.url}/Equipamentos/${id}`
-    return this.http.put<Equipamentos>(client, usurio)
+    return this.http.put<Equipamentos>(client, usurio);
   }
 
   BuscarEquipamentoId(id: string | null): Observable<Equipamentos> {

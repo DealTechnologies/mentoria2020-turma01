@@ -1,7 +1,7 @@
 import { Equipamentos } from './../../Services/equipamentos/Equipamentos';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -36,12 +36,17 @@ export class ListarProdutoComponent implements OnInit {
 
   constructor(
     private equipamentosService: EquipamentosService,
+    private router: Router,
 
   ) {
 
   }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem('token') === null) {
+      this.router.navigate(['/login'])
+    }
 
     this.equipamentosService.ListarTodos().subscribe(resp => {
       console.log(resp)

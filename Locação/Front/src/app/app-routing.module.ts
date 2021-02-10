@@ -1,3 +1,4 @@
+import { LoginComponent } from 'src/app/Components/login/login.component';
 import { MeuCarrinhoComponent } from './Components/meu-carrinho/meu-carrinho.component';
 import { HomeComponent } from './Template/home/home/home.component';
 import { CardComponent } from './Template/home/card/card.component.spec';
@@ -14,21 +15,23 @@ const routes: Routes = [
     path: '', component: HomeComponent, children: [
       { path: '', component: CardComponent },
       { path: 'cadastrar', component: CadastrarUsuarioComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'cadastrarproduto/:id', component: CadastrarProdutoComponent },
       { path: 'cadastrarproduto', component: CadastrarProdutoComponent },
       { path: 'meuspedidos', component: MeusPedidosComponent },
       { path: 'listarproduto', component: ListarProdutoComponent },
       { path: 'atualizar', component: AtualizarUsuarioComponent },
       { path: 'meucarrinho', component: MeuCarrinhoComponent }],
-    canActivate: [AuthGuardGuard]
+    //canActivate: [AuthGuardGuard]
   },
-  {
-    path: '', component: HomeComponent, children: [
-      { path: '', redirectTo: 'card', pathMatch: 'full' },
-      { path: 'card', component: CardComponent },
-      { path: 'cadastrar', component: CadastrarUsuarioComponent }
-    ]
-  },
+
+  // {
+  //   path: '', component: HomeComponent, children: [
+  //     { path: '', redirectTo: 'login', pathMatch: 'full' },
+  //     { path: 'login', component: LoginComponent },
+  //     { path: 'cadastrar', component: CadastrarUsuarioComponent },
+  //   ]
+  // },
 
 ]
 
