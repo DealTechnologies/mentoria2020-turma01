@@ -38,7 +38,7 @@ namespace Locadora.Domain.Handlers
 
                 _unitofwork.Equipamentos.InserirAsync(equipamento);
 
-                var retorno = new AdicionarEquipamentoCommandResult(true, "Livro gravado com sucesso!", new
+                var retorno = new AdicionarEquipamentoCommandResult(true, "Equipamento gravado com sucesso!", new
                 {
                     Id = equipamento.Id,
                     Nome = equipamento.Nome,
