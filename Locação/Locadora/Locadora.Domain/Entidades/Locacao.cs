@@ -26,6 +26,7 @@ namespace Locadora.Domain.Entidades
             
             ClientePossuiEndereco();
             EquipamentoPossuiSaldoEstoque();
+            EquipamentoPossuiQuantidadeAlugado();
         }
 
         public bool ClientePossuiEndereco()
@@ -44,6 +45,17 @@ namespace Locadora.Domain.Entidades
             if (!Equipamentos.Any(e => e.SaldoEstoque > 0))
             {
                 AddNotification("Equipamentos", "Alguns itens não possuem saldo em estoque");
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool EquipamentoPossuiQuantidadeAlugado()
+        {
+            if (!Equipamentos.Any(e => e.QuantidadeAlugado > 0))
+            {
+                AddNotification("Equipamentos", "Alguns itens não possuem itens no carrinho");
                 return false;
             }
 
