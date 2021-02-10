@@ -50,6 +50,17 @@ namespace Locadora.Domain.Entidades
             return true;
         }
 
+        public bool EquipamentoPossuiQuantidadeAlugado()
+        {
+            if (!Equipamentos.Any(e => e.QuantidadeAlugado > 0))
+            {
+                AddNotification("Equipamentos", "Alguns itens não possuem itens no carrinho");
+                return false;
+            }
+
+            return true;
+        }
+
         public int DiasParaChegadaPedido()
         {
             return DataDevolucao.Subtract(DataLocacao).Days;
