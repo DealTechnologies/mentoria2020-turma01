@@ -74,8 +74,7 @@ import { MeusPedidosComponent } from './Components/meus-pedidos/meus-pedidos.com
   ],
   providers: [
     LoginService,
-    AuthGuardGuard,
-    CardComponent
+    AuthGuardGuard
   ]
   ,
   bootstrap: [AppComponent]

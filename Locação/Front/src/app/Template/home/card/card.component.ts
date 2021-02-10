@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MeuCarrinhoComponent } from 'src/app/Components/meu-carrinho/meu-carrinho.component';
 import { Equipamentos } from 'src/app/Services/equipamentos/Equipamentos';
 import { EquipamentosService } from 'src/app/Services/equipamentos/equipamentos.service';
 
@@ -20,7 +21,6 @@ export class CardComponent implements OnInit {
     this.equipamentoService.ListarTodos().subscribe(resp => {
       try {
         this.equipamentos = resp;
-        console.log(this.equipamentos);
       } catch (error) {
         console.log(error);
       }
@@ -29,7 +29,7 @@ export class CardComponent implements OnInit {
 
   Alugar(equipamento: Equipamentos) {
     this.equipamentosCarrinho.push(equipamento);
-    console.log(this.equipamentosCarrinho);
+    localStorage.setItem("carrinho", `${JSON.stringify(this.equipamentosCarrinho)}`)
   }
 
 }

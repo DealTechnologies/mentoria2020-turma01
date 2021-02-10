@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CardComponent } from 'src/app/Template/home/card/card.component';
 
 export interface Transaction {
-  item: string;
-  cost: number;
+  nome: string;
+  valorDiaria: number;
 }
 
 @Component({
@@ -15,18 +15,18 @@ export interface Transaction {
 export class MeuCarrinhoComponent implements OnInit {
 
   displayedColumns: string[] = ['nome', 'valor'];
-  transactions = this.carrinho.equipamentosCarrinho
+  carrinho = JSON.parse(localStorage.getItem("carrinho") || '[]')
+  transactions : Transaction[] = this.carrinho
   
   constructor(
-    private router: Router,
-    private carrinho: CardComponent
+    private router: Router
     ) { }
     
     ngOnInit(): void {
       if (localStorage.getItem('token') === null) {
         this.router.navigate(['/login'])
       }
-    console.log(this.transactions)
+      console.log(localStorage.getItem("carrinho"))
   }
 
 
