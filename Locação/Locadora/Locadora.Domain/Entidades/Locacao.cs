@@ -26,7 +26,7 @@ namespace Locadora.Domain.Entidades
             
             ClientePossuiEndereco();
             EquipamentoPossuiSaldoEstoque();
-            EquipamentoPossuiQuantidadeAlugado();
+            //EquipamentoPossuiQuantidadeAlugado();
         }
 
         public bool ClientePossuiEndereco()
