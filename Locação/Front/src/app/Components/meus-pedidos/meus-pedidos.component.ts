@@ -1,5 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { CarrinhoService } from 'src/app/Services/Carrinho/carrinho.service';
+import { Carrinho } from 'src/app/Services/Carrinho/carrinho';
 
 export interface PeriodicElement {
   name: string;
@@ -24,14 +26,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class MeusPedidosComponent implements OnInit {
   constructor(
-    private router: Router
+    private router: Router,
+    private carrinhoservice: CarrinhoService
   ) { }
 
+  carrinho: Carrinho[] = []
   ngOnInit(): void {
     if (localStorage.getItem('token') === null) {
       this.router.navigate(['/login'])
+      
     }
+    this.carrinhoservice.ListarTodos().subscribe(resp => {
+      console.log(resp)
+      this.carrinho = resp
+    })
   }
-  displayedColumns: string[] = ['name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['name', 'symbol'];
+  dataSource = this.carrinho;
 }

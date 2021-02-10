@@ -1,21 +1,21 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="carrinho" class="mat-elevation-z8">
   
     <!-- Coluna nome -->
     <ng-container matColumnDef="name">
-      <th class="cabecalho" mat-header-cell *matHeaderCellDef> Nome do produto </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <th class="cabecalho" mat-header-cell *matHeaderCellDef> Código do pedido </th>
+      <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
     </ng-container>
   
     <!-- Coluna descrição -->
-    <ng-container matColumnDef="weight">
+    <!-- <ng-container matColumnDef="weight">
       <th class="cabecalho" mat-header-cell *matHeaderCellDef> Descrição </th>
       <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
+    </ng-container> -->
   
     <!-- Status do pedido -->
     <ng-container matColumnDef="symbol">
-      <th class="cabecalho" mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      <th class="cabecalho" mat-header-cell *matHeaderCellDef> Valor </th>
+      <td mat-cell *matCellDef="let element"> {{ element.valorTotal | currency:'R$'}} </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
