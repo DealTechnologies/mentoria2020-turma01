@@ -42,6 +42,7 @@ namespace Votacao.Domain
                    .ForMember(cr => cr.QuantidadeAlugado, c => c.MapFrom(x => x.QuantidadeAlugado));
 
                 cfg.CreateMap<Locacao, LocacaoQueryResult>()
+                    .ForPath(lr => lr.Id, l => l.MapFrom(x => x.Id))
                     .ForPath(lr => lr.Cliente.Id, l => l.MapFrom(x => x.Cliente.Id))
                     .ForPath(lr => lr.Cliente.Nome, l => l.MapFrom(x => x.Cliente.Nome))
                     .ForPath(lr => lr.Cliente.Senha, l => l.MapFrom(x => x.Cliente.Senha))
