@@ -12,7 +12,7 @@ namespace Locadora.Domain.Entidades
         public double SaldoEstoque { get; private set; }
         public double ValorDiaria { get; private set; }
         public int QuantidadeAlugado { get; private set; }
-        public Equipamento(Guid id, string nome, string descricao, string cor, string modelo, string imagem, double saldoEstoque, double valorDiaria, int quantidadeAlugado) : base(id)
+        public Equipamento(Guid id, string nome, string descricao, string cor, string modelo, string imagem, double saldoEstoque, double valorDiaria, int quantidadeAlugado = 0) : base(id)
         {
             Nome = nome;
             Descricao = descricao;
@@ -24,7 +24,7 @@ namespace Locadora.Domain.Entidades
             QuantidadeAlugado = quantidadeAlugado;
         }
 
-        public Equipamento(string nome, string descricao, string cor, string modelo, string imagem, double saldoEstoque, double valorDiaria, int quantidadeAlugado)
+        public Equipamento(string nome, string descricao, string cor, string modelo, string imagem, double saldoEstoque, double valorDiaria, int quantidadeAlugado = 0)
         {
             Nome = nome;
             Descricao = descricao;

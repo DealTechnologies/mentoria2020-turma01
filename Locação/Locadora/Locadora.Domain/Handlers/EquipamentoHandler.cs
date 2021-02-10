@@ -26,7 +26,7 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AdicionarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                Equipamento equipamento = new Equipamento(command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria, command.QuantidadeAlugado);
+                Equipamento equipamento = new Equipamento(command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria);
 
                 _unitofwork.Equipamentos.InserirAsync(equipamento);
 
@@ -65,7 +65,7 @@ namespace Locadora.Domain.Handlers
                     return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
                 
                 
-                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria, command.QuantidadeAlugado);
+                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria);
 
                 _unitofwork.Equipamentos.AlterarAsync(equipamento);
 
