@@ -85,5 +85,6 @@ namespace Locadora.Domain.Commands.Locacoes.Inputs
         public string Imagem { get; set; }
         public double SaldoEstoque { get; set; }
         public double ValorDiaria { get; set; }
+        public int QuantidadeAlugado { get; set; }
     }
 }

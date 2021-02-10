@@ -26,15 +26,7 @@ namespace Locadora.Domain.Handlers
                 if (!command.ValidarCommand())
                     return new AdicionarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
-                string nome = command.Nome;
-                string descricao = command.Descricao;
-                string cor = command.Cor;
-                string modelo = command.Modelo;
-                string imagem = command.Imagem;
-                double saldoEstoque = command.SaldoEstoque;
-                double valorDiaria = command.ValorDiaria;
-
-                Equipamento equipamento = new Equipamento(nome, descricao, cor, modelo, imagem, saldoEstoque, valorDiaria);
+                Equipamento equipamento = new Equipamento(command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria, command.QuantidadeAlugado);
 
                 _unitofwork.Equipamentos.InserirAsync(equipamento);
 
@@ -47,7 +39,8 @@ namespace Locadora.Domain.Handlers
                     Modelo = equipamento.Modelo,
                     Imagem = equipamento.Imagem,
                     SaldoEstoque = equipamento.SaldoEstoque,
-                    ValorDiaria = equipamento.ValorDiaria
+                    ValorDiaria = equipamento.ValorDiaria,
+                    QuantidadeAlugado = equipamento.QuantidadeAlugado
                 });
 
                 return retorno;
@@ -66,15 +59,13 @@ namespace Locadora.Domain.Handlers
                     return new AtualizarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_unitofwork.Equipamentos.CheckIdAsync(command.Id).Result)
-                {
                     AddNotification("Id", "Id inválido. Este id não está cadastrado");
-                }
                 
-                if(Invalid)
+                if (Invalid)
                     return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);
                 
                 
-                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria);
+                Equipamento equipamento = new Equipamento(command.Id, command.Nome, command.Descricao, command.Cor, command.Modelo, command.Imagem, command.SaldoEstoque, command.ValorDiaria, command.QuantidadeAlugado);
 
                 _unitofwork.Equipamentos.AlterarAsync(equipamento);
 
@@ -86,7 +77,8 @@ namespace Locadora.Domain.Handlers
                     Modelo = equipamento.Modelo,
                     Imagem = equipamento.Imagem,
                     SaldoEstoque = equipamento.SaldoEstoque,
-                    ValorDiaria = equipamento.ValorDiaria
+                    ValorDiaria = equipamento.ValorDiaria,
+                    QuantidadeAlugado = equipamento.QuantidadeAlugado
                 }) ;
 
                 return retorno;
@@ -105,9 +97,7 @@ namespace Locadora.Domain.Handlers
                     return new ApagarEquipamentoCommandResult(false, "Por favor, corrija as inconsistências abaixo", command.Notifications);
 
                 if (!_unitofwork.Equipamentos.CheckIdAsync(command.Id).Result)
-                {
                     AddNotification("Id", "Id inválido. Este id não está cadastrado");
-                }
 
                 if (Invalid)
                     return new AtualizarEquipamentoCommandResult(false, "Corrija as inconsistências abaixo", Notifications);

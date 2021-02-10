@@ -25,7 +25,7 @@ namespace Locadora.Domain.EmailConfs
                                                                 <td style='padding: 25px 0 0 0;'>
                                                                     Nome: {itemEquipamento.Nome} <br /><br />
                                                                     Descricao: {itemEquipamento.Descricao} <br /><br />
-                                                                    @QuantidadeAlugado <br /><br />
+                                                                    Quantidade Alugado: {itemEquipamento.QuantidadeAlugado.ToString()} <br /><br />
                                                                     ValorDiaria: <b>{itemEquipamento.ValorDiaria.ToString("R$ #,###.00")}</b> <br /><br />
                                                                     Cor: {itemEquipamento.Cor}  <br /><br />
                                                                     Modelo: {itemEquipamento.Modelo}  <br /><br />

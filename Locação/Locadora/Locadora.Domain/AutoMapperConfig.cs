@@ -38,7 +38,8 @@ namespace Votacao.Domain
                    .ForMember(cr => cr.Modelo, c => c.MapFrom(x => x.Modelo))
                    .ForMember(cr => cr.Imagem, c => c.MapFrom(x => x.Imagem))
                    .ForMember(cr => cr.SaldoEstoque, c => c.MapFrom(x => x.SaldoEstoque))
-                   .ForMember(cr => cr.ValorDiaria, c => c.MapFrom(x => x.ValorDiaria));
+                   .ForMember(cr => cr.ValorDiaria, c => c.MapFrom(x => x.ValorDiaria))
+                   .ForMember(cr => cr.QuantidadeAlugado, c => c.MapFrom(x => x.QuantidadeAlugado));
 
                 cfg.CreateMap<Locacao, LocacaoQueryResult>()
                     .ForPath(lr => lr.Cliente.Id, l => l.MapFrom(x => x.Cliente.Id))

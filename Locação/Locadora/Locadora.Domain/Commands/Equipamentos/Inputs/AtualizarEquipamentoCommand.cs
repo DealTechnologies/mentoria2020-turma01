@@ -18,6 +18,7 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
         public string Imagem { get; set; }
         public double SaldoEstoque { get; set; }
         public double ValorDiaria { get;set; }
+        public int QuantidadeAlugado { get;set; }
         public bool ValidarCommand()
         {
             if (Guid.Empty == Id)
@@ -51,6 +52,9 @@ namespace Locadora.Domain.Commands.Equipamentos.Inputs
 
             if (ValorDiaria < 0)
                 AddNotification("ValorDiaria", "ValorDiaria inválido!");
+
+            if (QuantidadeAlugado <= 0)
+                AddNotification("QuantidadeAlugado", "Quantidade alugado é um campo obrigatório");
 
 
             return Valid;
