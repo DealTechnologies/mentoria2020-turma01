@@ -33,7 +33,7 @@ namespace Locadora.Domain.Commands.Clientes.Inputs
 
                 if (string.IsNullOrEmpty(Rg))
                     AddNotification("Rg", "Rg obrigatório");
-                else if (Rg.Length > 8)
+                else if (Rg.Length > 10)
                     AddNotification("Rg", "Rg maior que o esperado");
 
                 if (string.IsNullOrEmpty(Cpf))
