@@ -18,7 +18,7 @@ namespace Votacao.Domain
                     .ForMember(cr => cr.Rg, c => c.MapFrom(x => x.Rg))
                     .ForMember(cr => cr.Cpf, c => c.MapFrom(x => x.Cpf.Numero))
                     .ForMember(cr => cr.Email, c => c.MapFrom(x => x.Email.EnderecoEmail))
-                    .ForMember(cr => cr.DataNascimento, c => c.MapFrom(x => x.DataNascimento.ToString("dd/MM/yyyy")))
+                    .ForMember(cr => cr.DataNascimento, c => c.MapFrom(x => x.DataNascimento.ToString("yyyy-MM-dd")))
                     .ForMember(cr => cr.Role, c => c.MapFrom(x => x.Role))
 
                     .ForMember(cr => cr.Cep, c => c.MapFrom(x => x.Endereco.Cep.NumeroCep))
