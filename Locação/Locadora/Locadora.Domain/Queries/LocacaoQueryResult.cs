@@ -6,6 +6,8 @@ namespace Locadora.Domain.Queries
 {
     public class LocacaoQueryResult
     {
+
+        public Guid Id { get; set; }
         public ClienteQueryResult Cliente { get; set; }
         public List<EquipamentoQueryResult> Equipamentos { get; set; }
 
