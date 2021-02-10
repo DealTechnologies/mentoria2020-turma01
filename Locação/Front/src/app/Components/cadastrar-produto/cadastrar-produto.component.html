@@ -40,8 +40,8 @@
 
         <div style="justify-content: space-between; display: flex;">
             <button style="margin: 20px;" (click)="Adicionar()" mat-raised-button color="primary">Salvar</button>
-            <button mat-raised-button routerLinkActive="router-link-active" color="warn"
-                style="margin: 20px;">Cancelar</button>
+            <button mat-raised-button [routerLink]="['']" routerLinkActive="router-link-active"
+                routerLinkActive="router-link-active" color="warn" style="margin: 20px;">Cancelar</button>
         </div>
 
     </mat-card>

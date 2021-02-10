@@ -2,14 +2,16 @@
     <div fxFlex="20%" class="flex-centralizado">
         <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
             <mat-label>Data de locação</mat-label>
-            <input type="date" matInput [(ngModel)]="carrinho.dataLocacao" placeholder="Data Ex:00/00/0000 " name="dataNascimento ">
+            <input type="date" matInput [(ngModel)]="carrinho.dataLocacao" placeholder="Data Ex:00/00/0000 "
+                name="dataNascimento " required>
         </mat-form-field>
     </div>
 
     <div fxFlex="20%" class="flex-centralizado">
         <mat-form-field appearance="outline" style=" padding-left: 2%; padding-right: 2%;">
             <mat-label>Data de devolução</mat-label>
-            <input type="date" matInput [(ngModel)]="carrinho.dataDevolucao" placeholder="Data Ex:00/00/0000 " name="dataNascimento ">
+            <input type="date" matInput [(ngModel)]="carrinho.dataDevolucao" placeholder="Data Ex:00/00/0000 "
+                name="dataNascimento " required>
         </mat-form-field>
     </div>
 </div>
@@ -36,9 +38,9 @@
     </table>
 
     <div style="justify-content: space-between; display: flex;">
-        <button [routerLink]="['/card']" style="margin-top: 10px; margin-right: 5px;" mat-raised-button
+        <button [routerLink]="['']" style="margin-top: 10px; margin-right: 5px;" mat-raised-button
             color="primary">Continuar comprando</button>
-        <button style="margin-top: 10px;" mat-raised-button routerLinkActive="router-link-active"
+        <button [routerLink]="['']" style="margin-top: 10px;" mat-raised-button routerLinkActive="router-link-active"
             color="warn" (click)="salvarLocacao()">Finalizar</button>
     </div>
 </div>

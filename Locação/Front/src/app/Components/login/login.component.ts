@@ -8,6 +8,7 @@ import { LoginService } from 'src/app/Services/login/login.service';
 import { state } from '@angular/animations';
 import { ServicesUsuarioService } from 'src/app/Services/services-usuario.service';
 import { Usuario } from 'src/app/Services/Usuario';
+import Swal from 'sweetalert2';
 
 
 
@@ -54,14 +55,22 @@ export class LoginComponent implements OnInit {
 
   logar(): void {
     this.serviceLogin.login(this.login).subscribe(x => {
+      try {
+        this.login = x
+        //console.log(x)
+        localStorage.clear();
+        localStorage.setItem(`token`, `${this.login.data?.token}`);
+        localStorage.setItem(`id`, `${this.login.data?.id}`);
+        localStorage.setItem(`role`, `${this.login.data?.role}`);
+        Swal.fire(
+          'Logado!',
+          'logado com Sucesso!',
+          'success'
+        );
+      } catch (error) {
 
+      }
 
-      this.login = x
-      console.log(x)
-      localStorage.clear();
-      localStorage.setItem(`token`, `${this.login.data?.token}`);
-      localStorage.setItem(`id`, `${this.login.data?.id}`);
-      localStorage.setItem(`role`, `${this.login.data?.role}`);
     });
 
     this.router.navigate(['']);

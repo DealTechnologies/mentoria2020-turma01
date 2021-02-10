@@ -67,7 +67,7 @@
                 Cadastro</a>
         </div>
 
-        <div fxFlex="10" style="align-items:flex-end">
+        <div *ngIf="mostrarMenu" fxFlex="10" style="align-items:flex-end">
             <button [routerLink]="['/meucarrinho']" mat-icon-button class="example-icon"
                 aria-label="Example icon-button with menu icon">
                 <mat-icon style="color: antiquewhite;">add_shopping_cart</mat-icon>
