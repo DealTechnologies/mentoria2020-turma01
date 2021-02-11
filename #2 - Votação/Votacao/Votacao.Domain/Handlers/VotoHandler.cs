@@ -1,12 +1,12 @@
 ﻿using Flunt.Notifications;
-using Votacao.Domain.Interfaces.Handlers;
-using Votacao.Domain.Command.Voto.Input;
-using Votacao.Domain.Entidades;
-using Votacao.Domain.Interfaces.Repositories;
-using Votacao.Domain.Interfaces.Commands;
-using Votacao.Domain.Commands;
 using System;
+using Votacao.Domain.Command.Voto.Input;
+using Votacao.Domain.Commands;
+using Votacao.Domain.Entidades;
+using Votacao.Domain.Interfaces.Handlers;
+using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Query.Voto;
+using Votacao.Infra.Interfaces.Commands;
 
 namespace Votacao.Domain.Handlers
 {

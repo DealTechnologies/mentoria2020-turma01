@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Votacao.Domain\Votacao.Domain.csproj" />
+    <ProjectReference Include="..\Votacao.Infra.Data\Votacao.Infra.Data.csproj" />
     <ProjectReference Include="..\Votacao.Infra\Votacao.Infra.csproj" />
   </ItemGroup>
 

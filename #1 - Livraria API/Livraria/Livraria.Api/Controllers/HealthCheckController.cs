@@ -22,9 +22,9 @@ namespace Livraria.Api.Controllers
             {
                 return "Livraria API OK";
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                return e.Message;
             }
         }
     }

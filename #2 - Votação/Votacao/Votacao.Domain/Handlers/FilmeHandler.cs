@@ -3,9 +3,9 @@ using System;
 using Votacao.Domain.Command.Filme.Input;
 using Votacao.Domain.Commands;
 using Votacao.Domain.Entidades;
-using Votacao.Domain.Interfaces.Commands;
 using Votacao.Domain.Interfaces.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
+using Votacao.Infra.Interfaces.Commands;
 
 namespace Votacao.Domain.Handlers
 {

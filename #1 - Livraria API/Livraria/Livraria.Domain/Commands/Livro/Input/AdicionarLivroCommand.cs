@@ -1,5 +1,5 @@
 ﻿using Flunt.Notifications;
-using Livraria.Domain.Interfaces.Commands;
+using Livraria.Infra.Interfaces.Commands;
 using System;
 
 namespace Livraria.Domain.Commands.Livro.Input
@@ -19,12 +19,12 @@ namespace Livraria.Domain.Commands.Livro.Input
                 if (string.IsNullOrEmpty(Nome))
                     AddNotification("Nome", "Nome é um campo obrigatório");
                 else if (Nome.Length > 50)
-                    AddNotification("Nome", "Nome maior do que o esperado");
+                    AddNotification("Nome", "Nome maior que o esperado");
 
                 if (string.IsNullOrEmpty(Autor))
                     AddNotification("Autor", "Autor é um campo obrigatório");
                 else if (Autor.Length > 50)
-                    AddNotification("Autor", "Autor maior do que o esperado");
+                    AddNotification("Autor", "Autor maior que o esperado");
 
                 if (Edicao <= 0)
                     AddNotification("Edicao", "Edicao é um campo obrigatório");
@@ -32,7 +32,7 @@ namespace Livraria.Domain.Commands.Livro.Input
                 if (string.IsNullOrEmpty(Isbn))
                     AddNotification("Isbn", "Isbn é um campo obrigatório");
                 else if (Isbn.Length > 50)
-                    AddNotification("Isbn", "Isbn maior do que o esperado");
+                    AddNotification("Isbn", "Isbn maior que o esperado");
 
                 if (string.IsNullOrEmpty(Imagem))
                     AddNotification("Imagem", "Imagem é um campo obrigatório");

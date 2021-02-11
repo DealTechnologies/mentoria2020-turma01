@@ -1,9 +1,9 @@
 ﻿using Livraria.Domain.Commands.Livro.Input;
 using Livraria.Domain.Commands.Livro.Output;
-using Livraria.Domain.Interfaces.Commands;
 using Livraria.Domain.Interfaces.Handler;
 using Livraria.Domain.Interfaces.Repositories;
 using Livraria.Domain.Query;
+using Livraria.Infra.Interfaces.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

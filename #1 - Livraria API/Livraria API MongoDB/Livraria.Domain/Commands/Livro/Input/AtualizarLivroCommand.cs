@@ -1,5 +1,5 @@
 ﻿using Flunt.Notifications;
-using Livraria.Domain.Interfaces.Commands;
+using Livraria.Infra.Interfaces.Commands;
 using System;
 using System.Text.Json.Serialization;
 

@@ -1,5 +1,5 @@
 ﻿using Flunt.Notifications;
-using Votacao.Domain.Interfaces.Commands;
+using Votacao.Infra.Interfaces.Commands;
 
 namespace Votacao.Domain.Command.Filme.Input
 {

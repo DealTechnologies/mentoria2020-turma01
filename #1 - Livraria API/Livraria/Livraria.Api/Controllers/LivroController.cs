@@ -1,24 +1,25 @@
 ﻿using Livraria.Domain.Commands.Livro.Input;
-using Livraria.Domain.Interfaces.Commands;
-using Livraria.Domain.Interfaces.Handlers;
+using Livraria.Domain.Commands.Livro.Output;
+using Livraria.Domain.Interfaces.Handler;
 using Livraria.Domain.Interfaces.Repositories;
-using Livraria.Domain.Queries.Livro;
+using Livraria.Domain.Query;
+using Livraria.Infra.Interfaces.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Livraria.Api.Controllers
+namespace LivrariaAPI.Api.Controllers
 {
     [Consumes("application/json")]
     [Produces("application/json")]
     [ApiController]
     public class LivroController : ControllerBase
     {
-        private readonly ILivroRepository _repository;
+        private readonly ILivroRepository _repositorio;
         private readonly ILivroHandler _handler;
 
-        public LivroController(ILivroRepository repository, ILivroHandler handler)
+        public LivroController(ILivroRepository repositorio, ILivroHandler handler)
         {
-            _repository = repository;
+            _repositorio = repositorio;
             _handler = handler;
         }
 
@@ -32,7 +33,7 @@ namespace Livraria.Api.Controllers
         [Route("v1/livros")]
         public IEnumerable<LivroQueryResult> Livros()
         {
-            return _repository.Listar();
+            return _repositorio.Listar();
         }
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace Livraria.Api.Controllers
         [Route("v1/livros/{id}")]
         public LivroQueryResult Livro(long id)
         {
-            return _repository.ObterPorId(id);
+            return _repositorio.ObterPorId(id);
         }
 
         /// <summary>
@@ -59,9 +60,10 @@ namespace Livraria.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpPost]
         [Route("v1/livros")]
-        public ICommandResult LivroInserir([FromBody] AdicionarLivroCommand command)
+        public ICommandResult LivroNovo([FromBody] AdicionarLivroCommand command)
         {
-            return _handler.Handler(command);
+            var result = (AdicionarLivroCommandResult)_handler.Handle(command);
+            return result;
         }
 
         /// <summary>
@@ -79,7 +81,8 @@ namespace Livraria.Api.Controllers
         public ICommandResult LivroAlterar(long id, [FromBody] AtualizarLivroCommand command)
         {
             command.Id = id;
-            return _handler.Handler(command);
+            var result = (AtualizarLivroCommandResult)_handler.Handle(command);
+            return result;
         }
 
         /// <summary>
@@ -93,10 +96,11 @@ namespace Livraria.Api.Controllers
         /// <response code="500">Internal Server Error</response>
         [HttpDelete]
         [Route("v1/livros/{id}")]
-        public ICommandResult LivroApagar(long id)
+        public ICommandResult LivroExcluir(long id)
         {
-            ApagarLivroCommand command = new ApagarLivroCommand() { Id = id };
-            return _handler.Handler(command);
+            var command = new ApagarLivroCommand() { Id = id };
+            var result = (ApagarLivroCommandResult)_handler.Handle(command);
+            return result;
         }
     }
 }

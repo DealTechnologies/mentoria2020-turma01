@@ -1,5 +1,5 @@
 ﻿using Livraria.Domain.Entidades;
-using Livraria.Domain.Queries.Livro;
+using Livraria.Domain.Query;
 using System.Collections.Generic;
 
 namespace Livraria.Domain.Interfaces.Repositories

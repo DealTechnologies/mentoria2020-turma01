@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votacao.Api", "Votacao.Api\Votacao.Api.csproj", "{AEC79D3B-C13D-41C2-BC78-A4F31BD4B5C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votacao.Api", "Votacao.Api\Votacao.Api.csproj", "{AEC79D3B-C13D-41C2-BC78-A4F31BD4B5C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votacao.Domain", "Votacao.Domain\Votacao.Domain.csproj", "{72B33E90-5C74-4D98-AB73-A2DF707AA82B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votacao.Domain", "Votacao.Domain\Votacao.Domain.csproj", "{72B33E90-5C74-4D98-AB73-A2DF707AA82B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votacao.Infra", "Votacao.Infra\Votacao.Infra.csproj", "{97053E95-7601-4944-BFE5-1E121570A7AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Votacao.Infra.Data", "Votacao.Infra.Data\Votacao.Infra.Data.csproj", "{45CBF70F-D57F-4C96-A26E-F162BA82E8FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Votacao.Infra", "Votacao.Infra\Votacao.Infra.csproj", "{7DD10068-DDC2-4336-B355-F9B188096A31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{72B33E90-5C74-4D98-AB73-A2DF707AA82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B33E90-5C74-4D98-AB73-A2DF707AA82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B33E90-5C74-4D98-AB73-A2DF707AA82B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97053E95-7601-4944-BFE5-1E121570A7AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97053E95-7601-4944-BFE5-1E121570A7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97053E95-7601-4944-BFE5-1E121570A7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97053E95-7601-4944-BFE5-1E121570A7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CBF70F-D57F-4C96-A26E-F162BA82E8FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CBF70F-D57F-4C96-A26E-F162BA82E8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CBF70F-D57F-4C96-A26E-F162BA82E8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CBF70F-D57F-4C96-A26E-F162BA82E8FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD10068-DDC2-4336-B355-F9B188096A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD10068-DDC2-4336-B355-F9B188096A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD10068-DDC2-4336-B355-F9B188096A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD10068-DDC2-4336-B355-F9B188096A31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,9 @@
 using Livraria.Domain.Handlers;
-using Livraria.Domain.Interfaces.Handlers;
+using Livraria.Domain.Interfaces.Handler;
 using Livraria.Domain.Interfaces.Repositories;
-using Livraria.Infra;
-using Livraria.Infra.DataContexts;
-using Livraria.Infra.Repositories;
+using Livraria.Infra.Data;
+using Livraria.Infra.Data.DataContexts;
+using Livraria.Infra.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 
-namespace Livraria.Api
+namespace LivrariaAPI.Api
 {
     public class Startup
     {
@@ -23,30 +23,29 @@ namespace Livraria.Api
             Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region [+] AppSettings 
+            #region [+] AppSettings
 
             services.Configure<SettingsInfra>(options => Configuration.GetSection("SettingsInfra").Bind(options));
 
             #endregion
 
-            #region [+] DataContexts 
+            #region [+] DataContexts
 
             services.AddScoped<DataContext>();
 
             #endregion
 
-            #region [+] Repositories 
+            #region [+] Handlers
 
-            services.AddTransient<ILivroRepository, LivroRepository>();
+            services.AddTransient<ILivroHandler, LivroHandler>();
 
             #endregion
 
-            #region [+] Handlers 
+            #region [+] Repositories
 
-            services.AddTransient<ILivroHandler, LivroHandler>();
+            services.AddTransient<ILivroRepository, LivroRepository>();
 
             #endregion
 
@@ -56,22 +55,22 @@ namespace Livraria.Api
             {
                 //c.DescribeAllEnumsAsStrings();
                 c.DescribeAllParametersInCamelCase();
-                c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\Swagger.xml");
+                c.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\Swagger.xml");                
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Livraria API",
+                    Title = "LivrariaAPI",
                     Description = "Projeto responsável por gerenciar uma livraria",
-                    Contact = new OpenApiContact 
-                    { 
+                    Contact = new OpenApiContact
+                    {
                         Name = "Lucas Santos",
                         Email = "l_santos@hotmail.com.br",
-                        Url = new Uri("http://github.com/lsantoss")
+                        Url = new Uri("https://github.com/lsantoss"),
                     },
                     License = new OpenApiLicense
                     {
                         Name = "Licença MIT",
-                        Url = new Uri("http://github.com/lsantoss")
+                        Url = new Uri("https://github.com/lsantoss/Treinamentos/blob/main/LICENSE"),
                     }
                 });
             });
@@ -81,7 +80,6 @@ namespace Livraria.Api
             services.AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -92,7 +90,7 @@ namespace Livraria.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Livraria API");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "LivrariaAPI");
             });
 
             app.UseHttpsRedirection();

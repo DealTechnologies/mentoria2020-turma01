@@ -1,4 +1,4 @@
-﻿using Livraria.Domain.Interfaces.Commands;
+﻿using Livraria.Infra.Interfaces.Commands;
 
 namespace Livraria.Domain.Commands.Livro.Output
 {
