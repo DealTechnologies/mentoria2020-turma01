@@ -1,4 +1,4 @@
-﻿using Votacao.Domain.Interfaces.Commands;
+﻿using Votacao.Infra.Interfaces.Commands;
 
 namespace Votacao.Domain.Commands
 {

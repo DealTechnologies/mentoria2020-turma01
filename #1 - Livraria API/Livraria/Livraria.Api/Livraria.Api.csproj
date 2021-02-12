@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp3.1\Swagger.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
+    <DocumentationFile>bin\Debug\netcoreapp3.1\Swagger.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,10 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Livraria.Infra\Livraria.Infra.csproj" />
+    <ProjectReference Include="..\Livraria.Domain\Livraria.Domain.csproj" />
+    <ProjectReference Include="..\Livraria.Infra.Data\Livraria.Infra.Data.csproj" />
   </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 
 </Project>

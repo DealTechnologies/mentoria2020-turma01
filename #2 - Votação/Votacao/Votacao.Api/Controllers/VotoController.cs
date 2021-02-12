@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using Votacao.Domain.Command.Voto.Input;
-using Votacao.Domain.Interfaces.Commands;
 using Votacao.Domain.Interfaces.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
 using Votacao.Domain.Query.Voto;
+using Votacao.Infra.Interfaces.Commands;
 
 namespace Votacao.Api.Controllers
 {

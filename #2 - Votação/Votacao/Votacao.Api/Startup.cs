@@ -8,9 +8,9 @@ using System;
 using Votacao.Domain.Handlers;
 using Votacao.Domain.Interfaces.Handlers;
 using Votacao.Domain.Interfaces.Repositories;
-using Votacao.Infra;
-using Votacao.Infra.DataContexts;
-using Votacao.Infra.Repositories;
+using Votacao.Infra.Data;
+using Votacao.Infra.Data.DataContexts;
+using Votacao.Infra.Data.Repositories;
 
 namespace Votacao.Api
 {

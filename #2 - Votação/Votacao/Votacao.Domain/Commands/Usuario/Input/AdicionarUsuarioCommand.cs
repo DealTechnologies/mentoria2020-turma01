@@ -1,6 +1,6 @@
 ﻿using Flunt.Notifications;
 using System.Text.RegularExpressions;
-using Votacao.Domain.Interfaces.Commands;
+using Votacao.Infra.Interfaces.Commands;
 
 namespace Votacao.Domain.Commands.Usuario.Input
 {

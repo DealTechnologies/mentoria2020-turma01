@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Livraria.Api
+namespace LivrariaAPI.Api
 {
     public class Program
     {

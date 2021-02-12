@@ -1,5 +1,5 @@
 ﻿using Flunt.Notifications;
-using Livraria.Domain.Interfaces.Commands;
+using Livraria.Infra.Interfaces.Commands;
 using System;
 
 namespace Livraria.Domain.Commands.Livro.Input
