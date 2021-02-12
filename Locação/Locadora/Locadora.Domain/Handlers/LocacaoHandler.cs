@@ -55,8 +55,8 @@ namespace Locadora.Domain.Handlers
 
             _unitOfWork.Locacoes.InserirAsync(locacao);
 
-            string mensagemBody = MensagemEmail.EmailConfirmacaoLocacao(locacao);
-            _emailSender.EnviarEmailAsync(cliente.Email.EnderecoEmail, "Locadora de Equipamentos", mensagemBody);
+            //string mensagemBody = MensagemEmail.EmailConfirmacaoLocacao(locacao);
+            //_emailSender.EnviarEmailAsync(cliente.Email.EnderecoEmail, "Locadora de Equipamentos", mensagemBody);
 
             var locacaoResult = _mapper.Map<LocacaoQueryResult>(locacao);
 
